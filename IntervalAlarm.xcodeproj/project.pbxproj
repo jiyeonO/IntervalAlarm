@@ -1,0 +1,1034 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C28CE892C730E2800F56774 /* AlarmRowFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */; };
+		1C4A89042CE49A8C00A8326D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1C4A89032CE49A8C00A8326D /* ComposableArchitecture */; };
+		1C50E22F2CE4CDD4004E698B /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E22C2CE4CDD4004E698B /* Pretendard-Regular.otf */; };
+		1C50E2302CE4CDD4004E698B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E22E2CE4CDD4004E698B /* Pretendard-Thin.otf */; };
+		1C50E2312CE4CDD4004E698B /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E2262CE4CDD4004E698B /* Pretendard-Black.otf */; };
+		1C50E2322CE4CDD4004E698B /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E22D2CE4CDD4004E698B /* Pretendard-SemiBold.otf */; };
+		1C50E2332CE4CDD4004E698B /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E2292CE4CDD4004E698B /* Pretendard-ExtraLight.otf */; };
+		1C50E2342CE4CDD4004E698B /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E2272CE4CDD4004E698B /* Pretendard-Bold.otf */; };
+		1C50E2352CE4CDD4004E698B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E22A2CE4CDD4004E698B /* Pretendard-Light.otf */; };
+		1C50E2362CE4CDD4004E698B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E22B2CE4CDD4004E698B /* Pretendard-Medium.otf */; };
+		1C50E2372CE4CDD4004E698B /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E2282CE4CDD4004E698B /* Pretendard-ExtraBold.otf */; };
+		1C50E2392CE4D1AC004E698B /* Fonts+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C50E2382CE4D1AC004E698B /* Fonts+Generated.swift */; };
+		1C64503D2CE4D7DA0003D219 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64503C2CE4D7AE0003D219 /* CustomNavigationView.swift */; };
+		1C8061F12C36D0ED002E312E /* TimeRangeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8061EE2C36D0ED002E312E /* TimeRangeInfo.swift */; };
+		1C8061F22C36D0ED002E312E /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8061F02C36D0ED002E312E /* TimePickerView.swift */; };
+		1C8062112C36D32A002E312E /* BottomToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8061F72C36D32A002E312E /* BottomToastModifier.swift */; };
+		1C8062122C36D32A002E312E /* HiddenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8061F82C36D32A002E312E /* HiddenModifier.swift */; };
+		1C8062142C36D32A002E312E /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8061FA2C36D32A002E312E /* ViewDidLoadModifier.swift */; };
+		1C8062192C36D32A002E312E /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8062002C36D32A002E312E /* CustomDivider.swift */; };
+		1C8062222C36D32A002E312E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8062092C36D32A002E312E /* RoundedCorner.swift */; };
+		1C8062392C36D5BF002E312E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8062382C36D5BF002E312E /* Logger.swift */; };
+		1C80623F2C36D707002E312E /* LayerCornerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C80623E2C36D707002E312E /* LayerCornerType.swift */; };
+		1C85BE562C34F27D00AA98B9 /* Images+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85BE542C34F27D00AA98B9 /* Images+Generated.swift */; };
+		1C85BE572C34F27D00AA98B9 /* Colors+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85BE552C34F27D00AA98B9 /* Colors+Generated.swift */; };
+		1C85BE5A2C35398A00AA98B9 /* MainFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85BE592C35398A00AA98B9 /* MainFeature.swift */; };
+		1C85BE602C353D3C00AA98B9 /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85BE5F2C353D3C00AA98B9 /* AlarmModel.swift */; };
+		1CCF736F2C34DB030099E0E1 /* IntervalAlarmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCF736E2C34DB030099E0E1 /* IntervalAlarmApp.swift */; };
+		1CCF73732C34DB040099E0E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF73722C34DB040099E0E1 /* Assets.xcassets */; };
+		1CCF73762C34DB040099E0E1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF73752C34DB040099E0E1 /* Preview Assets.xcassets */; };
+		1CCF73A62C34DC8A0099E0E1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1CCF73A52C34DC8A0099E0E1 /* Kingfisher */; };
+		1CCF73A92C34DD360099E0E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF73A72C34DD360099E0E1 /* Images.xcassets */; };
+		1CCF73AA2C34DD360099E0E1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF73A82C34DD360099E0E1 /* Colors.xcassets */; };
+		1CE9D1752C3AD5720084C2A6 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D1742C3AD5720084C2A6 /* Foundation+Extension.swift */; };
+		1CE9D17B2C3AD9FD0084C2A6 /* AddAlarmFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */; };
+		1CE9D1812C3D7EEE0084C2A6 /* TimeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D1802C3D7EEE0084C2A6 /* TimeRange.swift */; };
+		1CE9D1862C4D00880084C2A6 /* DetailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D1852C4D00880084C2A6 /* DetailFeature.swift */; };
+		6A155087083AE56933B0C679 /* Pods_IntervalAlarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72AC6F2A11979A0A1BC19107 /* Pods_IntervalAlarm.framework */; };
+		83D7A269E56E67693D694B0F /* Pods_IntervalAlarm_IntervalAlarmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9321533A67B05003AC7CAB /* Pods_IntervalAlarm_IntervalAlarmUITests.framework */; };
+		865F3B2ADA8AC7D5E00992A6 /* Pods_IntervalAlarmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7161269085759B86F7DE44A9 /* Pods_IntervalAlarmTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1CCF737C2C34DB040099E0E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CCF73632C34DB030099E0E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1CCF736A2C34DB030099E0E1;
+			remoteInfo = IntervalAlarm;
+		};
+		1CCF73862C34DB040099E0E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CCF73632C34DB030099E0E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1CCF736A2C34DB030099E0E1;
+			remoteInfo = IntervalAlarm;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		173768F5B59481DD95783418 /* Pods-IntervalAlarm-IntervalAlarmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntervalAlarm-IntervalAlarmUITests.release.xcconfig"; path = "../IntervalAlarm_new/Pods/Target Support Files/Pods-IntervalAlarm-IntervalAlarmUITests/Pods-IntervalAlarm-IntervalAlarmUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRowFeature.swift; sourceTree = "<group>"; };
+		1C50E2262CE4CDD4004E698B /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
+		1C50E2272CE4CDD4004E698B /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		1C50E2282CE4CDD4004E698B /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		1C50E2292CE4CDD4004E698B /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		1C50E22A2CE4CDD4004E698B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		1C50E22B2CE4CDD4004E698B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		1C50E22C2CE4CDD4004E698B /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		1C50E22D2CE4CDD4004E698B /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		1C50E22E2CE4CDD4004E698B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		1C50E2382CE4D1AC004E698B /* Fonts+Generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+Generated.swift"; sourceTree = "<group>"; };
+		1C64503C2CE4D7AE0003D219 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
+		1C8061EE2C36D0ED002E312E /* TimeRangeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeRangeInfo.swift; sourceTree = "<group>"; };
+		1C8061F02C36D0ED002E312E /* TimePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		1C8061F72C36D32A002E312E /* BottomToastModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomToastModifier.swift; sourceTree = "<group>"; };
+		1C8061F82C36D32A002E312E /* HiddenModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiddenModifier.swift; sourceTree = "<group>"; };
+		1C8061FA2C36D32A002E312E /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
+		1C8062002C36D32A002E312E /* CustomDivider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
+		1C8062092C36D32A002E312E /* RoundedCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		1C8062382C36D5BF002E312E /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		1C80623E2C36D707002E312E /* LayerCornerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerCornerType.swift; sourceTree = "<group>"; };
+		1C85BE542C34F27D00AA98B9 /* Images+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Images+Generated.swift"; sourceTree = "<group>"; };
+		1C85BE552C34F27D00AA98B9 /* Colors+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Colors+Generated.swift"; sourceTree = "<group>"; };
+		1C85BE592C35398A00AA98B9 /* MainFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeature.swift; sourceTree = "<group>"; };
+		1C85BE5F2C353D3C00AA98B9 /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModel.swift; sourceTree = "<group>"; };
+		1CCF736B2C34DB030099E0E1 /* IntervalAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntervalAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CCF736E2C34DB030099E0E1 /* IntervalAlarmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalAlarmApp.swift; sourceTree = "<group>"; };
+		1CCF73722C34DB040099E0E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CCF73752C34DB040099E0E1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1CCF737B2C34DB040099E0E1 /* IntervalAlarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntervalAlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CCF73852C34DB040099E0E1 /* IntervalAlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntervalAlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CCF73A72C34DD360099E0E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1CCF73A82C34DD360099E0E1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		1CE9D1742C3AD5720084C2A6 /* Foundation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
+		1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmFeature.swift; sourceTree = "<group>"; };
+		1CE9D1802C3D7EEE0084C2A6 /* TimeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRange.swift; sourceTree = "<group>"; };
+		1CE9D1852C4D00880084C2A6 /* DetailFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFeature.swift; sourceTree = "<group>"; };
+		7161269085759B86F7DE44A9 /* Pods_IntervalAlarmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IntervalAlarmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72AC6F2A11979A0A1BC19107 /* Pods_IntervalAlarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IntervalAlarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7643E3BCBAEAC6E60CF312E9 /* Pods-IntervalAlarmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntervalAlarmTests.debug.xcconfig"; path = "../IntervalAlarm_new/Pods/Target Support Files/Pods-IntervalAlarmTests/Pods-IntervalAlarmTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9580636F7B11E14980CC4385 /* Pods-IntervalAlarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntervalAlarm.debug.xcconfig"; path = "../IntervalAlarm_new/Pods/Target Support Files/Pods-IntervalAlarm/Pods-IntervalAlarm.debug.xcconfig"; sourceTree = "<group>"; };
+		D9D65CF03E10479E258F2C7C /* Pods-IntervalAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntervalAlarmTests.release.xcconfig"; path = "../IntervalAlarm_new/Pods/Target Support Files/Pods-IntervalAlarmTests/Pods-IntervalAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
+		DE9321533A67B05003AC7CAB /* Pods_IntervalAlarm_IntervalAlarmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IntervalAlarm_IntervalAlarmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E13EFA47CF28343666228B83 /* Pods-IntervalAlarm-IntervalAlarmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntervalAlarm-IntervalAlarmUITests.debug.xcconfig"; path = "../IntervalAlarm_new/Pods/Target Support Files/Pods-IntervalAlarm-IntervalAlarmUITests/Pods-IntervalAlarm-IntervalAlarmUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F356F8532D7CB071ED0B1B70 /* Pods-IntervalAlarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntervalAlarm.release.xcconfig"; path = "../IntervalAlarm_new/Pods/Target Support Files/Pods-IntervalAlarm/Pods-IntervalAlarm.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CCF73682C34DB030099E0E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C4A89042CE49A8C00A8326D /* ComposableArchitecture in Frameworks */,
+				1CCF73A62C34DC8A0099E0E1 /* Kingfisher in Frameworks */,
+				6A155087083AE56933B0C679 /* Pods_IntervalAlarm.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CCF73782C34DB040099E0E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				865F3B2ADA8AC7D5E00992A6 /* Pods_IntervalAlarmTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CCF73822C34DB040099E0E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83D7A269E56E67693D694B0F /* Pods_IntervalAlarm_IntervalAlarmUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C50E2252CE4CDB9004E698B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1C50E2262CE4CDD4004E698B /* Pretendard-Black.otf */,
+				1C50E2272CE4CDD4004E698B /* Pretendard-Bold.otf */,
+				1C50E2282CE4CDD4004E698B /* Pretendard-ExtraBold.otf */,
+				1C50E2292CE4CDD4004E698B /* Pretendard-ExtraLight.otf */,
+				1C50E22A2CE4CDD4004E698B /* Pretendard-Light.otf */,
+				1C50E22B2CE4CDD4004E698B /* Pretendard-Medium.otf */,
+				1C50E22C2CE4CDD4004E698B /* Pretendard-Regular.otf */,
+				1C50E22D2CE4CDD4004E698B /* Pretendard-SemiBold.otf */,
+				1C50E22E2CE4CDD4004E698B /* Pretendard-Thin.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1C8061ED2C36D0CA002E312E /* TimePicker */ = {
+			isa = PBXGroup;
+			children = (
+				1C8061EF2C36D0ED002E312E /* Model */,
+				1C8061F02C36D0ED002E312E /* TimePickerView.swift */,
+			);
+			path = TimePicker;
+			sourceTree = "<group>";
+		};
+		1C8061EF2C36D0ED002E312E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1C8061EE2C36D0ED002E312E /* TimeRangeInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1C8061F32C36D270002E312E /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */,
+			);
+			path = Row;
+			sourceTree = "<group>";
+		};
+		1C8061FB2C36D32A002E312E /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				1C8061F72C36D32A002E312E /* BottomToastModifier.swift */,
+				1C8061F82C36D32A002E312E /* HiddenModifier.swift */,
+				1C8061FA2C36D32A002E312E /* ViewDidLoadModifier.swift */,
+			);
+			path = ViewModifier;
+			sourceTree = "<group>";
+		};
+		1C80620F2C36D32A002E312E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1C8062442C36DEF9002E312E /* View */,
+				1C8062432C36DEF0002E312E /* Navigation */,
+				1C8062422C36DEDF002E312E /* Button */,
+				1C8061FB2C36D32A002E312E /* ViewModifier */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		1C80622F2C36D334002E312E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1CE9D1742C3AD5720084C2A6 /* Foundation+Extension.swift */,
+			);
+			name = Extension;
+			path = IntervalAlarm/Extension;
+			sourceTree = SOURCE_ROOT;
+		};
+		1C8062372C36D5B3002E312E /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				1C8062382C36D5BF002E312E /* Logger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		1C8062422C36DEDF002E312E /* Button */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		1C8062432C36DEF0002E312E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				1C64503C2CE4D7AE0003D219 /* CustomNavigationView.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		1C8062442C36DEF9002E312E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C80623E2C36D707002E312E /* LayerCornerType.swift */,
+				1C8062092C36D32A002E312E /* RoundedCorner.swift */,
+				1C8062002C36D32A002E312E /* CustomDivider.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C85BE582C35397200AA98B9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1C85BE5E2C353D2700AA98B9 /* Model */,
+				1C8061F32C36D270002E312E /* Row */,
+				1C85BE592C35398A00AA98B9 /* MainFeature.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1C85BE5E2C353D2700AA98B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1C85BE5F2C353D3C00AA98B9 /* AlarmModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1CCF73622C34DB030099E0E1 = {
+			isa = PBXGroup;
+			children = (
+				1CCF736D2C34DB030099E0E1 /* IntervalAlarm */,
+				1CCF736C2C34DB030099E0E1 /* Products */,
+				49728EABF37389046658C606 /* Frameworks */,
+				A704842FA123B6197D9E426B /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		1CCF736C2C34DB030099E0E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF736B2C34DB030099E0E1 /* IntervalAlarm.app */,
+				1CCF737B2C34DB040099E0E1 /* IntervalAlarmTests.xctest */,
+				1CCF73852C34DB040099E0E1 /* IntervalAlarmUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CCF736D2C34DB030099E0E1 /* IntervalAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				1C8062372C36D5B3002E312E /* Logger */,
+				1C80622F2C36D334002E312E /* Extension */,
+				1CCF73992C34DB330099E0E1 /* Feature */,
+				1CCF736E2C34DB030099E0E1 /* IntervalAlarmApp.swift */,
+				1CCF739B2C34DB4E0099E0E1 /* Resources */,
+				1CCF73742C34DB040099E0E1 /* Preview Content */,
+			);
+			path = IntervalAlarm;
+			sourceTree = "<group>";
+		};
+		1CCF73742C34DB040099E0E1 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF73752C34DB040099E0E1 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1CCF73992C34DB330099E0E1 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				1C80620F2C36D32A002E312E /* Common */,
+				1C8061ED2C36D0CA002E312E /* TimePicker */,
+				1CE9D1762C3AD8990084C2A6 /* SetAlarm */,
+				1CE9D1822C4CFE490084C2A6 /* Detail */,
+				1C85BE582C35397200AA98B9 /* Main */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		1CCF739B2C34DB4E0099E0E1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1CCF73F72C34F05E0099E0E1 /* SwiftGen */,
+				1C50E2252CE4CDB9004E698B /* Fonts */,
+				1CCF73A82C34DD360099E0E1 /* Colors.xcassets */,
+				1CCF73A72C34DD360099E0E1 /* Images.xcassets */,
+				1CCF73722C34DB040099E0E1 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1CCF73F72C34F05E0099E0E1 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				1C85BE552C34F27D00AA98B9 /* Colors+Generated.swift */,
+				1C85BE542C34F27D00AA98B9 /* Images+Generated.swift */,
+				1C50E2382CE4D1AC004E698B /* Fonts+Generated.swift */,
+			);
+			path = SwiftGen;
+			sourceTree = "<group>";
+		};
+		1CE9D1762C3AD8990084C2A6 /* SetAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				1CE9D17F2C3D7EE40084C2A6 /* Model */,
+				1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */,
+			);
+			path = SetAlarm;
+			sourceTree = "<group>";
+		};
+		1CE9D17F2C3D7EE40084C2A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1CE9D1802C3D7EEE0084C2A6 /* TimeRange.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1CE9D1822C4CFE490084C2A6 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				1CE9D1852C4D00880084C2A6 /* DetailFeature.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		49728EABF37389046658C606 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72AC6F2A11979A0A1BC19107 /* Pods_IntervalAlarm.framework */,
+				7161269085759B86F7DE44A9 /* Pods_IntervalAlarmTests.framework */,
+				DE9321533A67B05003AC7CAB /* Pods_IntervalAlarm_IntervalAlarmUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A704842FA123B6197D9E426B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9580636F7B11E14980CC4385 /* Pods-IntervalAlarm.debug.xcconfig */,
+				F356F8532D7CB071ED0B1B70 /* Pods-IntervalAlarm.release.xcconfig */,
+				7643E3BCBAEAC6E60CF312E9 /* Pods-IntervalAlarmTests.debug.xcconfig */,
+				D9D65CF03E10479E258F2C7C /* Pods-IntervalAlarmTests.release.xcconfig */,
+				E13EFA47CF28343666228B83 /* Pods-IntervalAlarm-IntervalAlarmUITests.debug.xcconfig */,
+				173768F5B59481DD95783418 /* Pods-IntervalAlarm-IntervalAlarmUITests.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CCF736A2C34DB030099E0E1 /* IntervalAlarm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CCF738F2C34DB040099E0E1 /* Build configuration list for PBXNativeTarget "IntervalAlarm" */;
+			buildPhases = (
+				4548BD04ECA3D5D139B2EC6D /* [CP] Check Pods Manifest.lock */,
+				1CCF73672C34DB030099E0E1 /* Sources */,
+				1CCF73682C34DB030099E0E1 /* Frameworks */,
+				1CCF73692C34DB030099E0E1 /* Resources */,
+				1CCF73F42C34EC550099E0E1 /* SwiftGen */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IntervalAlarm;
+			packageProductDependencies = (
+				1CCF73A52C34DC8A0099E0E1 /* Kingfisher */,
+				1C4A89032CE49A8C00A8326D /* ComposableArchitecture */,
+			);
+			productName = IntervalAlarm;
+			productReference = 1CCF736B2C34DB030099E0E1 /* IntervalAlarm.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1CCF737A2C34DB040099E0E1 /* IntervalAlarmTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CCF73922C34DB040099E0E1 /* Build configuration list for PBXNativeTarget "IntervalAlarmTests" */;
+			buildPhases = (
+				542EC92B98FEBD2E22B697F1 /* [CP] Check Pods Manifest.lock */,
+				1CCF73772C34DB040099E0E1 /* Sources */,
+				1CCF73782C34DB040099E0E1 /* Frameworks */,
+				1CCF73792C34DB040099E0E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1CCF737D2C34DB040099E0E1 /* PBXTargetDependency */,
+			);
+			name = IntervalAlarmTests;
+			productName = IntervalAlarmTests;
+			productReference = 1CCF737B2C34DB040099E0E1 /* IntervalAlarmTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1CCF73842C34DB040099E0E1 /* IntervalAlarmUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CCF73952C34DB040099E0E1 /* Build configuration list for PBXNativeTarget "IntervalAlarmUITests" */;
+			buildPhases = (
+				9D9C07F1E9583EA1212A6D2A /* [CP] Check Pods Manifest.lock */,
+				1CCF73812C34DB040099E0E1 /* Sources */,
+				1CCF73822C34DB040099E0E1 /* Frameworks */,
+				1CCF73832C34DB040099E0E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1CCF73872C34DB040099E0E1 /* PBXTargetDependency */,
+			);
+			name = IntervalAlarmUITests;
+			productName = IntervalAlarmUITests;
+			productReference = 1CCF73852C34DB040099E0E1 /* IntervalAlarmUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CCF73632C34DB030099E0E1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					1CCF736A2C34DB030099E0E1 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					1CCF737A2C34DB040099E0E1 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 1CCF736A2C34DB030099E0E1;
+					};
+					1CCF73842C34DB040099E0E1 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 1CCF736A2C34DB030099E0E1;
+					};
+				};
+			};
+			buildConfigurationList = 1CCF73662C34DB030099E0E1 /* Build configuration list for PBXProject "IntervalAlarm" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1CCF73622C34DB030099E0E1;
+			packageReferences = (
+				1CCF73A42C34DC8A0099E0E1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				1C4A89022CE49A8C00A8326D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
+			productRefGroup = 1CCF736C2C34DB030099E0E1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1CCF736A2C34DB030099E0E1 /* IntervalAlarm */,
+				1CCF737A2C34DB040099E0E1 /* IntervalAlarmTests */,
+				1CCF73842C34DB040099E0E1 /* IntervalAlarmUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CCF73692C34DB030099E0E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C50E22F2CE4CDD4004E698B /* Pretendard-Regular.otf in Resources */,
+				1C50E2302CE4CDD4004E698B /* Pretendard-Thin.otf in Resources */,
+				1C50E2312CE4CDD4004E698B /* Pretendard-Black.otf in Resources */,
+				1C50E2322CE4CDD4004E698B /* Pretendard-SemiBold.otf in Resources */,
+				1C50E2332CE4CDD4004E698B /* Pretendard-ExtraLight.otf in Resources */,
+				1C50E2342CE4CDD4004E698B /* Pretendard-Bold.otf in Resources */,
+				1C50E2352CE4CDD4004E698B /* Pretendard-Light.otf in Resources */,
+				1C50E2362CE4CDD4004E698B /* Pretendard-Medium.otf in Resources */,
+				1C50E2372CE4CDD4004E698B /* Pretendard-ExtraBold.otf in Resources */,
+				1CCF73A92C34DD360099E0E1 /* Images.xcassets in Resources */,
+				1CCF73AA2C34DD360099E0E1 /* Colors.xcassets in Resources */,
+				1CCF73762C34DB040099E0E1 /* Preview Assets.xcassets in Resources */,
+				1CCF73732C34DB040099E0E1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CCF73792C34DB040099E0E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CCF73832C34DB040099E0E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1CCF73F42C34EC550099E0E1 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen run xcassets --param enumName=Colors \"${SRCROOT}/IntervalAlarm/Resources/Colors.xcassets\" -t swift5 --output \"${SRCROOT}/IntervalAlarm/Resources/SwiftGen/Colors+Generated.swift\" \n${PODS_ROOT}/SwiftGen/bin/swiftgen run xcassets --param enumName=Images \"${SRCROOT}/IntervalAlarm/Resources/Images.xcassets\" -t swift5 --output \"${SRCROOT}/IntervalAlarm/Resources/SwiftGen/Images+Generated.swift\"\n${PODS_ROOT}/SwiftGen/bin/swiftgen run fonts --param enumName=Fonts \"${SRCROOT}/IntervalAlarm/Resources/Fonts\" -t swift5 --output \"${SRCROOT}/IntervalAlarm/Resources/SwiftGen/Fonts+Generated.swift\"\n";
+		};
+		4548BD04ECA3D5D139B2EC6D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IntervalAlarm-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		542EC92B98FEBD2E22B697F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IntervalAlarmTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D9C07F1E9583EA1212A6D2A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IntervalAlarm-IntervalAlarmUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CCF73672C34DB030099E0E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C8062192C36D32A002E312E /* CustomDivider.swift in Sources */,
+				1C85BE562C34F27D00AA98B9 /* Images+Generated.swift in Sources */,
+				1C85BE572C34F27D00AA98B9 /* Colors+Generated.swift in Sources */,
+				1C64503D2CE4D7DA0003D219 /* CustomNavigationView.swift in Sources */,
+				1CE9D1752C3AD5720084C2A6 /* Foundation+Extension.swift in Sources */,
+				1C8061F12C36D0ED002E312E /* TimeRangeInfo.swift in Sources */,
+				1C80623F2C36D707002E312E /* LayerCornerType.swift in Sources */,
+				1C8062112C36D32A002E312E /* BottomToastModifier.swift in Sources */,
+				1CE9D17B2C3AD9FD0084C2A6 /* AddAlarmFeature.swift in Sources */,
+				1CE9D1812C3D7EEE0084C2A6 /* TimeRange.swift in Sources */,
+				1C28CE892C730E2800F56774 /* AlarmRowFeature.swift in Sources */,
+				1C85BE5A2C35398A00AA98B9 /* MainFeature.swift in Sources */,
+				1C8061F22C36D0ED002E312E /* TimePickerView.swift in Sources */,
+				1C8062142C36D32A002E312E /* ViewDidLoadModifier.swift in Sources */,
+				1C50E2392CE4D1AC004E698B /* Fonts+Generated.swift in Sources */,
+				1C8062222C36D32A002E312E /* RoundedCorner.swift in Sources */,
+				1C8062392C36D5BF002E312E /* Logger.swift in Sources */,
+				1CCF736F2C34DB030099E0E1 /* IntervalAlarmApp.swift in Sources */,
+				1CE9D1862C4D00880084C2A6 /* DetailFeature.swift in Sources */,
+				1C8062122C36D32A002E312E /* HiddenModifier.swift in Sources */,
+				1C85BE602C353D3C00AA98B9 /* AlarmModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CCF73772C34DB040099E0E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CCF73812C34DB040099E0E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1CCF737D2C34DB040099E0E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1CCF736A2C34DB030099E0E1 /* IntervalAlarm */;
+			targetProxy = 1CCF737C2C34DB040099E0E1 /* PBXContainerItemProxy */;
+		};
+		1CCF73872C34DB040099E0E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1CCF736A2C34DB030099E0E1 /* IntervalAlarm */;
+			targetProxy = 1CCF73862C34DB040099E0E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1CCF738D2C34DB040099E0E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1CCF738E2C34DB040099E0E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1CCF73902C34DB040099E0E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9580636F7B11E14980CC4385 /* Pods-IntervalAlarm.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"IntervalAlarm/Preview Content\"";
+				DEVELOPMENT_TEAM = VLXYWWGUU9;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oji.IntervalAlarm.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1CCF73912C34DB040099E0E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F356F8532D7CB071ED0B1B70 /* Pods-IntervalAlarm.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"IntervalAlarm/Preview Content\"";
+				DEVELOPMENT_TEAM = VLXYWWGUU9;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oji.IntervalAlarm.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1CCF73932C34DB040099E0E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7643E3BCBAEAC6E60CF312E9 /* Pods-IntervalAlarmTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L66GN843PC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oji.IntervalAlarmTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IntervalAlarm.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IntervalAlarm";
+			};
+			name = Debug;
+		};
+		1CCF73942C34DB040099E0E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9D65CF03E10479E258F2C7C /* Pods-IntervalAlarmTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L66GN843PC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oji.IntervalAlarmTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IntervalAlarm.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IntervalAlarm";
+			};
+			name = Release;
+		};
+		1CCF73962C34DB040099E0E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E13EFA47CF28343666228B83 /* Pods-IntervalAlarm-IntervalAlarmUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L66GN843PC;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oji.IntervalAlarmUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = IntervalAlarm;
+			};
+			name = Debug;
+		};
+		1CCF73972C34DB040099E0E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 173768F5B59481DD95783418 /* Pods-IntervalAlarm-IntervalAlarmUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L66GN843PC;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oji.IntervalAlarmUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = IntervalAlarm;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CCF73662C34DB030099E0E1 /* Build configuration list for PBXProject "IntervalAlarm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CCF738D2C34DB040099E0E1 /* Debug */,
+				1CCF738E2C34DB040099E0E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CCF738F2C34DB040099E0E1 /* Build configuration list for PBXNativeTarget "IntervalAlarm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CCF73902C34DB040099E0E1 /* Debug */,
+				1CCF73912C34DB040099E0E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CCF73922C34DB040099E0E1 /* Build configuration list for PBXNativeTarget "IntervalAlarmTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CCF73932C34DB040099E0E1 /* Debug */,
+				1CCF73942C34DB040099E0E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CCF73952C34DB040099E0E1 /* Build configuration list for PBXNativeTarget "IntervalAlarmUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CCF73962C34DB040099E0E1 /* Debug */,
+				1CCF73972C34DB040099E0E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1C4A89022CE49A8C00A8326D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.16.0;
+			};
+		};
+		1CCF73A42C34DC8A0099E0E1 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1C4A89032CE49A8C00A8326D /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C4A89022CE49A8C00A8326D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		1CCF73A52C34DC8A0099E0E1 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1CCF73A42C34DC8A0099E0E1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 1CCF73632C34DB030099E0E1 /* Project object */;
+}
