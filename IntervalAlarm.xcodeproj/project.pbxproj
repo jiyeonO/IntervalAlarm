@@ -43,9 +43,6 @@
 		1CE9D17B2C3AD9FD0084C2A6 /* AddAlarmFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */; };
 		1CE9D1812C3D7EEE0084C2A6 /* TimeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D1802C3D7EEE0084C2A6 /* TimeRange.swift */; };
 		1CE9D1862C4D00880084C2A6 /* DetailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D1852C4D00880084C2A6 /* DetailFeature.swift */; };
-		6A155087083AE56933B0C679 /* Pods_IntervalAlarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72AC6F2A11979A0A1BC19107 /* Pods_IntervalAlarm.framework */; };
-		83D7A269E56E67693D694B0F /* Pods_IntervalAlarm_IntervalAlarmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9321533A67B05003AC7CAB /* Pods_IntervalAlarm_IntervalAlarmUITests.framework */; };
-		865F3B2ADA8AC7D5E00992A6 /* Pods_IntervalAlarmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7161269085759B86F7DE44A9 /* Pods_IntervalAlarmTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +63,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		173768F5B59481DD95783418 /* Pods-IntervalAlarm-IntervalAlarmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntervalAlarm-IntervalAlarmUITests.release.xcconfig"; path = "../IntervalAlarm_new/Pods/Target Support Files/Pods-IntervalAlarm-IntervalAlarmUITests/Pods-IntervalAlarm-IntervalAlarmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRowFeature.swift; sourceTree = "<group>"; };
 		1C50E2262CE4CDD4004E698B /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		1C50E2272CE4CDD4004E698B /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
@@ -104,14 +100,6 @@
 		1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmFeature.swift; sourceTree = "<group>"; };
 		1CE9D1802C3D7EEE0084C2A6 /* TimeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRange.swift; sourceTree = "<group>"; };
 		1CE9D1852C4D00880084C2A6 /* DetailFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFeature.swift; sourceTree = "<group>"; };
-		7161269085759B86F7DE44A9 /* Pods_IntervalAlarmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IntervalAlarmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		72AC6F2A11979A0A1BC19107 /* Pods_IntervalAlarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IntervalAlarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7643E3BCBAEAC6E60CF312E9 /* Pods-IntervalAlarmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntervalAlarmTests.debug.xcconfig"; path = "../IntervalAlarm_new/Pods/Target Support Files/Pods-IntervalAlarmTests/Pods-IntervalAlarmTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9580636F7B11E14980CC4385 /* Pods-IntervalAlarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntervalAlarm.debug.xcconfig"; path = "../IntervalAlarm_new/Pods/Target Support Files/Pods-IntervalAlarm/Pods-IntervalAlarm.debug.xcconfig"; sourceTree = "<group>"; };
-		D9D65CF03E10479E258F2C7C /* Pods-IntervalAlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntervalAlarmTests.release.xcconfig"; path = "../IntervalAlarm_new/Pods/Target Support Files/Pods-IntervalAlarmTests/Pods-IntervalAlarmTests.release.xcconfig"; sourceTree = "<group>"; };
-		DE9321533A67B05003AC7CAB /* Pods_IntervalAlarm_IntervalAlarmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IntervalAlarm_IntervalAlarmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E13EFA47CF28343666228B83 /* Pods-IntervalAlarm-IntervalAlarmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntervalAlarm-IntervalAlarmUITests.debug.xcconfig"; path = "../IntervalAlarm_new/Pods/Target Support Files/Pods-IntervalAlarm-IntervalAlarmUITests/Pods-IntervalAlarm-IntervalAlarmUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		F356F8532D7CB071ED0B1B70 /* Pods-IntervalAlarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntervalAlarm.release.xcconfig"; path = "../IntervalAlarm_new/Pods/Target Support Files/Pods-IntervalAlarm/Pods-IntervalAlarm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +109,6 @@
 			files = (
 				1C4A89042CE49A8C00A8326D /* ComposableArchitecture in Frameworks */,
 				1CCF73A62C34DC8A0099E0E1 /* Kingfisher in Frameworks */,
-				6A155087083AE56933B0C679 /* Pods_IntervalAlarm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,7 +116,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				865F3B2ADA8AC7D5E00992A6 /* Pods_IntervalAlarmTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +123,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83D7A269E56E67693D694B0F /* Pods_IntervalAlarm_IntervalAlarmUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,8 +256,6 @@
 			children = (
 				1CCF736D2C34DB030099E0E1 /* IntervalAlarm */,
 				1CCF736C2C34DB030099E0E1 /* Products */,
-				49728EABF37389046658C606 /* Frameworks */,
-				A704842FA123B6197D9E426B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -366,30 +349,6 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		49728EABF37389046658C606 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				72AC6F2A11979A0A1BC19107 /* Pods_IntervalAlarm.framework */,
-				7161269085759B86F7DE44A9 /* Pods_IntervalAlarmTests.framework */,
-				DE9321533A67B05003AC7CAB /* Pods_IntervalAlarm_IntervalAlarmUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A704842FA123B6197D9E426B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9580636F7B11E14980CC4385 /* Pods-IntervalAlarm.debug.xcconfig */,
-				F356F8532D7CB071ED0B1B70 /* Pods-IntervalAlarm.release.xcconfig */,
-				7643E3BCBAEAC6E60CF312E9 /* Pods-IntervalAlarmTests.debug.xcconfig */,
-				D9D65CF03E10479E258F2C7C /* Pods-IntervalAlarmTests.release.xcconfig */,
-				E13EFA47CF28343666228B83 /* Pods-IntervalAlarm-IntervalAlarmUITests.debug.xcconfig */,
-				173768F5B59481DD95783418 /* Pods-IntervalAlarm-IntervalAlarmUITests.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -397,7 +356,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CCF738F2C34DB040099E0E1 /* Build configuration list for PBXNativeTarget "IntervalAlarm" */;
 			buildPhases = (
-				4548BD04ECA3D5D139B2EC6D /* [CP] Check Pods Manifest.lock */,
 				1CCF73672C34DB030099E0E1 /* Sources */,
 				1CCF73682C34DB030099E0E1 /* Frameworks */,
 				1CCF73692C34DB030099E0E1 /* Resources */,
@@ -420,7 +378,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CCF73922C34DB040099E0E1 /* Build configuration list for PBXNativeTarget "IntervalAlarmTests" */;
 			buildPhases = (
-				542EC92B98FEBD2E22B697F1 /* [CP] Check Pods Manifest.lock */,
 				1CCF73772C34DB040099E0E1 /* Sources */,
 				1CCF73782C34DB040099E0E1 /* Frameworks */,
 				1CCF73792C34DB040099E0E1 /* Resources */,
@@ -439,7 +396,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CCF73952C34DB040099E0E1 /* Build configuration list for PBXNativeTarget "IntervalAlarmUITests" */;
 			buildPhases = (
-				9D9C07F1E9583EA1212A6D2A /* [CP] Check Pods Manifest.lock */,
 				1CCF73812C34DB040099E0E1 /* Sources */,
 				1CCF73822C34DB040099E0E1 /* Frameworks */,
 				1CCF73832C34DB040099E0E1 /* Resources */,
@@ -555,73 +511,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen run xcassets --param enumName=Colors \"${SRCROOT}/IntervalAlarm/Resources/Colors.xcassets\" -t swift5 --output \"${SRCROOT}/IntervalAlarm/Resources/SwiftGen/Colors+Generated.swift\" \n${PODS_ROOT}/SwiftGen/bin/swiftgen run xcassets --param enumName=Images \"${SRCROOT}/IntervalAlarm/Resources/Images.xcassets\" -t swift5 --output \"${SRCROOT}/IntervalAlarm/Resources/SwiftGen/Images+Generated.swift\"\n${PODS_ROOT}/SwiftGen/bin/swiftgen run fonts --param enumName=Fonts \"${SRCROOT}/IntervalAlarm/Resources/Fonts\" -t swift5 --output \"${SRCROOT}/IntervalAlarm/Resources/SwiftGen/Fonts+Generated.swift\"\n";
-		};
-		4548BD04ECA3D5D139B2EC6D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-IntervalAlarm-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		542EC92B98FEBD2E22B697F1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-IntervalAlarmTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9D9C07F1E9583EA1212A6D2A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-IntervalAlarm-IntervalAlarmUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/opt/homebrew/bin/swiftgen config run --config $SRCROOT/swiftgen.yml\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -805,7 +695,6 @@
 		};
 		1CCF73902C34DB040099E0E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9580636F7B11E14980CC4385 /* Pods-IntervalAlarm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -844,7 +733,6 @@
 		};
 		1CCF73912C34DB040099E0E1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F356F8532D7CB071ED0B1B70 /* Pods-IntervalAlarm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -883,7 +771,6 @@
 		};
 		1CCF73932C34DB040099E0E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7643E3BCBAEAC6E60CF312E9 /* Pods-IntervalAlarmTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -903,7 +790,6 @@
 		};
 		1CCF73942C34DB040099E0E1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9D65CF03E10479E258F2C7C /* Pods-IntervalAlarmTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -923,7 +809,6 @@
 		};
 		1CCF73962C34DB040099E0E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E13EFA47CF28343666228B83 /* Pods-IntervalAlarm-IntervalAlarmUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -941,7 +826,6 @@
 		};
 		1CCF73972C34DB040099E0E1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 173768F5B59481DD95783418 /* Pods-IntervalAlarm-IntervalAlarmUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

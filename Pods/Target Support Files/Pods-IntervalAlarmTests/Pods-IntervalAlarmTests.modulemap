@@ -1,6 +1,0 @@
-framework module Pods_IntervalAlarmTests {
-  umbrella header "Pods-IntervalAlarmTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
