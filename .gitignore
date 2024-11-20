@@ -12,9 +12,9 @@ DerivedData/
 **/GoogleService-Info.plist
 
 ### Fastlane ###
-*.dSYM.zip
-*.ipa
+build/*
 *.mobileprovision
+fastlane/*
 
 ### Xcode ###
 ## User settings
