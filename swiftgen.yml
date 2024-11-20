@@ -1,0 +1,22 @@
+xcassets:
+  - inputs: "IntervalAlarm/Resources/Colors.xcassets"
+    outputs:
+      templateName: swift5
+      output: "IntervalAlarm/Resources/SwiftGen/Colors+Generated.swift"
+      params:
+        enumName: "Colors"
+  - inputs: "IntervalAlarm/Resources/Images.xcassets"
+    outputs:
+      templateName: swift5
+      output: "IntervalAlarm/Resources/SwiftGen/Images+Generated.swift"
+      params:
+        enumName: "Images"
+
+fonts:
+  - inputs: "IntervalAlarm/Resources/Fonts"
+    outputs:
+      templateName: swift5
+      output:
+          "IntervalAlarm/Resources/SwiftGen/Fonts+Generated.swift"
+      params:
+        enumName: "Fonts"
