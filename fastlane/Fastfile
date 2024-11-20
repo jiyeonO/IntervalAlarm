@@ -1,0 +1,48 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    releaseVer
+  end
+
+  lane :releaseVer do
+    check_version
+    get_provisioning_profile(readonly: true)
+    build_app(project: "IntervalAlarm.xcodeproj", scheme: "IntervalAlarm", output_directory: "build")
+    commit = last_git_commit
+    upload_to_testflight(changelog: commit[:message],
+		        api_key_path: "fastlane/N4GFNPZS25.json")
+  end
+
+  desc "Update build number"
+  lane :check_version do
+     version_number = get_version_number(target: "IntervalAlarm")
+     # 버전 업데이트로 인해 빌드번호 초기화 시, 0으로 셋팅
+     build_number = latest_testflight_build_number(api_key_path: "fastlane/N4GFNPZS25.json",
+						version: version_number, 
+						initial_build_number: 0
+		   				)
+     puts "######## 기존 Build Number #{build_number} ########"
+     increment_build_number({
+        build_number: build_number + 1
+     })
+     puts "######## 업데이트 Build Number #{build_number + 1} ########"
+  end
+
+end
