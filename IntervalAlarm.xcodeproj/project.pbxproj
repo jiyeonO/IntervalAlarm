@@ -10,6 +10,7 @@
 		1C00A76E2CEFFD5C0016AA9D /* libInternalStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C00A76D2CEFFD5C0016AA9D /* libInternalStorage.a */; };
 		1C00A7722CF006F20016AA9D /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00A7712CF005E00016AA9D /* UserDefaultsStorage.swift */; };
 		1C00A7752CF008C60016AA9D /* UserDefaultsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00A7742CF008BD0016AA9D /* UserDefaultsClient.swift */; };
+		1C00A7782CF0547C0016AA9D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1C00A7772CF0547C0016AA9D /* README.md */; };
 		1C28CE892C730E2800F56774 /* AlarmRowFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */; };
 		1C4A89042CE49A8C00A8326D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1C4A89032CE49A8C00A8326D /* ComposableArchitecture */; };
 		1C50E22F2CE4CDD4004E698B /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E22C2CE4CDD4004E698B /* Pretendard-Regular.otf */; };
@@ -69,6 +70,7 @@
 		1C00A76D2CEFFD5C0016AA9D /* libInternalStorage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libInternalStorage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C00A7712CF005E00016AA9D /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		1C00A7742CF008BD0016AA9D /* UserDefaultsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClient.swift; sourceTree = "<group>"; };
+		1C00A7772CF0547C0016AA9D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRowFeature.swift; sourceTree = "<group>"; };
 		1C50E2262CE4CDD4004E698B /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		1C50E2272CE4CDD4004E698B /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 		1CCF73622C34DB030099E0E1 = {
 			isa = PBXGroup;
 			children = (
+				1C00A7772CF0547C0016AA9D /* README.md */,
 				1CCF736D2C34DB030099E0E1 /* IntervalAlarm */,
 				1C00A76C2CEFFD5C0016AA9D /* Frameworks */,
 				1CCF736C2C34DB030099E0E1 /* Products */,
@@ -508,6 +511,7 @@
 				1C50E2362CE4CDD4004E698B /* Pretendard-Medium.otf in Resources */,
 				1C50E2372CE4CDD4004E698B /* Pretendard-ExtraBold.otf in Resources */,
 				1CCF73A92C34DD360099E0E1 /* Images.xcassets in Resources */,
+				1C00A7782CF0547C0016AA9D /* README.md in Resources */,
 				1CCF73AA2C34DD360099E0E1 /* Colors.xcassets in Resources */,
 				1CCF73762C34DB040099E0E1 /* Preview Assets.xcassets in Resources */,
 				1CCF73732C34DB040099E0E1 /* Assets.xcassets in Resources */,
