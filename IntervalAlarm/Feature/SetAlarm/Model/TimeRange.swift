@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DayTimeType {
+enum DayTimeType: Codable {
     
     case AM
     case PM
