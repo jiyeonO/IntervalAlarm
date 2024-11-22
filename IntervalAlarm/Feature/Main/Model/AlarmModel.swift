@@ -8,9 +8,9 @@
 import Foundation
 import ComposableArchitecture
 
-struct AlarmModel {
+struct AlarmModel: Codable, Equatable {
     
-    let id = UUID()
+    var id = UUID()
     
     var dayTime: DayTimeType = .AM
     var hour: String // TODO: 현재 시간 셋팅
@@ -33,7 +33,7 @@ extension AlarmModel {
 
 extension AlarmModel {
     
-    static var previewItems: IdentifiedArrayOf<Self> {
+    static var previewItems: [Self] {
         [
             .init(dayTime: .AM, hour: "6", minute: "23", isOn: false),
             .init(dayTime: .PM, hour: "16", minute: "43", isOn: true)
@@ -46,4 +46,4 @@ extension AlarmModel {
     
 }
 
-extension AlarmModel: Equatable, Identifiable { }
+extension AlarmModel: Identifiable { }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C00A76E2CEFFD5C0016AA9D /* libInternalStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C00A76D2CEFFD5C0016AA9D /* libInternalStorage.a */; };
+		1C00A7722CF006F20016AA9D /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00A7712CF005E00016AA9D /* UserDefaultsStorage.swift */; };
+		1C00A7752CF008C60016AA9D /* UserDefaultsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00A7742CF008BD0016AA9D /* UserDefaultsClient.swift */; };
 		1C28CE892C730E2800F56774 /* AlarmRowFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */; };
 		1C4A89042CE49A8C00A8326D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1C4A89032CE49A8C00A8326D /* ComposableArchitecture */; };
 		1C50E22F2CE4CDD4004E698B /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E22C2CE4CDD4004E698B /* Pretendard-Regular.otf */; };
@@ -63,6 +66,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C00A76D2CEFFD5C0016AA9D /* libInternalStorage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libInternalStorage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C00A7712CF005E00016AA9D /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
+		1C00A7742CF008BD0016AA9D /* UserDefaultsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClient.swift; sourceTree = "<group>"; };
 		1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRowFeature.swift; sourceTree = "<group>"; };
 		1C50E2262CE4CDD4004E698B /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		1C50E2272CE4CDD4004E698B /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
@@ -109,6 +115,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C4A89042CE49A8C00A8326D /* ComposableArchitecture in Frameworks */,
+				1C00A76E2CEFFD5C0016AA9D /* libInternalStorage.a in Frameworks */,
 				1CCF73A62C34DC8A0099E0E1 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,6 +137,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C00A76C2CEFFD5C0016AA9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C00A76D2CEFFD5C0016AA9D /* libInternalStorage.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1C00A7702CF005D30016AA9D /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				1C00A7762CF013FC0016AA9D /* Manager */,
+				1C00A7732CF008AB0016AA9D /* Client */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		1C00A7732CF008AB0016AA9D /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				1C00A7742CF008BD0016AA9D /* UserDefaultsClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		1C00A7762CF013FC0016AA9D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				1C00A7712CF005E00016AA9D /* UserDefaultsStorage.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		1C50E2252CE4CDB9004E698B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,7 +226,6 @@
 			children = (
 				1C8062442C36DEF9002E312E /* View */,
 				1C8062432C36DEF0002E312E /* Navigation */,
-				1C8062422C36DEDF002E312E /* Button */,
 				1C8061FB2C36D32A002E312E /* ViewModifier */,
 			);
 			path = Common;
@@ -207,13 +246,6 @@
 				1C8062382C36D5BF002E312E /* Logger.swift */,
 			);
 			path = Logger;
-			sourceTree = "<group>";
-		};
-		1C8062422C36DEDF002E312E /* Button */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Button;
 			sourceTree = "<group>";
 		};
 		1C8062432C36DEF0002E312E /* Navigation */ = {
@@ -256,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				1CCF736D2C34DB030099E0E1 /* IntervalAlarm */,
+				1C00A76C2CEFFD5C0016AA9D /* Frameworks */,
 				1CCF736C2C34DB030099E0E1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -273,6 +306,7 @@
 		1CCF736D2C34DB030099E0E1 /* IntervalAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				1C00A7702CF005D30016AA9D /* Storage */,
 				1C8062372C36D5B3002E312E /* Logger */,
 				1C80622F2C36D334002E312E /* Extension */,
 				1CCF73992C34DB330099E0E1 /* Feature */,
@@ -536,7 +570,9 @@
 				1C85BE5A2C35398A00AA98B9 /* MainFeature.swift in Sources */,
 				1C8061F22C36D0ED002E312E /* TimePickerView.swift in Sources */,
 				1C8062142C36D32A002E312E /* ViewDidLoadModifier.swift in Sources */,
+				1C00A7722CF006F20016AA9D /* UserDefaultsStorage.swift in Sources */,
 				1C50E2392CE4D1AC004E698B /* Fonts+Generated.swift in Sources */,
+				1C00A7752CF008C60016AA9D /* UserDefaultsClient.swift in Sources */,
 				1C8062222C36D32A002E312E /* RoundedCorner.swift in Sources */,
 				1C8062392C36D5BF002E312E /* Logger.swift in Sources */,
 				1CCF736F2C34DB030099E0E1 /* IntervalAlarmApp.swift in Sources */,
