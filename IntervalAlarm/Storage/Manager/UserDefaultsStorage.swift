@@ -41,7 +41,7 @@ extension UserDefaultsStorage {
     }
     
     func loadAlarms() -> [AlarmModel] {
-        loadObjects(.alarms) ?? []
+        loadObjects(.alarms) ?? AlarmModel.previewItems
     }
     
 }

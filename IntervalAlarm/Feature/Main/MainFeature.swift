@@ -18,7 +18,7 @@ struct MainFeature {
     
     @ObservableState
     struct State: Equatable {
-        var myAlarms: IdentifiedArrayOf<AlarmModel> = AlarmModel.previewItems
+        var myAlarms: [AlarmModel] = []
         
         var path = StackState<Path.State>()
         @Presents var addAlarmState: AddAlarmFeature.State?
@@ -33,11 +33,13 @@ struct MainFeature {
         case addAlarmAction(PresentationAction<AddAlarmFeature.Action>)
     }
     
+    @Dependency(\.userDefaultsClient) var userDefaultsClient
+    
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
             case .onAppear:
-                // TODO: Get CoreData
+                state.myAlarms = userDefaultsClient.loadAlarms()
                 return .none
             case .didTapAddButton:
                 state.addAlarmState = AddAlarmFeature.State()
