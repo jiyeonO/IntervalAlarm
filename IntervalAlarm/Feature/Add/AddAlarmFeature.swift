@@ -22,10 +22,13 @@ struct AddAlarmFeature {
         case setHour(String)
         case setMinute(String)
         case setRepeat(Bool)
-        case saveAlarm(AlarmModel)
+        case saveAlarm
         
         case binding(BindingAction<State>)
     }
+    
+    @Dependency(\.userDefaultsClient) var userDefaultsClient
+    @Dependency(\.dismiss) var dismiss
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
@@ -42,8 +45,9 @@ struct AddAlarmFeature {
             case let .setRepeat(isRepeat):
                 state.alarm.isRepeat = isRepeat
                 return .none
-            case .saveAlarm(_):
-                return .none
+            case .saveAlarm:
+                userDefaultsClient.saveAlarm(state.alarm)
+                return .run { _ in await dismiss() }
             case .binding:
                 return .none
             }
@@ -63,7 +67,7 @@ struct AddAlarmView: View {
             ZStack {
                 VStack {
                     CustomNavigationView(type: .save) {
-                        store.send(.saveAlarm(store.alarm))
+                        store.send(.saveAlarm)
                     }
                     
                     HStack(alignment: .center) {

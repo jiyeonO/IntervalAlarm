@@ -33,7 +33,7 @@ extension AlarmModel {
 
 extension AlarmModel {
     
-    static var previewItems: [Self] {
+    static var previewItems: IdentifiedArrayOf<Self> {
         [
             .init(dayTime: .AM, hour: "6", minute: "23", isOn: false),
             .init(dayTime: .PM, hour: "16", minute: "43", isOn: true)

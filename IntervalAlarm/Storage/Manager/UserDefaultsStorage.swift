@@ -6,6 +6,7 @@
 //
 import Foundation
 import InternalStorage
+import ComposableArchitecture
 
 final class UserDefaultsStorage: UserDefaultsStorageProtocol {
     
@@ -35,13 +36,19 @@ extension UserDefaultsStorage {
     func saveIsFirstLaunch(_ data: Bool) {
         self[.isFirstLaunch] = data
     }
-    
-    func saveAlarms(models: [AlarmModel]) {
-        saveObjects(models, key: .alarms)
+
+    func saveAlarm(model: AlarmModel) {
+        var alarms = loadAlarms()
+        alarms.append(model)
+        saveIdentifiedObjects(alarms, key: .alarms)
     }
     
-    func loadAlarms() -> [AlarmModel] {
-        loadObjects(.alarms) ?? AlarmModel.previewItems
+    func saveAlarms(models: IdentifiedArrayOf<AlarmModel>) {
+        saveIdentifiedObjects(models, key: .alarms)
+    }
+    
+    func loadAlarms() -> IdentifiedArrayOf<AlarmModel> {
+        loadIdentifiedObjects(.alarms) ?? AlarmModel.previewItems
     }
     
 }
