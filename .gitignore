@@ -6,7 +6,6 @@
 .build/
 xcuserdata
 DerivedData/
-*.xcodeproj
 
 ### FireBase ###
 **/GoogleService-Info.plist
