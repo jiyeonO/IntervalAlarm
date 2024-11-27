@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1C00A76B2CEFFD4C0016AA9D /* UserDefaultsStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00A7692CEFFD4C0016AA9D /* UserDefaultsStorageProtocol.swift */; };
-		1C00A77B2CF593970016AA9D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1C00A77A2CF593970016AA9D /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,7 +32,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C00A77B2CF593970016AA9D /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +79,6 @@
 			);
 			name = InternalStorage;
 			packageProductDependencies = (
-				1C00A77A2CF593970016AA9D /* ComposableArchitecture */,
 			);
 			productName = InternalStorage;
 			productReference = 1C00A74F2CEFFBFF0016AA9D /* libInternalStorage.a */;
@@ -111,7 +108,6 @@
 			);
 			mainGroup = 1C00A7462CEFFBFF0016AA9D;
 			packageReferences = (
-				1C00A7792CF593970016AA9D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1C00A7502CEFFBFF0016AA9D /* Products */;
@@ -260,7 +256,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L66GN843PC;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -274,7 +270,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L66GN843PC;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -304,25 +300,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		1C00A7792CF593970016AA9D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.16.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		1C00A77A2CF593970016AA9D /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1C00A7792CF593970016AA9D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1C00A7472CEFFBFF0016AA9D /* Project object */;
 }
