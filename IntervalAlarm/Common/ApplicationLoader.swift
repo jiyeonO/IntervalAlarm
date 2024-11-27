@@ -37,7 +37,9 @@ class ApplicationLoader {
     static func open(type: ApplicationURL) async {
         guard let url = type.url, await UIApplication.shared.canOpenURL(url) else { return }
         
-        await UIApplication.shared.open(url)
+        await MainActor.run {
+            UIApplication.shared.open(url)
+        }
     }
 
 }

@@ -20,6 +20,7 @@ struct MainFeature {
     struct State: Equatable {
         var myAlarms: IdentifiedArrayOf<AlarmModel> = []
         
+        var alarmStates: IdentifiedArrayOf<AlarmRowFeature.State> = []
         var path = StackState<Path.State>()
         @Presents var addAlarmState: AddAlarmFeature.State?
         @Presents var alert: AlertState<Action.Alert>?
@@ -28,12 +29,14 @@ struct MainFeature {
     enum Action {
         case onAppear
         case didTapAddButton
-        case didTapAlarm(AlarmModel)
         case didSwipeDelete(IndexSet)
-        case didTapNotification
+        case sendNotification(AlarmModel)
+        case addNotification(AlarmModel)
+        case removeNotification(AlarmModel)
         case didTapDenyPermission
-        case setNotification
+        case toAddAlarm
         
+        case alarmActions(IdentifiedActionOf<AlarmRowFeature>)
         case path(StackActionOf<Path>)
         case addAlarmAction(PresentationAction<AddAlarmFeature.Action>)
         case alert(PresentationAction<Alert>)
@@ -51,27 +54,49 @@ struct MainFeature {
             switch action {
             case .onAppear:
                 state.myAlarms = userDefaultsClient.loadAlarms()
+                
+                let states = state.myAlarms.map { AlarmRowFeature.State(model: $0) }
+                state.alarmStates = IdentifiedArrayOf(uniqueElements: states)
                 return .none
             case .didTapAddButton:
-                state.addAlarmState = AddAlarmFeature.State()
-                return .none
-            case .didTapAlarm(let alarm):
-                state.path.append(.detail(DetailFeature.State(alarm: alarm)))
-                return .none
-            case .didSwipeDelete(let indexSet):
-                state.myAlarms.remove(atOffsets: indexSet)
-                userDefaultsClient.saveAlarms(state.myAlarms)
-                return .none
-            case .didTapNotification:
                 return .run { send in
                     do {
                         let isAllowPush = try await PermissionHandler().onPermission(type: .push)
-                        await isAllowPush ? send(.setNotification) : send(.didTapDenyPermission)
+                        await isAllowPush ? send(.toAddAlarm) : send(.didTapDenyPermission)
                     } catch {
                         DLog.d(error.localizedDescription)
                         await send(.didTapDenyPermission)
                     }
                 }
+            case .didSwipeDelete(let indexSet):
+                if let index = indexSet.first {
+                    let targetID = state.myAlarms[index].uuidString
+                    let notificationCenter = UNUserNotificationCenter.current()
+                    notificationCenter.removePendingNotificationRequests(withIdentifiers: [targetID])
+                }
+                
+                state.myAlarms.remove(atOffsets: indexSet)
+                userDefaultsClient.saveAlarms(state.myAlarms)
+                return .none
+            case .sendNotification(let alarm):
+                return .run { send in
+                    do {
+                        let isAllowPush = try await PermissionHandler().onPermission(type: .push)
+                        await isAllowPush ? send(.addNotification(alarm)) : send(.didTapDenyPermission)
+                    } catch {
+                        DLog.d(error.localizedDescription)
+                        await send(.didTapDenyPermission)
+                    }
+                }
+            case .addNotification(let alarm):
+                let request = alarm.notificationRequestModel
+                return .run { _ in
+                    try await UNUserNotificationCenter.current().add(request)
+                }
+            case .removeNotification(let alarm):
+                let notificationCenter = UNUserNotificationCenter.current()
+                notificationCenter.removePendingNotificationRequests(withIdentifiers: [alarm.uuidString])
+                return .none
             case .didTapDenyPermission:
                 state.alert = AlertState {
                     TextState("푸쉬 권한이 허용되지 않았어요")
@@ -86,24 +111,35 @@ struct MainFeature {
                     TextState("서비스 이용을 위해 설정에서 알림을 허용해주세요")
                 }
                 return .none
+            case .toAddAlarm:
+                state.addAlarmState = AddAlarmFeature.State()
+                return .none
+            case let .alarmActions(.element(id: id, action: .setAlarmOn)):
+                guard let alarm = state.alarmStates[id: id]?.alarm else { return .none }
+                return .send(.sendNotification(alarm))
+            case let .alarmActions(.element(id: id, action: .setAlarmOff)):
+                guard let alarm = state.alarmStates[id: id]?.alarm else { return .none }
+                return .send(.removeNotification(alarm))
+            case let .alarmActions(.element(id: id, action: .toAlarmDetail)):
+                guard let alarm = state.alarmStates[id: id]?.alarm else { return .none }
+                state.path.append(.detail(DetailFeature.State(alarm: alarm)))
+                return .none
             case .alert(.presented(.toSetting)):
                 return .run { _ in
                     await ApplicationLoader.openSetting()
                 }
-            case .setNotification:
-                let request = self.notificationRequestModel()
-                return .run { _ in
-                    return try await UNUserNotificationCenter.current().add(request)
-                }
             case let .path(action):
                 switch action {
-                case .element(id: _, action: .detail(.onDisappear)):
+                case .element(id: _, action: .detail(.onAppear)):
                     return .none
                 default:
                     return .none
                 }
-            case .addAlarmAction(.presented(.saveAlarm)):
-                return .send(.onAppear)
+            case .addAlarmAction(.presented(.setAlarmOn(let alarm))):
+                return .merge(.send(.onAppear),
+                              .send(.sendNotification(alarm)))
+            case .alarmActions(_):
+                return .none
             case .addAlarmAction:
                 return .none
             case .alert:
@@ -111,25 +147,13 @@ struct MainFeature {
             }
         }
         .forEach(\.path, action: \.path)
+        .forEach(\.alarmStates, action: \.alarmActions) {
+            AlarmRowFeature()
+        }
         .ifLet(\.$addAlarmState, action: \.addAlarmAction) {
             AddAlarmFeature()
         }
         .ifLet(\.alert, action: \.alert)
-    }
-    
-    func notificationRequestModel() -> UNNotificationRequest {
-        let content = UNMutableNotificationContent() // TODO: UNCalendarNotificationTrigger
-        content.title = "Push Alarm Notification"
-        content.body = "Wake Up!"
-        content.sound = .default
-        
-        let trigger = UNTimeIntervalNotificationTrigger(
-            timeInterval: 5.0,
-            repeats: false
-        )
-        
-        return UNNotificationRequest(identifier: UUID().uuidString, // TODO: AlarmModel ID
-                                     content: content, trigger: trigger)
     }
     
 }
@@ -144,31 +168,16 @@ struct MainView: View {
         WithPerceptionTracking {
             NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
                 List {
-                    ForEach(store.myAlarms) { alarm in
+                    ForEach(store.scope(state: \.alarmStates, action: \.alarmActions)) { store in
                         VStack {
-                            AlarmRowView(store: Store(initialState: AlarmRowFeature.State(model: alarm)) {
-                                AlarmRowFeature()
-                            })
+                            AlarmRowView(store: store)
                             CustomDivider()
                         }
                         .noneSeperator()
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            store.send(.didTapAlarm(alarm))
-                        }
                     }
                     .onDelete {
                         store.send(.didSwipeDelete($0))
                     }
-                    
-                    Button {
-                        store.send(.didTapNotification)
-                    } label: {
-                        Text("Push 테스트 버튼")
-                            .font(Fonts.Pretendard.bold.swiftUIFont(size: 25))
-                            .foregroundStyle(.yellow)
-                    }
-                    .frame(height: 40)
                 }
                 .listStyle(.plain)
                 .navigationTitle("알람")
@@ -188,7 +197,9 @@ struct MainView: View {
                 }
             }
             .sheet(item: $store.scope(state: \.addAlarmState, action: \.addAlarmAction)) { store in
-                AddAlarmView(store: store)
+                WithPerceptionTracking {
+                    AddAlarmView(store: store)
+                }
             }
             .alert($store.scope(state: \.alert, action: \.alert))
             .onAppear {

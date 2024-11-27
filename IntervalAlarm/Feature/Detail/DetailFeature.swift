@@ -13,17 +13,17 @@ struct DetailFeature {
     
     @ObservableState
     struct State: Equatable {
-        var alarm: AlarmModel?
+        var alarm: AlarmModel
     }
     
     enum Action {
-        case onDisappear
+        case onAppear
     }
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .onDisappear:
+            case .onAppear:
                 return .none
             }
         }
@@ -38,10 +38,12 @@ struct DetailView: View {
     let store: StoreOf<DetailFeature>
 
     var body: some View {
-        Text("Hello, \(String(describing: store.alarm?.title))")
-            .onDisappear {
-                store.send(.onDisappear)
-            }
+        WithPerceptionTracking {
+            Text(store.alarm.displayTitle)
+                .onAppear {
+                    store.send(.onAppear)
+                }
+        }
     }
 }
 

@@ -13,7 +13,7 @@ struct AlarmModel: Codable, Equatable {
     var id = UUID()
     
     var dayTime: DayTimeType = .AM
-    var hour: String // TODO: 현재 시간 셋팅
+    var hour: String // in 12-Hour TODO: 현재 시간 셋팅.
     var minute: String
     
     var isOn: Bool = true
@@ -25,8 +25,32 @@ struct AlarmModel: Codable, Equatable {
 
 extension AlarmModel {
     
-    var title: String {
-        hour + ":" + minute
+    var uuidString: String {
+        id.uuidString
+    }
+    
+    var hourValueIn24: Int { // in 24-Hour
+        dayTime == .AM ? hourValue : hourValue + 12
+    }
+    
+    var hourValue: Int {
+        hour.toInt
+    }
+    
+    var minuteValue: Int {
+        minute.toInt
+    }
+    
+    var displayDayTime: String {
+        dayTime.title
+    }
+    
+    var displayTitle: String {
+        "\(hour) : \(minute)"
+    }
+    
+    var notificationTitle: String {
+        "⏰ \(displayDayTime) : \(displayTitle)"
     }
     
 }
@@ -36,7 +60,7 @@ extension AlarmModel {
     static var previewItems: IdentifiedArrayOf<Self> {
         [
             .init(dayTime: .AM, hour: "6", minute: "23", isOn: false),
-            .init(dayTime: .PM, hour: "16", minute: "43", isOn: true)
+            .init(dayTime: .PM, hour: "4", minute: "43", isOn: true)
         ]
     }
     
