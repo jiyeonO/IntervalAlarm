@@ -7,13 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C00A76E2CEFFD5C0016AA9D /* libInternalStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C00A76D2CEFFD5C0016AA9D /* libInternalStorage.a */; };
 		1C00A7722CF006F20016AA9D /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00A7712CF005E00016AA9D /* UserDefaultsStorage.swift */; };
 		1C00A7752CF008C60016AA9D /* UserDefaultsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00A7742CF008BD0016AA9D /* UserDefaultsClient.swift */; };
 		1C00A7782CF0547C0016AA9D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1C00A7772CF0547C0016AA9D /* README.md */; };
 		1C00A77D2CF5A02B0016AA9D /* ListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00A77C2CF5A02B0016AA9D /* ListModifier.swift */; };
-		1C00A7882CF7087A0016AA9D /* PermissionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00A7872CF708760016AA9D /* PermissionHandler.swift */; };
-		1C00A78A2CF70AA50016AA9D /* ApplicationLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00A7892CF70A960016AA9D /* ApplicationLoader.swift */; };
 		1C28CE892C730E2800F56774 /* AlarmRowFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */; };
 		1C4A89042CE49A8C00A8326D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1C4A89032CE49A8C00A8326D /* ComposableArchitecture */; };
 		1C50E22F2CE4CDD4004E698B /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E22C2CE4CDD4004E698B /* Pretendard-Regular.otf */; };
@@ -50,6 +47,11 @@
 		1CE9D17B2C3AD9FD0084C2A6 /* AddAlarmFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */; };
 		1CE9D1812C3D7EEE0084C2A6 /* TimeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D1802C3D7EEE0084C2A6 /* TimeRange.swift */; };
 		1CE9D1862C4D00880084C2A6 /* DetailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D1852C4D00880084C2A6 /* DetailFeature.swift */; };
+		4987C23D2CF73CF300BEFF4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4987C23C2CF73CF300BEFF4C /* GoogleService-Info.plist */; };
+		4987C2402CF73DBC00BEFF4C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4987C23F2CF73DBC00BEFF4C /* FirebaseAnalytics */; };
+		4987C2422CF73DBC00BEFF4C /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4987C2412CF73DBC00BEFF4C /* FirebaseCore */; };
+		4987C2442CF73E2500BEFF4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987C2432CF73E2500BEFF4C /* AppDelegate.swift */; };
+		4987C2462CF741D600BEFF4C /* libInternalStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4987C2452CF741D600BEFF4C /* libInternalStorage.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +77,6 @@
 		1C00A7742CF008BD0016AA9D /* UserDefaultsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClient.swift; sourceTree = "<group>"; };
 		1C00A7772CF0547C0016AA9D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1C00A77C2CF5A02B0016AA9D /* ListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModifier.swift; sourceTree = "<group>"; };
-		1C00A7872CF708760016AA9D /* PermissionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionHandler.swift; sourceTree = "<group>"; };
-		1C00A7892CF70A960016AA9D /* ApplicationLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLoader.swift; sourceTree = "<group>"; };
 		1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRowFeature.swift; sourceTree = "<group>"; };
 		1C50E2262CE4CDD4004E698B /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		1C50E2272CE4CDD4004E698B /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
@@ -115,6 +115,9 @@
 		1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmFeature.swift; sourceTree = "<group>"; };
 		1CE9D1802C3D7EEE0084C2A6 /* TimeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRange.swift; sourceTree = "<group>"; };
 		1CE9D1852C4D00880084C2A6 /* DetailFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFeature.swift; sourceTree = "<group>"; };
+		4987C23C2CF73CF300BEFF4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4987C2432CF73E2500BEFF4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4987C2452CF741D600BEFF4C /* libInternalStorage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libInternalStorage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +125,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4987C2462CF741D600BEFF4C /* libInternalStorage.a in Frameworks */,
 				1C4A89042CE49A8C00A8326D /* ComposableArchitecture in Frameworks */,
-				1C00A76E2CEFFD5C0016AA9D /* libInternalStorage.a in Frameworks */,
+				4987C2422CF73DBC00BEFF4C /* FirebaseCore in Frameworks */,
+				4987C2402CF73DBC00BEFF4C /* FirebaseAnalytics in Frameworks */,
 				1CCF73A62C34DC8A0099E0E1 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +153,7 @@
 		1C00A76C2CEFFD5C0016AA9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4987C2452CF741D600BEFF4C /* libInternalStorage.a */,
 				1C00A76D2CEFFD5C0016AA9D /* libInternalStorage.a */,
 			);
 			name = Frameworks;
@@ -176,15 +182,6 @@
 				1C00A7712CF005E00016AA9D /* UserDefaultsStorage.swift */,
 			);
 			path = Manager;
-			sourceTree = "<group>";
-		};
-		1C00A7862CF708710016AA9D /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				1C00A7892CF70A960016AA9D /* ApplicationLoader.swift */,
-				1C00A7872CF708760016AA9D /* PermissionHandler.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		1C50E2252CE4CDB9004E698B /* Fonts */ = {
@@ -325,15 +322,16 @@
 		1CCF736D2C34DB030099E0E1 /* IntervalAlarm */ = {
 			isa = PBXGroup;
 			children = (
-				1C00A7862CF708710016AA9D /* Common */,
+				4987C2472CF742F800BEFF4C /* Delegate */,
+				1C00A7702CF005D30016AA9D /* Storage */,
 				1C8062372C36D5B3002E312E /* Logger */,
 				1C80622F2C36D334002E312E /* Extension */,
-				1C00A7702CF005D30016AA9D /* Storage */,
 				1CCF73992C34DB330099E0E1 /* Feature */,
 				1CCF736E2C34DB030099E0E1 /* IntervalAlarmApp.swift */,
 				1CCF739B2C34DB4E0099E0E1 /* Resources */,
 				1CCF73742C34DB040099E0E1 /* Preview Content */,
 				1C78C7D92CED9C3F00482F7F /* Info.plist */,
+				4987C23C2CF73CF300BEFF4C /* GoogleService-Info.plist */,
 			);
 			path = IntervalAlarm;
 			sourceTree = "<group>";
@@ -405,6 +403,14 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		4987C2472CF742F800BEFF4C /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				4987C2432CF73E2500BEFF4C /* AppDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -425,6 +431,8 @@
 			packageProductDependencies = (
 				1CCF73A52C34DC8A0099E0E1 /* Kingfisher */,
 				1C4A89032CE49A8C00A8326D /* ComposableArchitecture */,
+				4987C23F2CF73DBC00BEFF4C /* FirebaseAnalytics */,
+				4987C2412CF73DBC00BEFF4C /* FirebaseCore */,
 			);
 			productName = IntervalAlarm;
 			productReference = 1CCF736B2C34DB030099E0E1 /* IntervalAlarm.app */;
@@ -501,6 +509,7 @@
 			packageReferences = (
 				1CCF73A42C34DC8A0099E0E1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				1C4A89022CE49A8C00A8326D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				4987C23E2CF73DBC00BEFF4C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 1CCF736C2C34DB030099E0E1 /* Products */;
 			projectDirPath = "";
@@ -525,6 +534,7 @@
 				1C50E2332CE4CDD4004E698B /* Pretendard-ExtraLight.otf in Resources */,
 				1C50E2342CE4CDD4004E698B /* Pretendard-Bold.otf in Resources */,
 				1C50E2352CE4CDD4004E698B /* Pretendard-Light.otf in Resources */,
+				4987C23D2CF73CF300BEFF4C /* GoogleService-Info.plist in Resources */,
 				1C50E2362CE4CDD4004E698B /* Pretendard-Medium.otf in Resources */,
 				1C50E2372CE4CDD4004E698B /* Pretendard-ExtraBold.otf in Resources */,
 				1CCF73A92C34DD360099E0E1 /* Images.xcassets in Resources */,
@@ -586,17 +596,16 @@
 				1C8061F12C36D0ED002E312E /* TimeRangeInfo.swift in Sources */,
 				1C80623F2C36D707002E312E /* LayerCornerType.swift in Sources */,
 				1C8062112C36D32A002E312E /* BottomToastModifier.swift in Sources */,
-				1C00A7882CF7087A0016AA9D /* PermissionHandler.swift in Sources */,
 				1CE9D17B2C3AD9FD0084C2A6 /* AddAlarmFeature.swift in Sources */,
 				1CE9D1812C3D7EEE0084C2A6 /* TimeRange.swift in Sources */,
 				1C28CE892C730E2800F56774 /* AlarmRowFeature.swift in Sources */,
 				1C85BE5A2C35398A00AA98B9 /* MainFeature.swift in Sources */,
+				4987C2442CF73E2500BEFF4C /* AppDelegate.swift in Sources */,
 				1C8061F22C36D0ED002E312E /* TimePickerView.swift in Sources */,
 				1C8062142C36D32A002E312E /* ViewDidLoadModifier.swift in Sources */,
 				1C00A7722CF006F20016AA9D /* UserDefaultsStorage.swift in Sources */,
 				1C50E2392CE4D1AC004E698B /* Fonts+Generated.swift in Sources */,
 				1C00A7752CF008C60016AA9D /* UserDefaultsClient.swift in Sources */,
-				1C00A78A2CF70AA50016AA9D /* ApplicationLoader.swift in Sources */,
 				1C8062222C36D32A002E312E /* RoundedCorner.swift in Sources */,
 				1C8062392C36D5BF002E312E /* Logger.swift in Sources */,
 				1CCF736F2C34DB030099E0E1 /* IntervalAlarmApp.swift in Sources */,
@@ -783,6 +792,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.1;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oji.IntervalAlarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -826,6 +836,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.1;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oji.IntervalAlarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -971,6 +982,14 @@
 				minimumVersion = 7.12.0;
 			};
 		};
+		4987C23E2CF73DBC00BEFF4C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -983,6 +1002,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1CCF73A42C34DC8A0099E0E1 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		4987C23F2CF73DBC00BEFF4C /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4987C23E2CF73DBC00BEFF4C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		4987C2412CF73DBC00BEFF4C /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4987C23E2CF73DBC00BEFF4C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

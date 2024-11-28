@@ -10,7 +10,9 @@ import ComposableArchitecture
 
 @main
 struct IntervalAlarmApp: App {
-    
+
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+
     static let store = Store(initialState: MainFeature.State()) {
         MainFeature()
             ._printChanges()
