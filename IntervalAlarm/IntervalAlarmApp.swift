@@ -23,4 +23,5 @@ struct IntervalAlarmApp: App {
             MainView(store: IntervalAlarmApp.store)
         }
     }
+    
 }

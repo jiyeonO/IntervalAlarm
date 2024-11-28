@@ -22,6 +22,7 @@ struct MainFeature {
         
         var path = StackState<Path.State>()
         @Presents var addAlarmState: AddAlarmFeature.State?
+        @Presents var alert: AlertState<Action.Alert>?
     }
     
     enum Action {
@@ -29,9 +30,18 @@ struct MainFeature {
         case didTapAddButton
         case didTapAlarm(AlarmModel)
         case didSwipeDelete(IndexSet)
+        case didTapNotification
+        case didTapDenyPermission
+        case setNotification
         
         case path(StackActionOf<Path>)
         case addAlarmAction(PresentationAction<AddAlarmFeature.Action>)
+        case alert(PresentationAction<Alert>)
+        
+        @CasePathable
+        enum Alert: Equatable {
+            case toSetting
+        }
     }
     
     @Dependency(\.userDefaultsClient) var userDefaultsClient
@@ -52,6 +62,39 @@ struct MainFeature {
                 state.myAlarms.remove(atOffsets: indexSet)
                 userDefaultsClient.saveAlarms(state.myAlarms)
                 return .none
+            case .didTapNotification:
+                return .run { send in
+                    do {
+                        let isAllowPush = try await PermissionHandler().onPermission(type: .push)
+                        await isAllowPush ? send(.setNotification) : send(.didTapDenyPermission)
+                    } catch {
+                        DLog.d(error.localizedDescription)
+                        await send(.didTapDenyPermission)
+                    }
+                }
+            case .didTapDenyPermission:
+                state.alert = AlertState {
+                    TextState("푸쉬 권한이 허용되지 않았어요")
+                } actions: {
+                    ButtonState(role: .destructive) {
+                        TextState("취소")
+                    }
+                    ButtonState(role: .cancel, action: .send(.toSetting)) {
+                        TextState("확인")
+                    }
+                } message: {
+                    TextState("서비스 이용을 위해 설정에서 알림을 허용해주세요")
+                }
+                return .none
+            case .alert(.presented(.toSetting)):
+                return .run { _ in
+                    await ApplicationLoader.openSetting()
+                }
+            case .setNotification:
+                let request = self.notificationRequestModel()
+                return .run { _ in
+                    return try await UNUserNotificationCenter.current().add(request)
+                }
             case let .path(action):
                 switch action {
                 case .element(id: _, action: .detail(.onDisappear)):
@@ -63,12 +106,30 @@ struct MainFeature {
                 return .send(.onAppear)
             case .addAlarmAction:
                 return .none
+            case .alert:
+                return .none
             }
         }
         .forEach(\.path, action: \.path)
         .ifLet(\.$addAlarmState, action: \.addAlarmAction) {
             AddAlarmFeature()
         }
+        .ifLet(\.alert, action: \.alert)
+    }
+    
+    func getNotificationRequestModel() -> UNNotificationRequest {
+        let content = UNMutableNotificationContent() // TODO: UNCalendarNotificationTrigger
+        content.title = "Push Alarm Notification"
+        content.body = "Wake Up!"
+        content.sound = .default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(
+            timeInterval: 5.0,
+            repeats: false
+        )
+        
+        return UNNotificationRequest(identifier: UUID().uuidString, // TODO: AlarmModel ID
+                                     content: content, trigger: trigger)
     }
     
 }
@@ -100,6 +161,14 @@ struct MainView: View {
                         store.send(.didSwipeDelete($0))
                     }
                     
+                    Button {
+                        store.send(.didTapNotification)
+                    } label: {
+                        Text("Push 테스트 버튼")
+                            .font(Fonts.Pretendard.bold.swiftUIFont(size: 25))
+                            .foregroundStyle(.yellow)
+                    }
+                    .frame(height: 40)
                 }
                 .listStyle(.plain)
                 .navigationTitle("알람")
@@ -121,6 +190,7 @@ struct MainView: View {
             .sheet(item: $store.scope(state: \.addAlarmState, action: \.addAlarmAction)) { store in
                 AddAlarmView(store: store)
             }
+            .alert($store.scope(state: \.alert, action: \.alert))
             .onAppear {
                 store.send(.onAppear)
             }
