@@ -117,7 +117,7 @@ struct MainFeature {
         .ifLet(\.alert, action: \.alert)
     }
     
-    func notificationRequestModel() -> UNNotificationRequest {
+    func getNotificationRequestModel() -> UNNotificationRequest {
         let content = UNMutableNotificationContent() // TODO: UNCalendarNotificationTrigger
         content.title = "Push Alarm Notification"
         content.body = "Wake Up!"

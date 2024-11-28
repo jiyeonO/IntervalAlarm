@@ -29,7 +29,7 @@ private extension PermissionHandler {
         let center = UNUserNotificationCenter.current()
         let settings = await center.notificationSettings()
         
-        guard settings.authorizationStatus == .notDetermined else { return true }
+        guard settings.authorizationStatus == .notDetermined else { return false }
         
         return try await center.requestAuthorization(options: [.alert, .badge, .sound])
     }
