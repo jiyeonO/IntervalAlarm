@@ -14,6 +14,8 @@
 		1C28CE892C730E2800F56774 /* AlarmRowFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */; };
 		1C3E51B12CF82EE40028B142 /* PermissionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E51AF2CF82EE40028B142 /* PermissionHandler.swift */; };
 		1C3E51B22CF82EE40028B142 /* ApplicationLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E51AE2CF82EE40028B142 /* ApplicationLoader.swift */; };
+		1C46FB162CF8B39300A90B96 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C46FB152CF8B39300A90B96 /* String+Extension.swift */; };
+		1C46FB182CF8B39B00A90B96 /* NotificationRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C46FB172CF8B39B00A90B96 /* NotificationRequestModel.swift */; };
 		1C4A89042CE49A8C00A8326D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1C4A89032CE49A8C00A8326D /* ComposableArchitecture */; };
 		1C50E22F2CE4CDD4004E698B /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E22C2CE4CDD4004E698B /* Pretendard-Regular.otf */; };
 		1C50E2302CE4CDD4004E698B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E22E2CE4CDD4004E698B /* Pretendard-Thin.otf */; };
@@ -35,8 +37,6 @@
 		1C8062222C36D32A002E312E /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8062092C36D32A002E312E /* RoundedCorner.swift */; };
 		1C8062392C36D5BF002E312E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8062382C36D5BF002E312E /* Logger.swift */; };
 		1C80623F2C36D707002E312E /* LayerCornerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C80623E2C36D707002E312E /* LayerCornerType.swift */; };
-		1C8584692CF83D6600175076 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8584682CF83D6600175076 /* String+Extension.swift */; };
-		1C85846B2CF83DA300175076 /* NotificationRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85846A2CF83DA300175076 /* NotificationRequestModel.swift */; };
 		1C85BE562C34F27D00AA98B9 /* Images+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85BE542C34F27D00AA98B9 /* Images+Generated.swift */; };
 		1C85BE572C34F27D00AA98B9 /* Colors+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85BE552C34F27D00AA98B9 /* Colors+Generated.swift */; };
 		1C85BE5A2C35398A00AA98B9 /* MainFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85BE592C35398A00AA98B9 /* MainFeature.swift */; };
@@ -84,6 +84,8 @@
 		1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRowFeature.swift; sourceTree = "<group>"; };
 		1C3E51AE2CF82EE40028B142 /* ApplicationLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLoader.swift; sourceTree = "<group>"; };
 		1C3E51AF2CF82EE40028B142 /* PermissionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionHandler.swift; sourceTree = "<group>"; };
+		1C46FB152CF8B39300A90B96 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		1C46FB172CF8B39B00A90B96 /* NotificationRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRequestModel.swift; sourceTree = "<group>"; };
 		1C50E2262CE4CDD4004E698B /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		1C50E2272CE4CDD4004E698B /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		1C50E2282CE4CDD4004E698B /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -105,8 +107,6 @@
 		1C8062092C36D32A002E312E /* RoundedCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		1C8062382C36D5BF002E312E /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		1C80623E2C36D707002E312E /* LayerCornerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerCornerType.swift; sourceTree = "<group>"; };
-		1C8584682CF83D6600175076 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		1C85846A2CF83DA300175076 /* NotificationRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRequestModel.swift; sourceTree = "<group>"; };
 		1C85BE542C34F27D00AA98B9 /* Images+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Images+Generated.swift"; sourceTree = "<group>"; };
 		1C85BE552C34F27D00AA98B9 /* Colors+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Colors+Generated.swift"; sourceTree = "<group>"; };
 		1C85BE592C35398A00AA98B9 /* MainFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeature.swift; sourceTree = "<group>"; };
@@ -266,8 +266,8 @@
 		1C80622F2C36D334002E312E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1C46FB152CF8B39300A90B96 /* String+Extension.swift */,
 				1CE9D1742C3AD5720084C2A6 /* Foundation+Extension.swift */,
-				1C8584682CF83D6600175076 /* String+Extension.swift */,
 			);
 			name = Extension;
 			path = IntervalAlarm/Extension;
@@ -313,7 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				1C85BE5F2C353D3C00AA98B9 /* AlarmModel.swift */,
-				1C85846A2CF83DA300175076 /* NotificationRequestModel.swift */,
+				1C46FB172CF8B39B00A90B96 /* NotificationRequestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -615,7 +615,7 @@
 				1CE9D1752C3AD5720084C2A6 /* Foundation+Extension.swift in Sources */,
 				1C8061F12C36D0ED002E312E /* TimeRangeInfo.swift in Sources */,
 				1C80623F2C36D707002E312E /* LayerCornerType.swift in Sources */,
-				1C8584692CF83D6600175076 /* String+Extension.swift in Sources */,
+				1C46FB162CF8B39300A90B96 /* String+Extension.swift in Sources */,
 				1C3E51B12CF82EE40028B142 /* PermissionHandler.swift in Sources */,
 				1C3E51B22CF82EE40028B142 /* ApplicationLoader.swift in Sources */,
 				1C8062112C36D32A002E312E /* BottomToastModifier.swift in Sources */,
@@ -631,7 +631,7 @@
 				1C00A7752CF008C60016AA9D /* UserDefaultsClient.swift in Sources */,
 				1C8062222C36D32A002E312E /* RoundedCorner.swift in Sources */,
 				1C8062392C36D5BF002E312E /* Logger.swift in Sources */,
-				1C85846B2CF83DA300175076 /* NotificationRequestModel.swift in Sources */,
+				1C46FB182CF8B39B00A90B96 /* NotificationRequestModel.swift in Sources */,
 				1CCF736F2C34DB030099E0E1 /* IntervalAlarmApp.swift in Sources */,
 				1CE9D1862C4D00880084C2A6 /* DetailFeature.swift in Sources */,
 				1C8062122C36D32A002E312E /* HiddenModifier.swift in Sources */,
