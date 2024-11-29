@@ -26,7 +26,7 @@ struct AlarmRowFeature {
     
     enum Action: BindableAction { // TODO: Nested Protocol 적용
         case didTapAlarm
-        case toAlarmDetail
+        case toModifyAlarm
         case didTapToggle(Bool)
         case setAlarmOn
         case setAlarmOff
@@ -44,11 +44,11 @@ struct AlarmRowFeature {
         Reduce { state, action in
             switch action {
             case .didTapAlarm:
-                return .send(.toAlarmDetail)
+                return .send(.toModifyAlarm)
             case let .didTapToggle(isOn):
                 state.alarm.isOn = isOn
                 return isOn ? .send(.setAlarmOn) : .send(.setAlarmOff)
-            case .toAlarmDetail:
+            case .toModifyAlarm:
                 return .none
             case .setAlarmOn:
                 return .none

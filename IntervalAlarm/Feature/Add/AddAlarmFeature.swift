@@ -13,11 +13,12 @@ struct AddAlarmFeature {
     
     @ObservableState
     struct State: Equatable {
-        var alarm: AlarmModel = .previewItem
+        var alarm: AlarmModel = .init()
         let range: TimeRange = .init()
     }
     
     enum Action: BindableAction {
+        case onAppear
         case setDayTime(DayTimeType)
         case setHour(String)
         case setMinute(String)
@@ -34,6 +35,9 @@ struct AddAlarmFeature {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
+            case .onAppear:
+                // TODO: alarm정보를 기반으로 초기값 셋팅 (Picker, Toggle 등)
+                return .none
             case let .setDayTime(type):
                 state.alarm.dayTime = type
                 return .none
