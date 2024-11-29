@@ -5,7 +5,6 @@
 //  Created by 오지연 on 11/22/24.
 //
 import Foundation
-import ComposableArchitecture
 
 public protocol UserDefaultsStorageKey: RawRepresentable { }
 
@@ -16,8 +15,8 @@ public protocol UserDefaultsStorageProtocol: AnyObject {
     var standard: UserDefaults { get }
     func loadObject<T: Decodable>(_ key: K) -> T?
     func saveObject<T: Encodable>(_ newValue: T?, key: K)
-    func loadIdentifiedObjects<T: Decodable>(_ key: K) -> IdentifiedArrayOf<T>?
-    func saveIdentifiedObjects<T: Encodable>(_ newValue: IdentifiedArrayOf<T>?, key: K)
+    func loadObjects<T: Decodable>(_ key: K) -> [T]?
+    func saveObjects<T: Encodable>(_ newValue: [T]?, key: K)
     func deleteObject(_ key: K)
     
     subscript<T>(key: K) -> T? { get set }
@@ -43,20 +42,15 @@ public extension UserDefaultsStorageProtocol {
         }
     }
     
-}
-
-// MARK: - IdentifiedArray
-public extension UserDefaultsStorageProtocol {
-    
-    func loadIdentifiedObjects<T: Decodable>(_ key: K) -> IdentifiedArrayOf<T>? {
+    func loadObjects<T: Decodable>(_ key: K) -> [T]? {
         guard
             let savedData = standard.object(forKey: key.rawValue) as? Data,
-            let loadedData = try? JSONDecoder().decode(IdentifiedArrayOf<T>.self, from: savedData)
-        else { return nil }
+            let loadedData = try? JSONDecoder().decode([T].self, from: savedData)
+            else { return nil }
         return loadedData
     }
     
-    func saveIdentifiedObjects<T: Encodable>(_ newValue: IdentifiedArrayOf<T>?, key: K) {
+    func saveObjects<T: Encodable>(_ newValue: [T]?, key: K) {
         if let encoded = try? JSONEncoder().encode(newValue) {
             standard.set(encoded, forKey: key.rawValue)
         } else {
