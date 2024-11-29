@@ -13,6 +13,8 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+require 'xcodeproj'
+
 default_platform(:ios)
 
 platform :ios do
@@ -24,7 +26,7 @@ platform :ios do
   lane :releaseVer do
     check_version
     get_provisioning_profile(readonly: true)
-    build_app(project: "IntervalAlarm.xcodeproj", scheme: "IntervalAlarm", output_directory: "build")
+    build_app(workspace: "IntervalAlarm.xcworkspace", configuration: "Release", scheme: "IntervalAlarm", output_directory: "build")
     commit = last_git_commit
     upload_to_testflight(changelog: commit[:message],
 		        api_key_path: "fastlane/N4GFNPZS25.json")
