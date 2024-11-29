@@ -89,7 +89,7 @@ struct MainFeature {
                     }
                 }
             case .addNotification(let alarm):
-                let request = alarm.notificationRequestModel
+                let request = alarm.notificationRequest
                 return .run { _ in
                     try await UNUserNotificationCenter.current().add(request)
                 }

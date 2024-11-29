@@ -9,7 +9,7 @@ import UserNotifications
 
 extension AlarmModel {
     
-    var notificationRequestModel: UNNotificationRequest {
+    var notificationRequest: UNNotificationRequest {
         let content = UNMutableNotificationContent()
         content.title = "⏰ \(self.notificationTitle)"
         content.body = "User 알람 메모 노출"
