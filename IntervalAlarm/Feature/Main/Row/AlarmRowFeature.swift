@@ -16,28 +16,51 @@ struct AlarmRowFeature {
         let id: UUID
         var alarm: AlarmModel = .previewItem
         
+        @Presents var alert: AlertState<Action.Alert>?
+        
         init(model: AlarmModel) {
             self.id = model.id
             self.alarm = model
         }
     }
     
-    enum Action: BindableAction {
-        case setToggleOn(Bool)
+    enum Action: BindableAction { // TODO: Nested Protocol 적용
+        case didTapAlarm
+        case toAlarmDetail
+        case didTapToggle(Bool)
+        case setAlarmOn
+        case setAlarmOff
         
+        case alert(PresentationAction<Alert>)
         case binding(BindingAction<State>)
+        
+        @CasePathable
+        enum Alert: Equatable {
+            case toSetting
+        }
     }
 
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case let .setToggleOn(isOn):
+            case .didTapAlarm:
+                return .send(.toAlarmDetail)
+            case let .didTapToggle(isOn):
                 state.alarm.isOn = isOn
+                return isOn ? .send(.setAlarmOn) : .send(.setAlarmOff)
+            case .toAlarmDetail:
+                return .none
+            case .setAlarmOn:
+                return .none
+            case .setAlarmOff:
+                return .none
+            case .alert:
                 return .none
             case .binding:
                 return .none
             }
         }
+        .ifLet(\.alert, action: \.alert)
     }
     
 }
@@ -51,11 +74,11 @@ struct AlarmRowView: View {
     var body: some View {
         WithPerceptionTracking {
             HStack {
-                Toggle(isOn: $store.alarm.isOn.sending(\.setToggleOn), label: {
+                Toggle(isOn: $store.alarm.isOn.sending(\.didTapToggle), label: {
                     HStack {
-                        Text(store.alarm.dayTime.title)
+                        Text(store.alarm.displayDayTime)
                             .font(Fonts.Pretendard.regular.swiftUIFont(size: 20))
-                        Text(store.alarm.title)
+                        Text(store.alarm.displayTitle)
                             .font(Fonts.Pretendard.semiBold.swiftUIFont(size: 42))
                         
                         Spacer()
@@ -72,6 +95,10 @@ struct AlarmRowView: View {
             }
             .frame(height: 75)
             .padding(.horizontal, 20)
+            .onTapGesture {
+                store.send(.didTapAlarm)
+            }
+            .alert($store.scope(state: \.alert, action: \.alert))
         }
     }
     

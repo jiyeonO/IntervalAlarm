@@ -23,6 +23,7 @@ struct AddAlarmFeature {
         case setMinute(String)
         case setRepeat(Bool)
         case saveAlarm
+        case setAlarmOn(AlarmModel)
         
         case binding(BindingAction<State>)
     }
@@ -47,7 +48,10 @@ struct AddAlarmFeature {
                 return .none
             case .saveAlarm:
                 userDefaultsClient.saveAlarm(state.alarm)
-                return .run { _ in await dismiss() }
+                return .concatenate(.send(.setAlarmOn(state.alarm)),
+                                    .run { _ in await dismiss() })
+            case .setAlarmOn(_):
+                return .none
             case .binding:
                 return .none
             }
