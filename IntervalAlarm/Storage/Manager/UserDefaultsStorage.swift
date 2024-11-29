@@ -48,7 +48,7 @@ extension UserDefaultsStorage {
     }
     
     func loadAlarms() -> IdentifiedArrayOf<AlarmModel> {
-        let alarms = loadObjects(.alarms) ?? Array(AlarmModel.previewItems)
+        let alarms: [AlarmModel] = loadObjects(.alarms) ?? []
         return IdentifiedArrayOf(uniqueElements: alarms)
     }
     
