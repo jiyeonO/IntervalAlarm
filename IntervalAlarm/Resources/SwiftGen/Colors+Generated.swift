@@ -22,18 +22,25 @@ internal typealias AssetColorTypeAlias = ColorAsset.Color
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Colors {
-  internal static let blue100 = ColorAsset(name: "blue100")
+  internal static let blue10 = ColorAsset(name: "blue10")
+  internal static let blue20 = ColorAsset(name: "blue20")
+  internal static let blue30 = ColorAsset(name: "blue30")
+  internal static let blue40 = ColorAsset(name: "blue40")
   internal static let blue50 = ColorAsset(name: "blue50")
-  internal static let grey00 = ColorAsset(name: "grey00")
+  internal static let blue60 = ColorAsset(name: "blue60")
+  internal static let black100 = ColorAsset(name: "black100")
+  internal static let green10 = ColorAsset(name: "green10")
+  internal static let grey10 = ColorAsset(name: "grey10")
   internal static let grey100 = ColorAsset(name: "grey100")
-  internal static let grey200 = ColorAsset(name: "grey200")
-  internal static let grey400 = ColorAsset(name: "grey400")
-  internal static let grey50 = ColorAsset(name: "grey50")
-  internal static let grey600 = ColorAsset(name: "grey600")
-  internal static let grey700 = ColorAsset(name: "grey700")
-  internal static let grey900 = ColorAsset(name: "grey900")
+  internal static let grey20 = ColorAsset(name: "grey20")
+  internal static let grey40 = ColorAsset(name: "grey40")
+  internal static let grey60 = ColorAsset(name: "grey60")
+  internal static let grey70 = ColorAsset(name: "grey70")
+  internal static let grey80 = ColorAsset(name: "grey80")
+  internal static let grey90 = ColorAsset(name: "grey90")
   internal static let red100 = ColorAsset(name: "red100")
-  internal static let red50 = ColorAsset(name: "red50")
+  internal static let toastBG = ColorAsset(name: "toastBG")
+  internal static let white100 = ColorAsset(name: "white100")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
