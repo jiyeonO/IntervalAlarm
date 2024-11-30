@@ -168,23 +168,13 @@ struct MainView: View {
         WithPerceptionTracking {
             NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
                 List {
-
-                    VStack {
-                        HStack {
-                            Spacer()
-                            Image(systemName: "plus")
-                            Text("알람 추가할래요")
-                                .font(Fonts.Pretendard.semiBold.swiftUIFont(size: 16.0))
-                            Spacer()
+                    AddAlarmButtonView()
+                        .padding(.horizontal, 20.0)
+                        .padding(.vertical, 10.0)
+                        .noneSeperator()
+                        .onTapGesture {
+                            store.send(.didTapAddButton)
                         }
-                        .padding(.vertical, 16.0)
-                        .padding(.horizontal, 8.0)
-                        .background(.yellow)
-                        .clipShape(.rect(cornerRadius: 12.0))
-                    }
-                    .padding(.horizontal, 20.0)
-                    .padding(.vertical, 10.0)
-                    .noneSeperator()
 
                     ForEach(store.scope(state: \.alarmStates, action: \.alarmActions)) { store in
                         VStack {
@@ -196,15 +186,8 @@ struct MainView: View {
                         store.send(.didSwipeDelete($0))
                     }
                 }
+                .toolbar(.hidden, for: .navigationBar)
                 .listStyle(.plain)
-                .navigationTitle("알람")
-                .toolbar {
-                    ToolbarItem {
-                        CustomNavigationView(type: .add) {
-                            store.send(.didTapAddButton)
-                        }
-                    }
-                }
             } destination: { store in
                 WithPerceptionTracking {
                     switch store.case {
@@ -232,4 +215,3 @@ struct MainView: View {
         MainFeature()
     }))
 }
-
