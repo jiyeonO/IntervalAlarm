@@ -6,21 +6,42 @@
 //
 
 import Foundation
+import EventKit
 import ComposableArchitecture
 
 struct AlarmModel: Codable, Equatable {
     
     var id = UUID()
-    
-    var dayTime: DayTimeType = .AM
-    var hour: String // in 12-Hour TODO: 현재 시간 셋팅.
+
+    var hour: String // in 12-Hour
     var minute: String
+    var dayTime: DayTimeType
     
-    var isOn: Bool = true
-    var isRepeat: Bool = false
+    var isOn: Bool
+    var isRepeat: Bool
     
     // TODO: 간격, 반복, 사운드 등
     
+    init() {
+        let hourValue = Calendar.current.component(.hour, from: Date())
+        let isAfternoon = hourValue > 12
+
+        self.id = UUID()
+        self.hour = isAfternoon ? String(hourValue - 12) : hourValue.toString
+        self.minute = Calendar.current.component(.minute, from: Date()).toString
+        self.dayTime = isAfternoon ? .PM : .AM
+        self.isOn = true
+        self.isRepeat = false
+    }
+    
+    init(hour: String, minute: String, dayTime: DayTimeType = .AM, isOn: Bool = true, isRepeat: Bool = false) {
+        self.id = UUID()
+        self.hour = hour
+        self.minute = minute
+        self.dayTime = dayTime
+        self.isOn = isOn
+        self.isRepeat = isRepeat
+    }
 }
 
 extension AlarmModel {
@@ -59,8 +80,8 @@ extension AlarmModel {
     
     static var previewItems: IdentifiedArrayOf<Self> {
         [
-            .init(dayTime: .AM, hour: "6", minute: "23", isOn: false),
-            .init(dayTime: .PM, hour: "4", minute: "43", isOn: true)
+            .init(hour: "6", minute: "23", dayTime: .AM, isOn: false),
+            .init(hour: "4", minute: "43", dayTime: .PM, isOn: true)
         ]
     }
     

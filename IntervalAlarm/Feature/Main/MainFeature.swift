@@ -13,7 +13,7 @@ struct MainFeature {
     
     @Reducer(state: .equatable)
     enum Path {
-        case detail(DetailFeature)
+        case modified(AddAlarmFeature)
     }
     
     @ObservableState
@@ -22,6 +22,7 @@ struct MainFeature {
         
         var alarmStates: IdentifiedArrayOf<AlarmRowFeature.State> = []
         var path = StackState<Path.State>()
+
         @Presents var addAlarmState: AddAlarmFeature.State?
         @Presents var alert: AlertState<Action.Alert>?
     }
@@ -35,7 +36,7 @@ struct MainFeature {
         case removeNotification(AlarmModel)
         case didTapDenyPermission
         case toAddAlarm
-        
+
         case alarmActions(IdentifiedActionOf<AlarmRowFeature>)
         case path(StackActionOf<Path>)
         case addAlarmAction(PresentationAction<AddAlarmFeature.Action>)
@@ -59,6 +60,10 @@ struct MainFeature {
                 state.alarmStates = IdentifiedArrayOf(uniqueElements: states)
                 return .none
             case .didTapAddButton:
+                let generator = UIImpactFeedbackGenerator(style: .medium)
+                generator.prepare()
+                generator.impactOccurred()
+
                 return .run { send in
                     do {
                         let isAllowPush = try await PermissionHandler().onPermission(type: .push)
@@ -120,9 +125,9 @@ struct MainFeature {
             case let .alarmActions(.element(id: id, action: .setAlarmOff)):
                 guard let alarm = state.alarmStates[id: id]?.alarm else { return .none }
                 return .send(.removeNotification(alarm))
-            case let .alarmActions(.element(id: id, action: .toAlarmDetail)):
+            case let .alarmActions(.element(id: id, action: .toModifyAlarm)):
                 guard let alarm = state.alarmStates[id: id]?.alarm else { return .none }
-                state.path.append(.detail(DetailFeature.State(alarm: alarm)))
+                state.path.append(.modified(AddAlarmFeature.State(alarm: alarm)))
                 return .none
             case .alert(.presented(.toSetting)):
                 return .run { _ in
@@ -130,7 +135,7 @@ struct MainFeature {
                 }
             case let .path(action):
                 switch action {
-                case .element(id: _, action: .detail(.onAppear)):
+                case .element(id: _, action: .modified(.setAlarmOn(_))):
                     return .none
                 default:
                     return .none
@@ -163,36 +168,39 @@ import SwiftUI
 struct MainView: View {
     
     @Perception.Bindable var store: StoreOf<MainFeature>
-    
+
     var body: some View {
         WithPerceptionTracking {
             NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
                 List {
+                    AddAlarmButtonView()
+                        .padding(.horizontal, 20.0)
+                        .padding(.vertical, 10.0)
+                        .listRowBackground(Colors.grey20.swiftUIColor)
+                        .noneSeperator()
+                        .onTapGesture {
+                            store.send(.didTapAddButton)
+                        }
+
                     ForEach(store.scope(state: \.alarmStates, action: \.alarmActions)) { store in
                         VStack {
                             AlarmRowView(store: store)
-                            CustomDivider()
                         }
+                        .listRowBackground(Colors.grey20.swiftUIColor)
                         .noneSeperator()
                     }
                     .onDelete {
                         store.send(.didSwipeDelete($0))
                     }
                 }
+                .background(.grey20)
+                .toolbar(.hidden, for: .navigationBar)
                 .listStyle(.plain)
-                .navigationTitle("알람")
-                .toolbar {
-                    ToolbarItem {
-                        CustomNavigationView(type: .add) {
-                            store.send(.didTapAddButton)
-                        }
-                    }
-                }
             } destination: { store in
                 WithPerceptionTracking {
                     switch store.case {
-                    case let .detail(store):
-                        DetailView(store: store)
+                    case let .modified(store):
+                        AddAlarmView(store: store)
                     }
                 }
             }
@@ -201,6 +209,7 @@ struct MainView: View {
                     AddAlarmView(store: store)
                 }
             }
+            .background(.grey20)
             .alert($store.scope(state: \.alert, action: \.alert))
             .onAppear {
                 store.send(.onAppear)
@@ -215,4 +224,3 @@ struct MainView: View {
         MainFeature()
     }))
 }
-

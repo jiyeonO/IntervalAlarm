@@ -50,12 +50,13 @@
 		1CE9D1752C3AD5720084C2A6 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D1742C3AD5720084C2A6 /* Foundation+Extension.swift */; };
 		1CE9D17B2C3AD9FD0084C2A6 /* AddAlarmFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */; };
 		1CE9D1812C3D7EEE0084C2A6 /* TimeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D1802C3D7EEE0084C2A6 /* TimeRange.swift */; };
-		1CE9D1862C4D00880084C2A6 /* DetailFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D1852C4D00880084C2A6 /* DetailFeature.swift */; };
 		4987C23D2CF73CF300BEFF4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4987C23C2CF73CF300BEFF4C /* GoogleService-Info.plist */; };
 		4987C2402CF73DBC00BEFF4C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4987C23F2CF73DBC00BEFF4C /* FirebaseAnalytics */; };
 		4987C2422CF73DBC00BEFF4C /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4987C2412CF73DBC00BEFF4C /* FirebaseCore */; };
 		4987C2442CF73E2500BEFF4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987C2432CF73E2500BEFF4C /* AppDelegate.swift */; };
 		4987C2462CF741D600BEFF4C /* libInternalStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4987C2452CF741D600BEFF4C /* libInternalStorage.a */; };
+		4987C24B2CFAB17000BEFF4C /* WeekdayDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987C24A2CFAB17000BEFF4C /* WeekdayDisplayView.swift */; };
+		4987C24D2CFABCF900BEFF4C /* AddAlarmButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987C24C2CFABCF900BEFF4C /* AddAlarmButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,10 +123,11 @@
 		1CE9D1742C3AD5720084C2A6 /* Foundation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmFeature.swift; sourceTree = "<group>"; };
 		1CE9D1802C3D7EEE0084C2A6 /* TimeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRange.swift; sourceTree = "<group>"; };
-		1CE9D1852C4D00880084C2A6 /* DetailFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFeature.swift; sourceTree = "<group>"; };
 		4987C23C2CF73CF300BEFF4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4987C2432CF73E2500BEFF4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4987C2452CF741D600BEFF4C /* libInternalStorage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libInternalStorage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4987C24A2CFAB17000BEFF4C /* WeekdayDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayDisplayView.swift; sourceTree = "<group>"; };
+		4987C24C2CFABCF900BEFF4C /* AddAlarmButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,8 @@
 			isa = PBXGroup;
 			children = (
 				1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */,
+				4987C24A2CFAB17000BEFF4C /* WeekdayDisplayView.swift */,
+				4987C24C2CFABCF900BEFF4C /* AddAlarmButtonView.swift */,
 			);
 			path = Row;
 			sourceTree = "<group>";
@@ -370,7 +374,6 @@
 				1C80620F2C36D32A002E312E /* Common */,
 				1C8061ED2C36D0CA002E312E /* TimePicker */,
 				1CE9D1762C3AD8990084C2A6 /* Add */,
-				1CE9D1822C4CFE490084C2A6 /* Detail */,
 				1C85BE582C35397200AA98B9 /* Main */,
 			);
 			path = Feature;
@@ -413,14 +416,6 @@
 				1CE9D1802C3D7EEE0084C2A6 /* TimeRange.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		1CE9D1822C4CFE490084C2A6 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				1CE9D1852C4D00880084C2A6 /* DetailFeature.swift */,
-			);
-			path = Detail;
 			sourceTree = "<group>";
 		};
 		4987C2472CF742F800BEFF4C /* Delegate */ = {
@@ -625,7 +620,9 @@
 				1C85BE5A2C35398A00AA98B9 /* MainFeature.swift in Sources */,
 				4987C2442CF73E2500BEFF4C /* AppDelegate.swift in Sources */,
 				1C8061F22C36D0ED002E312E /* TimePickerView.swift in Sources */,
+				4987C24B2CFAB17000BEFF4C /* WeekdayDisplayView.swift in Sources */,
 				1C8062142C36D32A002E312E /* ViewDidLoadModifier.swift in Sources */,
+				4987C24D2CFABCF900BEFF4C /* AddAlarmButtonView.swift in Sources */,
 				1C00A7722CF006F20016AA9D /* UserDefaultsStorage.swift in Sources */,
 				1C50E2392CE4D1AC004E698B /* Fonts+Generated.swift in Sources */,
 				1C00A7752CF008C60016AA9D /* UserDefaultsClient.swift in Sources */,
@@ -633,7 +630,6 @@
 				1C8062392C36D5BF002E312E /* Logger.swift in Sources */,
 				1C46FB182CF8B39B00A90B96 /* NotificationRequestModel.swift in Sources */,
 				1CCF736F2C34DB030099E0E1 /* IntervalAlarmApp.swift in Sources */,
-				1CE9D1862C4D00880084C2A6 /* DetailFeature.swift in Sources */,
 				1C8062122C36D32A002E312E /* HiddenModifier.swift in Sources */,
 				1C85BE602C353D3C00AA98B9 /* AlarmModel.swift in Sources */,
 			);
