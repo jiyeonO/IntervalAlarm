@@ -20,7 +20,7 @@ struct AddAlarmButtonView: View {
             }
             .padding(.vertical, 16.0)
             .padding(.horizontal, 8.0)
-            .background(.yellow)
+            .background(.white100)
             .clipShape(.rect(cornerRadius: 12.0))
         }
     }

@@ -188,17 +188,15 @@ struct MainView: View {
                                 store.send(.setPressedState(false))
                             }
                         }
-                        .scaleEffect(store.isPressed ? 0.85 : 1)
-                        .shadow(
-                            color: .black.opacity(store.isPressed ? 0.8 : 0),
-                            radius: store.isPressed ? 5 : 0
-                        )
+                        .scaleEffect(store.isPressed ? 0.8 : 1)
                         .animation(.easeIn, value: store.isPressed)
+                        .background(.grey20)
 
                     ForEach(store.scope(state: \.alarmStates, action: \.alarmActions)) { store in
                         VStack {
                             AlarmRowView(store: store)
                         }
+                        .background(.grey20)
                         .noneSeperator()
                     }
                     .onDelete {
@@ -207,6 +205,7 @@ struct MainView: View {
                 }
                 .toolbar(.hidden, for: .navigationBar)
                 .listStyle(.plain)
+                .background(.grey20)
             } destination: { store in
                 WithPerceptionTracking {
                     switch store.case {
@@ -220,6 +219,7 @@ struct MainView: View {
                     AddAlarmView(store: store)
                 }
             }
+            .background(.grey20)
             .alert($store.scope(state: \.alert, action: \.alert))
             .onAppear {
                 store.send(.onAppear)

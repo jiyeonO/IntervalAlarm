@@ -83,7 +83,7 @@ struct AlarmRowView: View {
 
                                 Text(store.alarm.dayTime.title)
                                     .font(Fonts.Pretendard.bold.swiftUIFont(size: 20.0))
-                                    .foregroundStyle(.grey700)
+                                    .foregroundStyle(.grey70)
                             }
                             Text("10분 간격으로 3회 반복해요")
                         }
@@ -97,8 +97,8 @@ struct AlarmRowView: View {
                         .padding(.top, 20.0)
                 }
                 .padding(20.0)
+                .background(.white100)
             }
-            .background(.yellow)
             .clipShape(.rect(cornerRadius: 12.0))
             .padding(.horizontal, 20.0)
             .padding(.vertical, 10.0)
