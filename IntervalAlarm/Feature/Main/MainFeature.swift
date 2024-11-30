@@ -22,6 +22,7 @@ struct MainFeature {
         
         var alarmStates: IdentifiedArrayOf<AlarmRowFeature.State> = []
         var path = StackState<Path.State>()
+
         @Presents var addAlarmState: AddAlarmFeature.State?
         @Presents var alert: AlertState<Action.Alert>?
     }
@@ -35,7 +36,7 @@ struct MainFeature {
         case removeNotification(AlarmModel)
         case didTapDenyPermission
         case toAddAlarm
-        
+
         case alarmActions(IdentifiedActionOf<AlarmRowFeature>)
         case path(StackActionOf<Path>)
         case addAlarmAction(PresentationAction<AddAlarmFeature.Action>)
@@ -59,6 +60,10 @@ struct MainFeature {
                 state.alarmStates = IdentifiedArrayOf(uniqueElements: states)
                 return .none
             case .didTapAddButton:
+                let generator = UIImpactFeedbackGenerator(style: .medium)
+                generator.prepare()
+                generator.impactOccurred()
+
                 return .run { send in
                     do {
                         let isAllowPush = try await PermissionHandler().onPermission(type: .push)
@@ -163,33 +168,34 @@ import SwiftUI
 struct MainView: View {
     
     @Perception.Bindable var store: StoreOf<MainFeature>
-    
+
     var body: some View {
         WithPerceptionTracking {
             NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
                 List {
+                    AddAlarmButtonView()
+                        .padding(.horizontal, 20.0)
+                        .padding(.vertical, 10.0)
+                        .listRowBackground(Colors.grey20.swiftUIColor)
+                        .noneSeperator()
+                        .onTapGesture {
+                            store.send(.didTapAddButton)
+                        }
+
                     ForEach(store.scope(state: \.alarmStates, action: \.alarmActions)) { store in
                         VStack {
                             AlarmRowView(store: store)
-                            CustomDivider()
                         }
+                        .listRowBackground(Colors.grey20.swiftUIColor)
                         .noneSeperator()
                     }
                     .onDelete {
                         store.send(.didSwipeDelete($0))
                     }
                 }
+                .background(.grey20)
+                .toolbar(.hidden, for: .navigationBar)
                 .listStyle(.plain)
-                .navigationTitle("알람")
-                .toolbar {
-                    ToolbarItem {
-                        CustomNavigationView(type: .save) {
-                            //
-                        } doneAction: {
-                            store.send(.didTapAddButton)
-                        }
-                    }
-                }
             } destination: { store in
                 WithPerceptionTracking {
                     switch store.case {
@@ -203,6 +209,7 @@ struct MainView: View {
                     AddAlarmView(store: store)
                 }
             }
+            .background(.grey20)
             .alert($store.scope(state: \.alert, action: \.alert))
             .onAppear {
                 store.send(.onAppear)
@@ -217,4 +224,3 @@ struct MainView: View {
         MainFeature()
     }))
 }
-

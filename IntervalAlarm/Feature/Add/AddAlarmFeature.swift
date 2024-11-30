@@ -190,6 +190,7 @@ struct AddAlarmView: View {
                 }
                 .padding(20)
             }
+            .toolbar(.hidden, for: .navigationBar)
             .scrollDismissesKeyboard(.immediately)
             .background(.grey20)
         }
