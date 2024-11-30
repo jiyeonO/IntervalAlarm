@@ -73,28 +73,35 @@ struct AlarmRowView: View {
     
     var body: some View {
         WithPerceptionTracking {
-            HStack {
-                Toggle(isOn: $store.alarm.isOn.sending(\.didTapToggle), label: {
+            VStack {
+                VStack(alignment: .leading) {
                     HStack {
-                        Text(store.alarm.displayDayTime)
-                            .font(Fonts.Pretendard.regular.swiftUIFont(size: 20))
-                        Text(store.alarm.displayTitle)
-                            .font(Fonts.Pretendard.semiBold.swiftUIFont(size: 42))
-                        
-                        Spacer()
-                        
                         VStack(alignment: .leading) {
-                            Text("알람 타이틀")
-                                .font(Fonts.Pretendard.regular.swiftUIFont(size: 14))
-                            Text("반복, 5분")
-                                .font(Fonts.Pretendard.regular.swiftUIFont(size: 14))
+                            HStack(spacing: 4.0) {
+                                Text(store.alarm.displayTitle)
+                                    .font(Fonts.Pretendard.bold.swiftUIFont(size: 28.0))
+
+                                Text(store.alarm.dayTime.title)
+                                    .font(Fonts.Pretendard.bold.swiftUIFont(size: 20.0))
+                                    .foregroundStyle(.grey700)
+                            }
+                            Text("10분 간격으로 3회 반복해요")
                         }
+                        Spacer()
+                        Toggle("", isOn: $store.alarm.isOn.sending(\.didTapToggle))
+                            .toggleStyle(SwitchToggleStyle(tint: .black))
+                            .labelsHidden()
                     }
-                })
-                .toggleStyle(SwitchToggleStyle(tint: Color.yellow))
+
+                    WeekdayDisplayView()
+                        .padding(.top, 20.0)
+                }
+                .padding(20.0)
             }
-            .frame(height: 75)
-            .padding(.horizontal, 20)
+            .background(.yellow)
+            .clipShape(.rect(cornerRadius: 12.0))
+            .padding(.horizontal, 20.0)
+            .padding(.vertical, 10.0)
             .onTapGesture {
                 store.send(.didTapAlarm)
             }

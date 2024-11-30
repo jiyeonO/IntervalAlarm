@@ -55,6 +55,7 @@
 		4987C2422CF73DBC00BEFF4C /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4987C2412CF73DBC00BEFF4C /* FirebaseCore */; };
 		4987C2442CF73E2500BEFF4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987C2432CF73E2500BEFF4C /* AppDelegate.swift */; };
 		4987C2462CF741D600BEFF4C /* libInternalStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4987C2452CF741D600BEFF4C /* libInternalStorage.a */; };
+		4987C24B2CFAB17000BEFF4C /* WeekdayDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987C24A2CFAB17000BEFF4C /* WeekdayDisplayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		4987C23C2CF73CF300BEFF4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4987C2432CF73E2500BEFF4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4987C2452CF741D600BEFF4C /* libInternalStorage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libInternalStorage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4987C24A2CFAB17000BEFF4C /* WeekdayDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayDisplayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */,
+				4987C24A2CFAB17000BEFF4C /* WeekdayDisplayView.swift */,
 			);
 			path = Row;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				1C85BE5A2C35398A00AA98B9 /* MainFeature.swift in Sources */,
 				4987C2442CF73E2500BEFF4C /* AppDelegate.swift in Sources */,
 				1C8061F22C36D0ED002E312E /* TimePickerView.swift in Sources */,
+				4987C24B2CFAB17000BEFF4C /* WeekdayDisplayView.swift in Sources */,
 				1C8062142C36D32A002E312E /* ViewDidLoadModifier.swift in Sources */,
 				1C00A7722CF006F20016AA9D /* UserDefaultsStorage.swift in Sources */,
 				1C50E2392CE4D1AC004E698B /* Fonts+Generated.swift in Sources */,
