@@ -34,7 +34,7 @@ struct CustomNavigationView: View {
             Spacer()
             Text(type.buttonTitle)
                 .font(Fonts.Pretendard.semiBold.swiftUIFont(size: 16))
-                .foregroundStyle(.blue100)
+                .foregroundStyle(.blue10)
                 .onTapGesture {
                     action()
                 }

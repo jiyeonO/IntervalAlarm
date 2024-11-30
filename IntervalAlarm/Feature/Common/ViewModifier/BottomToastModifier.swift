@@ -28,11 +28,11 @@ struct BottomToastModifier: ViewModifier {
             Spacer()
             Text(title)
                 .font(Fonts.Pretendard.bold.swiftUIFont(size: 13))
-                .foregroundStyle(.grey00)
+                .foregroundStyle(.white100)
             .padding(.horizontal, 24)
             .padding(.vertical, 12)
             .frame(height: 40)
-            .background(Capsule().fill(Colors.grey700.swiftUIColor))
+            .background(Capsule().fill(Colors.grey70.swiftUIColor))
             .padding(.bottom, 100)
         }
     }
