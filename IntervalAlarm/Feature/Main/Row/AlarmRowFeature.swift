@@ -80,16 +80,18 @@ struct AlarmRowView: View {
                             HStack(spacing: 4.0) {
                                 Text(store.alarm.displayTitle)
                                     .font(Fonts.Pretendard.bold.swiftUIFont(size: 28.0))
+                                    .foregroundStyle(.grey90)
 
                                 Text(store.alarm.dayTime.title)
                                     .font(Fonts.Pretendard.bold.swiftUIFont(size: 20.0))
                                     .foregroundStyle(.grey70)
                             }
                             Text("10분 간격으로 3회 반복해요")
+                                .foregroundStyle(.grey80)
                         }
                         Spacer()
                         Toggle("", isOn: $store.alarm.isOn.sending(\.didTapToggle))
-                            .toggleStyle(SwitchToggleStyle(tint: .black))
+                            .toggleStyle(SwitchToggleStyle(tint: Colors.grey90.swiftUIColor))
                             .labelsHidden()
                     }
 

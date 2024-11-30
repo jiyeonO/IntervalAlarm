@@ -13,10 +13,11 @@ struct WeekdayDisplayView: View {
         HStack(spacing: 5.0) {
             ForEach(WeekdayDisplayView.weekdaySymbols, id: \.self) { text in
                 Circle()
-                    .foregroundStyle(.gray)
+                    .foregroundStyle(.grey20)
                     .overlay {
                         Text("\(text)")
                             .font(Fonts.Pretendard.medium.swiftUIFont(size: 12.0))
+                            .foregroundStyle(.grey70)
                     }
                     .frame(width: 32.0, height: 32.0)
             }

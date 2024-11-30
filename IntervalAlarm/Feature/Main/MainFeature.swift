@@ -23,8 +23,6 @@ struct MainFeature {
         var alarmStates: IdentifiedArrayOf<AlarmRowFeature.State> = []
         var path = StackState<Path.State>()
 
-        var isPressed: Bool = false
-
         @Presents var addAlarmState: AddAlarmFeature.State?
         @Presents var alert: AlertState<Action.Alert>?
     }
@@ -38,7 +36,6 @@ struct MainFeature {
         case removeNotification(AlarmModel)
         case didTapDenyPermission
         case toAddAlarm
-        case setPressedState(Bool)
 
         case alarmActions(IdentifiedActionOf<AlarmRowFeature>)
         case path(StackActionOf<Path>)
@@ -63,6 +60,10 @@ struct MainFeature {
                 state.alarmStates = IdentifiedArrayOf(uniqueElements: states)
                 return .none
             case .didTapAddButton:
+                let generator = UIImpactFeedbackGenerator(style: .medium)
+                generator.prepare()
+                generator.impactOccurred()
+
                 return .run { send in
                     do {
                         let isAllowPush = try await PermissionHandler().onPermission(type: .push)
@@ -148,12 +149,6 @@ struct MainFeature {
                 return .none
             case .alert:
                 return .none
-            case .setPressedState(let isPressed):
-                state.isPressed = isPressed
-                if !isPressed {
-                    return .send(.didTapAddButton)
-                }
-                return .none
             }
         }
         .forEach(\.path, action: \.path)
@@ -183,13 +178,8 @@ struct MainView: View {
                         .padding(.vertical, 10.0)
                         .noneSeperator()
                         .onTapGesture {
-                            store.send(.setPressedState(true))
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-                                store.send(.setPressedState(false))
-                            }
+                            store.send(.didTapAddButton)
                         }
-                        .scaleEffect(store.isPressed ? 0.8 : 1)
-                        .animation(.easeIn, value: store.isPressed)
                         .background(.grey20)
 
                     ForEach(store.scope(state: \.alarmStates, action: \.alarmActions)) { store in

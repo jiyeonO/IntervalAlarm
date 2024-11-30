@@ -13,9 +13,10 @@ struct AddAlarmButtonView: View {
         VStack {
             HStack {
                 Spacer()
-                Image(systemName: "plus")
+                Images.icAdd24.swiftUIImage
                 Text("알람 추가할래요")
                     .font(Fonts.Pretendard.semiBold.swiftUIFont(size: 16.0))
+                    .foregroundStyle(.black100)
                 Spacer()
             }
             .padding(.vertical, 16.0)
