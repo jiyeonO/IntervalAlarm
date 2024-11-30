@@ -47,9 +47,9 @@ struct CustomDivider_Preview: PreviewProvider {
     
     static var previews: some View {
         VStack {
-            CustomDivider(color: Colors.grey900, direction: .horizontal)
+            CustomDivider(color: Colors.grey90, direction: .horizontal)
             
-            CustomDivider(color: Colors.grey900, direction: .vertical)
+            CustomDivider(color: Colors.grey90, direction: .vertical)
         }
     }
     
