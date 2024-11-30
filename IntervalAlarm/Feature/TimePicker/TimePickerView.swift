@@ -17,7 +17,7 @@ struct TimePickerView: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            Color(asset: Colors.grey900)
+            Color(asset: Colors.grey90)
                 .opacity(0.3)
                 .onTapGesture {
                     withAnimation(.easeInOut) {
@@ -49,7 +49,7 @@ struct TimePickerView: View {
             }
             .transition(.move(edge: .bottom))
             .background(Colors.grey100.swiftUIColor)
-            .shadow(color: Colors.grey900.swiftUIColor.opacity(0.25), radius: 6)
+            .shadow(color: Colors.grey90.swiftUIColor.opacity(0.25), radius: 6)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
