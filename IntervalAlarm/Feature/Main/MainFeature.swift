@@ -176,26 +176,26 @@ struct MainView: View {
                     AddAlarmButtonView()
                         .padding(.horizontal, 20.0)
                         .padding(.vertical, 10.0)
+                        .listRowBackground(Colors.grey20.swiftUIColor)
                         .noneSeperator()
                         .onTapGesture {
                             store.send(.didTapAddButton)
                         }
-                        .background(.grey20)
 
                     ForEach(store.scope(state: \.alarmStates, action: \.alarmActions)) { store in
                         VStack {
                             AlarmRowView(store: store)
                         }
-                        .background(.grey20)
+                        .listRowBackground(Colors.grey20.swiftUIColor)
                         .noneSeperator()
                     }
                     .onDelete {
                         store.send(.didSwipeDelete($0))
                     }
                 }
+                .background(.grey20)
                 .toolbar(.hidden, for: .navigationBar)
                 .listStyle(.plain)
-                .background(.grey20)
             } destination: { store in
                 WithPerceptionTracking {
                     switch store.case {
