@@ -29,6 +29,7 @@ internal enum Images {
   internal static let icArrowRightGrey16 = ImageAsset(name: "ic_arrow_right_grey_16")
   internal static let icArrowUp = ImageAsset(name: "ic_arrow_up")
   internal static let icBack = ImageAsset(name: "ic_back")
+  internal static let icBackBlack = ImageAsset(name: "ic_back_black")
   internal static let icBackWhite = ImageAsset(name: "ic_back_white")
   internal static let icCheck = ImageAsset(name: "ic_check")
   internal static let icCheckGrey = ImageAsset(name: "ic_check_grey")
@@ -36,6 +37,7 @@ internal enum Images {
   internal static let icClose = ImageAsset(name: "ic_close")
   internal static let icCloseWhite = ImageAsset(name: "ic_close_white")
   internal static let iconArrowDownSmallMono = ImageAsset(name: "icon-arrow-down-small-mono")
+  internal static let logo = ImageAsset(name: "logo")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

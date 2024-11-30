@@ -183,7 +183,9 @@ struct MainView: View {
                 .navigationTitle("알람")
                 .toolbar {
                     ToolbarItem {
-                        CustomNavigationView(type: .add) {
+                        CustomNavigationView(type: .save) {
+                            //
+                        } doneAction: {
                             store.send(.didTapAddButton)
                         }
                     }
