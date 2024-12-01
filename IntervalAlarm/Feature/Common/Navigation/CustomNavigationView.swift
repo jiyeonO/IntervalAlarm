@@ -42,22 +42,24 @@ struct CustomNavigationView: View {
     
     var body: some View {
         HStack {
-            Images.icBack.swiftUIImage
-                .resizable()
-                .frame(width: 56, height: 56)
-                .onTapGesture {
-                    backAction()
-                }
+            Button {
+                backAction()
+            } label: {
+                Images.icBack.swiftUIImage
+                    .resizable()
+                    .frame(width: 56, height: 56)
+            }
             
             Spacer()
             
             if type != .default {
-                Text(type.buttonTitle)
-                    .font(Fonts.Pretendard.semiBold.swiftUIFont(size: 16))
-                    .foregroundStyle(.grey90)
-                    .onTapGesture {
-                        doneAction?()
-                    }
+                Button {
+                    doneAction?()
+                } label: {
+                    Text(type.buttonTitle)
+                        .font(Fonts.Pretendard.semiBold.swiftUIFont(size: 16))
+                        .foregroundStyle(.grey90)
+                }
             }
         }
     }

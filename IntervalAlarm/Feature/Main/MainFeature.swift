@@ -173,14 +173,15 @@ struct MainView: View {
         WithPerceptionTracking {
             NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
                 List {
-                    AddAlarmButtonView()
-                        .padding(.horizontal, 20.0)
-                        .padding(.vertical, 10.0)
-                        .listRowBackground(Colors.grey20.swiftUIColor)
-                        .noneSeperator()
-                        .onTapGesture {
-                            store.send(.didTapAddButton)
-                        }
+                    Button {
+                        store.send(.didTapAddButton)
+                    } label: {
+                        AddAlarmButtonView()
+                    }
+                    .padding(.horizontal, 20.0)
+                    .padding(.vertical, 10.0)
+                    .listRowBackground(Colors.grey20.swiftUIColor)
+                    .noneSeperator()
 
                     ForEach(store.scope(state: \.alarmStates, action: \.alarmActions)) { store in
                         VStack {

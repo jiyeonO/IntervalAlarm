@@ -11,6 +11,8 @@
 		1C00A7752CF008C60016AA9D /* UserDefaultsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00A7742CF008BD0016AA9D /* UserDefaultsClient.swift */; };
 		1C00A7782CF0547C0016AA9D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1C00A7772CF0547C0016AA9D /* README.md */; };
 		1C00A77D2CF5A02B0016AA9D /* ListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00A77C2CF5A02B0016AA9D /* ListModifier.swift */; };
+		1C22D0CE2CFD2B7400B14DF2 /* DayTimeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C22D0CD2CFD2B6800B14DF2 /* DayTimeTabView.swift */; };
+		1C22D0D22CFD2D5B00B14DF2 /* AlarmOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C22D0D12CFD2D3800B14DF2 /* AlarmOptionsView.swift */; };
 		1C28CE892C730E2800F56774 /* AlarmRowFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */; };
 		1C3E51B12CF82EE40028B142 /* PermissionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E51AF2CF82EE40028B142 /* PermissionHandler.swift */; };
 		1C3E51B22CF82EE40028B142 /* ApplicationLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3E51AE2CF82EE40028B142 /* ApplicationLoader.swift */; };
@@ -82,6 +84,8 @@
 		1C00A7742CF008BD0016AA9D /* UserDefaultsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClient.swift; sourceTree = "<group>"; };
 		1C00A7772CF0547C0016AA9D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1C00A77C2CF5A02B0016AA9D /* ListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModifier.swift; sourceTree = "<group>"; };
+		1C22D0CD2CFD2B6800B14DF2 /* DayTimeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTimeTabView.swift; sourceTree = "<group>"; };
+		1C22D0D12CFD2D3800B14DF2 /* AlarmOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmOptionsView.swift; sourceTree = "<group>"; };
 		1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRowFeature.swift; sourceTree = "<group>"; };
 		1C3E51AE2CF82EE40028B142 /* ApplicationLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLoader.swift; sourceTree = "<group>"; };
 		1C3E51AF2CF82EE40028B142 /* PermissionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionHandler.swift; sourceTree = "<group>"; };
@@ -194,6 +198,23 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		1C22D0CF2CFD2B8B00B14DF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C22D0CD2CFD2B6800B14DF2 /* DayTimeTabView.swift */,
+				1C22D0D12CFD2D3800B14DF2 /* AlarmOptionsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1C22D0D02CFD2B9600B14DF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4987C24C2CFABCF900BEFF4C /* AddAlarmButtonView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		1C3E51B02CF82EE40028B142 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,7 +245,6 @@
 			children = (
 				1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */,
 				4987C24A2CFAB17000BEFF4C /* WeekdayDisplayView.swift */,
-				4987C24C2CFABCF900BEFF4C /* AddAlarmButtonView.swift */,
 			);
 			path = Row;
 			sourceTree = "<group>";
@@ -289,6 +309,7 @@
 		1C85BE582C35397200AA98B9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1C22D0D02CFD2B9600B14DF2 /* View */,
 				1C8061F32C36D270002E312E /* Row */,
 				1C85BE592C35398A00AA98B9 /* MainFeature.swift */,
 			);
@@ -377,6 +398,7 @@
 		1CE9D1762C3AD8990084C2A6 /* Add */ = {
 			isa = PBXGroup;
 			children = (
+				1C22D0CF2CFD2B8B00B14DF2 /* View */,
 				1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */,
 			);
 			path = Add;
@@ -596,6 +618,7 @@
 				4987C2442CF73E2500BEFF4C /* AppDelegate.swift in Sources */,
 				4987C24B2CFAB17000BEFF4C /* WeekdayDisplayView.swift in Sources */,
 				1C8062142C36D32A002E312E /* ViewDidLoadModifier.swift in Sources */,
+				1C22D0D22CFD2D5B00B14DF2 /* AlarmOptionsView.swift in Sources */,
 				4987C24D2CFABCF900BEFF4C /* AddAlarmButtonView.swift in Sources */,
 				1CF3D9DD2CFB63B400FD32A1 /* SnoozeModel.swift in Sources */,
 				1CF3D9DE2CFB63B400FD32A1 /* AlarmModel.swift in Sources */,
@@ -605,6 +628,7 @@
 				1C00A7722CF006F20016AA9D /* UserDefaultsStorage.swift in Sources */,
 				1C50E2392CE4D1AC004E698B /* Fonts+Generated.swift in Sources */,
 				1C00A7752CF008C60016AA9D /* UserDefaultsClient.swift in Sources */,
+				1C22D0CE2CFD2B7400B14DF2 /* DayTimeTabView.swift in Sources */,
 				1C8062222C36D32A002E312E /* RoundedCorner.swift in Sources */,
 				1C8062392C36D5BF002E312E /* Logger.swift in Sources */,
 				1CCF736F2C34DB030099E0E1 /* IntervalAlarmApp.swift in Sources */,

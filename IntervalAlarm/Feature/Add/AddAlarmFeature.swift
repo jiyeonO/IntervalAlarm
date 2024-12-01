@@ -115,73 +115,9 @@ struct AddAlarmView: View {
                     .background(.white100)
                     .cornerRadius(12)
                     
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("시간대")
-                            .font(Fonts.Pretendard.bold.swiftUIFont(size: 16))
-                            .foregroundStyle(.grey100)
-                        
-                        HStack {
-                            ForEach(DayTimeType.allCases, id: \.self) { type in
-                                Text(type.title)
-                                    .font(Fonts.Pretendard.medium.swiftUIFont(size: 18))
-                                    .foregroundStyle(store.alarm.dayTime == type ? .white100 : .grey100)
-                                    .padding(.horizontal, 20)
-                                    .padding(.vertical, 8)
-                                    .background(store.alarm.dayTime == type ? .grey100 : .white100)
-                                    .cornerRadius(12.0)
-                                    .onTapGesture {
-                                        store.send(.setDayTime(type))
-                                    }
-                            }
-                        }
-                    }
+                    DayTimeTabView(store: store)
                     
-                    VStack(alignment: .center, spacing: 10) {
-                        Toggle(isOn: $store.alarm.snooze.isOn.sending(\.didToggleSnooze)) {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("다시 울림")
-                                    .font(Fonts.Pretendard.bold.swiftUIFont(size: 16))
-                                    .foregroundStyle(.grey100)
-                                Text(store.alarm.snooze.isOn ? store.alarm.snooze.displayTitle : "사용 안함")
-                                    .font(Fonts.Pretendard.regular.swiftUIFont(size: 13))
-                                    .foregroundStyle(.grey80)
-                            }
-                        }
-                        .toggleStyle(SwitchToggleStyle(tint: .grey90))
-                        .padding(20)
-                        .background(.white100)
-                        .cornerRadius(12)
-                        
-                        Toggle(isOn: $store.alarm.isVibrate.sending(\.didToggleVibrate)) {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("진동")
-                                    .font(Fonts.Pretendard.bold.swiftUIFont(size: 16))
-                                    .foregroundStyle(.grey100)
-                                Text(store.alarm.isVibrate ? "사용함" : "사용 안함")
-                                    .font(Fonts.Pretendard.regular.swiftUIFont(size: 13))
-                                    .foregroundStyle(.grey80)
-                            }
-                        }
-                        .toggleStyle(SwitchToggleStyle(tint: .grey90))
-                        .padding(20)
-                        .background(.white100)
-                        .cornerRadius(12)
-                        
-                        Toggle(isOn: $store.alarm.sound.isOn.sending(\.didToggleSound)) {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("알람음 설정")
-                                    .font(Fonts.Pretendard.bold.swiftUIFont(size: 16))
-                                    .foregroundStyle(.grey100)
-                                Text(store.alarm.sound.isOn ? store.alarm.sound.title : "사용 안함")
-                                    .font(Fonts.Pretendard.regular.swiftUIFont(size: 13))
-                                    .foregroundStyle(.grey80)
-                            }
-                        }
-                        .toggleStyle(SwitchToggleStyle(tint: .grey90))
-                        .padding(20)
-                        .background(.white100)
-                        .cornerRadius(12)
-                    }
+                    AlarmOptionsView(store: store)
                     
                     Spacer()
                     
