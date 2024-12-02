@@ -19,10 +19,10 @@ struct AlarmModel: Codable, Equatable {
     
     var isOn: Bool
     
+    var repeatWeekdays: [String]
     var snooze: SnoozeModel
     var sound: SoundModel
     var isVibrate: Bool
-    var isRepeat: Bool // TODO
     
     init() {
         let hourValue = Calendar.current.component(.hour, from: Date())
@@ -33,22 +33,22 @@ struct AlarmModel: Codable, Equatable {
         self.minute = Calendar.current.component(.minute, from: Date()).toString
         self.dayTime = isAfternoon ? .PM : .AM
         self.isOn = true
+        self.repeatWeekdays = []
         self.snooze = .init()
         self.sound = .init()
         self.isVibrate = false
-        self.isRepeat = false
     }
     
-    init(hour: String, minute: String, dayTime: DayTimeType = .AM, isOn: Bool = true, snooze: SnoozeModel = .init(), sound: SoundModel = .init(), isVibrate: Bool = false, isRepeat: Bool = false) {
+    init(hour: String, minute: String, dayTime: DayTimeType = .AM, isOn: Bool = true, repeatWeekdays: [String] = [], snooze: SnoozeModel = .init(), sound: SoundModel = .init(), isVibrate: Bool = false, isRepeat: Bool = false) {
         self.id = UUID()
         self.hour = hour
         self.minute = minute
         self.dayTime = dayTime
         self.isOn = isOn
+        self.repeatWeekdays = repeatWeekdays
         self.snooze = snooze
         self.sound = sound
         self.isVibrate = isVibrate
-        self.isRepeat = isRepeat
     }
 }
 
@@ -80,6 +80,18 @@ extension AlarmModel {
     
     var notificationTitle: String {
         "⏰ \(displayDayTime) : \(displayTitle)"
+    }
+    
+    var repeatWeekdaysValue: [Int] {
+        self.repeatWeekdays.compactMap {
+            weekdaySymbols.firstIndex(of: $0)?.advanced(by: 1)
+        }
+    }
+    
+    var weekdaySymbols: [String] {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale(identifier: "ko_KR")
+        return calendar.shortStandaloneWeekdaySymbols
     }
     
 }
