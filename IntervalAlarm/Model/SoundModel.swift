@@ -5,8 +5,18 @@
 //  Created by 오지연 on 11/30/24.
 //
 
-enum SoundType: String, Codable, CaseIterable {
+enum VibrateType: String, Codable, CaseIterable {
     
+    case none
+    case light
+    case medium
+    case heavy
+    
+}
+
+enum MelodyType: String, Codable, CaseIterable {
+    
+    case none
     case radial
     case classic
     
@@ -15,14 +25,19 @@ enum SoundType: String, Codable, CaseIterable {
 struct SoundModel: Codable, Equatable {
     
     var isOn: Bool = true
-    var value: SoundType = .radial
+    var vibrate: VibrateType = .none
+    var melody: MelodyType = .radial
     
 }
 
 extension SoundModel {
     
+    var isMelodyOn: Bool {
+        self.melody != .none
+    }
+    
     var title: String {
-        self.value.rawValue
+        isMelodyOn ? self.melody.rawValue : self.vibrate.rawValue
     }
     
 }

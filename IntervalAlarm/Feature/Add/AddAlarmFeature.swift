@@ -23,9 +23,8 @@ struct AddAlarmFeature {
         case setHour(String)
         case setMinute(String)
         case didToggleSnooze(Bool)
-        case didToggleVibrate(Bool)
         case didToggleSound(Bool)
-        case setRepeat(Bool) // TODO: 요일 반복
+        case didTapRepeatDay(String)
         case saveAlarm
         case setAlarmOn(AlarmModel)
         
@@ -58,13 +57,15 @@ struct AddAlarmFeature {
             case let .didToggleSnooze(isOn):
                 state.alarm.snooze.isOn = isOn
                 return .none
-            case let .didToggleVibrate(isOn):
-                state.alarm.isVibrate = isOn
-                return .none
             case let .didToggleSound(isOn):
                 state.alarm.sound.isOn = isOn
                 return .none
-            case .setRepeat(_): // TODO
+            case let .didTapRepeatDay(day):
+                if state.alarm.repeatWeekdays.contains(day) {
+                    state.alarm.repeatWeekdays.removeAll { $0 == day }
+                } else {
+                    state.alarm.repeatWeekdays.append(day)
+                }
                 return .none
             case .saveAlarm:
                 userDefaultsClient.saveAlarm(state.alarm)
@@ -116,6 +117,8 @@ struct AddAlarmView: View {
                     .cornerRadius(12)
                     
                     DayTimeTabView(store: store)
+                    
+                    WeekDayTabView(store: store)
                     
                     AlarmOptionsView(store: store)
                     

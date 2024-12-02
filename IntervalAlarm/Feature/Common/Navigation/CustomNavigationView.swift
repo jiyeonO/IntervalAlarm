@@ -58,7 +58,11 @@ struct CustomNavigationView: View {
                 } label: {
                     Text(type.buttonTitle)
                         .font(Fonts.Pretendard.semiBold.swiftUIFont(size: 16))
-                        .foregroundStyle(.grey90)
+                        .foregroundStyle(.grey100)
+                        .padding(.horizontal, 28)
+                        .padding(.vertical, 15)
+                        .background(.white100)
+                        .clipShape(Capsule())
                 }
             }
         }

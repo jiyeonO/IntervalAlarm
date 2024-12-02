@@ -29,21 +29,6 @@ struct AlarmOptionsView: View {
                 .background(.white100)
                 .cornerRadius(12)
                 
-                Toggle(isOn: $store.alarm.isVibrate.sending(\.didToggleVibrate)) {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("진동")
-                            .font(Fonts.Pretendard.bold.swiftUIFont(size: 16))
-                            .foregroundStyle(.grey100)
-                        Text(store.alarm.isVibrate ? "사용함" : "사용 안함")
-                            .font(Fonts.Pretendard.regular.swiftUIFont(size: 13))
-                            .foregroundStyle(.grey80)
-                    }
-                }
-                .toggleStyle(SwitchToggleStyle(tint: .grey90))
-                .padding(20)
-                .background(.white100)
-                .cornerRadius(12)
-                
                 Toggle(isOn: $store.alarm.sound.isOn.sending(\.didToggleSound)) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("알람음 설정")
