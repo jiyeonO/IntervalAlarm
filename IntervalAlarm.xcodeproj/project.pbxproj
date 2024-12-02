@@ -11,6 +11,7 @@
 		1C00A7752CF008C60016AA9D /* UserDefaultsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00A7742CF008BD0016AA9D /* UserDefaultsClient.swift */; };
 		1C00A7782CF0547C0016AA9D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1C00A7772CF0547C0016AA9D /* README.md */; };
 		1C00A77D2CF5A02B0016AA9D /* ListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C00A77C2CF5A02B0016AA9D /* ListModifier.swift */; };
+		1C17347C2CFD788200E8E970 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1C17347B2CFD788200E8E970 /* Localizable.xcstrings */; };
 		1C22D0CE2CFD2B7400B14DF2 /* DayTimeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C22D0CD2CFD2B6800B14DF2 /* DayTimeTabView.swift */; };
 		1C22D0D22CFD2D5B00B14DF2 /* AlarmOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C22D0D12CFD2D3800B14DF2 /* AlarmOptionsView.swift */; };
 		1C28CE892C730E2800F56774 /* AlarmRowFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */; };
@@ -85,6 +86,7 @@
 		1C00A7742CF008BD0016AA9D /* UserDefaultsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClient.swift; sourceTree = "<group>"; };
 		1C00A7772CF0547C0016AA9D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1C00A77C2CF5A02B0016AA9D /* ListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModifier.swift; sourceTree = "<group>"; };
+		1C17347B2CFD788200E8E970 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		1C22D0CD2CFD2B6800B14DF2 /* DayTimeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTimeTabView.swift; sourceTree = "<group>"; };
 		1C22D0D12CFD2D3800B14DF2 /* AlarmOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmOptionsView.swift; sourceTree = "<group>"; };
 		1C28CE882C730E2800F56774 /* AlarmRowFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmRowFeature.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 		1CCF73622C34DB030099E0E1 = {
 			isa = PBXGroup;
 			children = (
+				1C17347B2CFD788200E8E970 /* Localizable.xcstrings */,
 				1C00A7772CF0547C0016AA9D /* README.md */,
 				1CCF736D2C34DB030099E0E1 /* IntervalAlarm */,
 				1C00A76C2CEFFD5C0016AA9D /* Frameworks */,
@@ -521,6 +524,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 1CCF73622C34DB030099E0E1;
 			packageReferences = (
@@ -554,6 +558,7 @@
 				4987C23D2CF73CF300BEFF4C /* GoogleService-Info.plist in Resources */,
 				1C50E2362CE4CDD4004E698B /* Pretendard-Medium.otf in Resources */,
 				1C50E2372CE4CDD4004E698B /* Pretendard-ExtraBold.otf in Resources */,
+				1C17347C2CFD788200E8E970 /* Localizable.xcstrings in Resources */,
 				1CCF73A92C34DD360099E0E1 /* Images.xcassets in Resources */,
 				1C00A7782CF0547C0016AA9D /* README.md in Resources */,
 				1CCF73AA2C34DD360099E0E1 /* Colors.xcassets in Resources */,
@@ -675,6 +680,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -729,6 +735,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -738,6 +745,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -785,6 +793,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

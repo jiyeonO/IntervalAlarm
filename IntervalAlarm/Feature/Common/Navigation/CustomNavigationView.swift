@@ -16,7 +16,7 @@ enum NavigationBarType {
 
 extension NavigationBarType {
     
-    var buttonTitle: String {
+    var buttonTitle: LocalizedStringKey {
         switch self {
         case .save:
             "저장"

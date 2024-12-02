@@ -4,6 +4,7 @@
 //
 //  Created by 오지연 on 11/30/24.
 //
+import SwiftUI
 
 enum IntervalType: Codable, CaseIterable, Equatable {
     
@@ -21,7 +22,7 @@ extension IntervalType {
         case .custom(_):
             return "직접 설정"
         default:
-            return self.value.toString + "분"
+            return "\(self.value)분"
         }
     }
     
@@ -36,10 +37,6 @@ extension IntervalType {
         case .custom(let value):
             return value
         }
-    }
-    
-    var displayContent: String {
-        "\(self.value)분"
     }
     
 }
@@ -62,12 +59,21 @@ enum RepeatType: Int, Codable, CaseIterable {
 
 extension RepeatType {
     
-    var title: String {
+    var title: LocalizedStringKey {
         switch self {
         case .infinity:
             return "계속 반복"
         default:
             return "\(self.rawValue)회"
+        }
+    }
+    
+    var description: String {
+        switch self {
+        case .infinity:
+            return String(localized: "계속")
+        default:
+            return String(localized: "\(self.rawValue)회")
         }
     }
     
@@ -83,8 +89,12 @@ struct SnoozeModel: Codable {
 
 extension SnoozeModel {
     
-    var displayTitle: String {
-        "\(interval.displayContent), \(`repeat`.title)"
+    var displayTitle: LocalizedStringKey {
+        return LocalizedStringKey("\(interval.title), \(`repeat`.description)")
+    }
+    
+    var displayDescription: LocalizedStringKey {
+        return LocalizedStringKey("\(interval.value)분 간격으로 \(`repeat`.description) 반복해요")
     }
     
 }

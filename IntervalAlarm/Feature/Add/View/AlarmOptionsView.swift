@@ -19,7 +19,7 @@ struct AlarmOptionsView: View {
                         Text("다시 울림")
                             .font(Fonts.Pretendard.bold.swiftUIFont(size: 16))
                             .foregroundStyle(.grey100)
-                        Text(store.alarm.snooze.isOn ? store.alarm.snooze.displayTitle : "사용 안함")
+                        Text(store.alarm.snooze.isOn ? store.alarm.snooze.displayTitle : Constants.notUsed)
                             .font(Fonts.Pretendard.regular.swiftUIFont(size: 13))
                             .foregroundStyle(.grey80)
                     }
@@ -34,7 +34,7 @@ struct AlarmOptionsView: View {
                         Text("알람음 설정")
                             .font(Fonts.Pretendard.bold.swiftUIFont(size: 16))
                             .foregroundStyle(.grey100)
-                        Text(store.alarm.sound.isOn ? store.alarm.sound.title : "사용 안함")
+                        Text(store.alarm.sound.isOn ? store.alarm.sound.title : Constants.notUsed)
                             .font(Fonts.Pretendard.regular.swiftUIFont(size: 13))
                             .foregroundStyle(.grey80)
                     }
@@ -45,6 +45,14 @@ struct AlarmOptionsView: View {
                 .cornerRadius(12)
             }
         }
+    }
+    
+}
+
+private extension AlarmOptionsView {
+    
+    enum Constants {
+        static let notUsed: LocalizedStringKey = "사용 안함"
     }
     
 }
