@@ -8,44 +8,77 @@
 import SwiftUI
 
 enum NavigationBarType {
-    case add
+    
+    case `default`
     case save
+    
 }
 
 extension NavigationBarType {
     
     var buttonTitle: String {
         switch self {
-        case .add:
-            "추가"
         case .save:
             "저장"
+        default:
+            ""
         }
     }
+    
 }
 
 struct CustomNavigationView: View {
     
     let type: NavigationBarType
-    let action: (() -> Void)
+    
+    let backAction: (() -> Void)
+    let doneAction: (() -> Void)?
+    
+    init(type: NavigationBarType, backAction: @escaping () -> Void, doneAction: (() -> Void)? = nil) {
+        self.type = type
+        self.backAction = backAction
+        self.doneAction = doneAction
+    }
     
     var body: some View {
         HStack {
+            Button {
+                backAction()
+            } label: {
+                Images.icBack.swiftUIImage
+                    .resizable()
+                    .frame(width: 56, height: 56)
+            }
+            
             Spacer()
-            Text(type.buttonTitle)
-                .font(Fonts.Pretendard.semiBold.swiftUIFont(size: 16))
-                .foregroundStyle(.blue10)
-                .onTapGesture {
-                    action()
+            
+            if type != .default {
+                Button {
+                    doneAction?()
+                } label: {
+                    Text(type.buttonTitle)
+                        .font(Fonts.Pretendard.semiBold.swiftUIFont(size: 16))
+                        .foregroundStyle(.grey90)
                 }
+            }
         }
-        .padding(15)
     }
 }
 
 #Preview {
-    CustomNavigationView(type: .add) {
-        print("did tap add button")
+    Group {
+        CustomNavigationView(type: .save) {
+            DLog.d("did tap back button")
+        } doneAction: {
+            DLog.d("did tap done button")
+        }
+        .background(.grey20)
+        .border(.grey100)
+        
+        CustomNavigationView(type: .default) {
+            DLog.d("did tap back button")
+        }
+        .background(.grey20)
+        .border(.grey100)
     }
-    .border(.grey100)
 }

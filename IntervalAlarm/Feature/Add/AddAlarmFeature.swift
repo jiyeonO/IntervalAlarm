@@ -14,15 +14,18 @@ struct AddAlarmFeature {
     @ObservableState
     struct State: Equatable {
         var alarm: AlarmModel = .init()
-        let range: TimeRange = .init()
     }
     
     enum Action: BindableAction {
-        case onAppear
+        case didTapBackButton
+        case didTapSaveButton
         case setDayTime(DayTimeType)
         case setHour(String)
         case setMinute(String)
-        case setRepeat(Bool)
+        case didToggleSnooze(Bool)
+        case didToggleVibrate(Bool)
+        case didToggleSound(Bool)
+        case setRepeat(Bool) // TODO: 요일 반복
         case saveAlarm
         case setAlarmOn(AlarmModel)
         
@@ -35,10 +38,15 @@ struct AddAlarmFeature {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .onAppear:
-                // TODO: alarm정보를 기반으로 초기값 셋팅 (Picker, Toggle 등)
-                return .none
+            case .didTapBackButton:
+                return .run { _ in await dismiss() }
+            case .didTapSaveButton:
+                return .send(.saveAlarm)
             case let .setDayTime(type):
+                let generator = UIImpactFeedbackGenerator(style: .light)
+                generator.prepare()
+                generator.impactOccurred()
+                
                 state.alarm.dayTime = type
                 return .none
             case let .setHour(hour):
@@ -47,8 +55,16 @@ struct AddAlarmFeature {
             case let .setMinute(minute):
                 state.alarm.minute = minute
                 return .none
-            case let .setRepeat(isRepeat):
-                state.alarm.isRepeat = isRepeat
+            case let .didToggleSnooze(isOn):
+                state.alarm.snooze.isOn = isOn
+                return .none
+            case let .didToggleVibrate(isOn):
+                state.alarm.isVibrate = isOn
+                return .none
+            case let .didToggleSound(isOn):
+                state.alarm.sound.isOn = isOn
+                return .none
+            case .setRepeat(_): // TODO
                 return .none
             case .saveAlarm:
                 userDefaultsClient.saveAlarm(state.alarm)
@@ -72,48 +88,47 @@ struct AddAlarmView: View {
     
     var body: some View {
         WithPerceptionTracking {
-            ZStack {
-                VStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 30) {
                     CustomNavigationView(type: .save) {
-                        store.send(.saveAlarm)
+                        store.send(.didTapBackButton)
+                    } doneAction: {
+                        store.send(.didTapSaveButton)
                     }
+                    .padding(.bottom, -10)
                     
-                    HStack(alignment: .center) {
-                        Picker("DayTime", selection: $store.alarm.dayTime.sending(\.setDayTime)) {
-                            ForEach(store.range.dayTimeTypes, id: \.self) { type in
-                                Text(type.title)
-                                    .tag(type)
-                            }
-                        }
-                        .pickerStyle(.wheel)
-                        .frame(width: 100)
-                        
-                        HStack {
-                            TextField("Hour", text: $store.alarm.hour.sending(\.setHour))
-                                .font(Fonts.Pretendard.bold.swiftUIFont(size: 48))
-                                .keyboardType(.numberPad)
-                            Text(":")
-                            TextField("Minute", text: $store.alarm.minute.sending(\.setMinute))
-                                .font(Fonts.Pretendard.bold.swiftUIFont(size: 48))
-                                .keyboardType(.numberPad)
-                        }
-                        .frame(width: 150)
+                    HStack(spacing: 30) {
+                        TextField(store.alarm.hour, text: $store.alarm.hour.sending(\.setHour))
+                            .keyboardType(.numberPad)
+                            .font(Fonts.Pretendard.medium.swiftUIFont(size: 72))
+                            .foregroundStyle(.grey100)
+                            .multilineTextAlignment(.trailing)
+                        Text(":")
+                            .font(Fonts.Pretendard.medium.swiftUIFont(size: 72))
+                            .foregroundStyle(.grey60)
+                        TextField(store.alarm.minute, text: $store.alarm.minute.sending(\.setMinute))
+                            .keyboardType(.numberPad)
+                            .font(Fonts.Pretendard.medium.swiftUIFont(size: 72))
+                            .foregroundStyle(.grey100)
                     }
+                    .padding(30)
+                    .background(.white100)
+                    .cornerRadius(12)
                     
+                    DayTimeTabView(store: store)
+                    
+                    AlarmOptionsView(store: store)
                     
                     Spacer()
                     
-                    Form {
-                        Section("알람 설정") {
-                            Toggle(isOn: $store.alarm.isRepeat.sending(\.setRepeat)) {
-                                Text("다시 울림") // TODO: 간격 선택
-                            }
-                            Text("알람음 설정")
-                            Text("진동 여부")
-                        }
-                    }
+                    Images.logo.swiftUIImage
+                        .frame(maxWidth: .infinity, alignment: .center)
                 }
+                .padding(20)
             }
+            .toolbar(.hidden, for: .navigationBar)
+            .scrollDismissesKeyboard(.immediately)
+            .background(.grey20)
         }
     }
 
@@ -124,4 +139,3 @@ struct AddAlarmView: View {
         AddAlarmFeature()
     }))
 }
-

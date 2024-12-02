@@ -18,9 +18,11 @@ struct AlarmModel: Codable, Equatable {
     var dayTime: DayTimeType
     
     var isOn: Bool
-    var isRepeat: Bool
     
-    // TODO: 간격, 반복, 사운드 등
+    var snooze: SnoozeModel
+    var sound: SoundModel
+    var isVibrate: Bool
+    var isRepeat: Bool // TODO
     
     init() {
         let hourValue = Calendar.current.component(.hour, from: Date())
@@ -31,15 +33,21 @@ struct AlarmModel: Codable, Equatable {
         self.minute = Calendar.current.component(.minute, from: Date()).toString
         self.dayTime = isAfternoon ? .PM : .AM
         self.isOn = true
+        self.snooze = .init()
+        self.sound = .init()
+        self.isVibrate = false
         self.isRepeat = false
     }
     
-    init(hour: String, minute: String, dayTime: DayTimeType = .AM, isOn: Bool = true, isRepeat: Bool = false) {
+    init(hour: String, minute: String, dayTime: DayTimeType = .AM, isOn: Bool = true, snooze: SnoozeModel = .init(), sound: SoundModel = .init(), isVibrate: Bool = false, isRepeat: Bool = false) {
         self.id = UUID()
         self.hour = hour
         self.minute = minute
         self.dayTime = dayTime
         self.isOn = isOn
+        self.snooze = snooze
+        self.sound = sound
+        self.isVibrate = isVibrate
         self.isRepeat = isRepeat
     }
 }
