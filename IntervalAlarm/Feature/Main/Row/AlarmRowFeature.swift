@@ -95,7 +95,7 @@ struct AlarmRowView: View {
                             .labelsHidden()
                     }
 
-                    WeekdayDisplayView(symbols: store.alarm.weekdaySymbols)
+                    WeekdayDisplayView(selectedWeekdays: store.alarm.repeatWeekdays)
                         .padding(.top, 20.0)
                 }
                 .padding(20.0)
