@@ -22,7 +22,6 @@ struct AlarmModel: Codable, Equatable {
     var repeatWeekdays: [String]
     var snooze: SnoozeModel
     var sound: SoundModel
-    var isVibrate: Bool
     
     init() {
         let hourValue = Calendar.current.component(.hour, from: Date())
@@ -36,10 +35,9 @@ struct AlarmModel: Codable, Equatable {
         self.repeatWeekdays = []
         self.snooze = .init()
         self.sound = .init()
-        self.isVibrate = false
     }
     
-    init(hour: String, minute: String, dayTime: DayTimeType = .AM, isOn: Bool = true, repeatWeekdays: [String] = [], snooze: SnoozeModel = .init(), sound: SoundModel = .init(), isVibrate: Bool = false, isRepeat: Bool = false) {
+    init(hour: String, minute: String, dayTime: DayTimeType = .AM, isOn: Bool = true, repeatWeekdays: [String] = [], snooze: SnoozeModel = .init(), sound: SoundModel = .init()) {
         self.id = UUID()
         self.hour = hour
         self.minute = minute
@@ -48,7 +46,6 @@ struct AlarmModel: Codable, Equatable {
         self.repeatWeekdays = repeatWeekdays
         self.snooze = snooze
         self.sound = sound
-        self.isVibrate = isVibrate
     }
 }
 

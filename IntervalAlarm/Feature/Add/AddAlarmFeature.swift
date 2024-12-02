@@ -23,7 +23,6 @@ struct AddAlarmFeature {
         case setHour(String)
         case setMinute(String)
         case didToggleSnooze(Bool)
-        case didToggleVibrate(Bool)
         case didToggleSound(Bool)
         case didTapRepeatDay(String)
         case saveAlarm
@@ -57,9 +56,6 @@ struct AddAlarmFeature {
                 return .none
             case let .didToggleSnooze(isOn):
                 state.alarm.snooze.isOn = isOn
-                return .none
-            case let .didToggleVibrate(isOn):
-                state.alarm.isVibrate = isOn
                 return .none
             case let .didToggleSound(isOn):
                 state.alarm.sound.isOn = isOn
