@@ -16,7 +16,6 @@ extension AlarmModel {
         content.sound = .default
         
         var dateComponents = DateComponents()
-        dateComponents.calendar = Calendar.current
         dateComponents.hour = self.hourValueIn24
         dateComponents.minute = self.minuteValue
 //        dateComponents.weekday = 2 // 월요일 반복
@@ -27,6 +26,31 @@ extension AlarmModel {
         
         return UNNotificationRequest(identifier: self.uuidString,
                                      content: content, trigger: trigger)
+    }
+    
+    var notificationRequests: [UNNotificationRequest] {
+        let content = UNMutableNotificationContent()
+        content.title = "⏰ \(self.notificationTitle)"
+        content.body = "User 알람 메모 노출"
+        content.sound = .default
+        
+        if self.repeatWeekdaysValue.isEmpty {
+            return [self.notificationRequest]
+        } else {
+            return self.repeatWeekdaysValue.map {
+                var dateComponents = DateComponents()
+                
+                dateComponents.hour = self.hourValueIn24
+                dateComponents.minute = self.minuteValue
+                dateComponents.weekday = $0
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                
+                let uniqueId = "\(self.uuidString)-weekday-\($0)"
+                
+                return UNNotificationRequest(identifier: uniqueId, content: content, trigger: trigger)
+            }
+        }
     }
     
 }

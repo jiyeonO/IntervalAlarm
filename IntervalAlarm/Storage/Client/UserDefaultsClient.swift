@@ -12,9 +12,9 @@ struct UserDefaultsClient {
     
     var loadIsLaunchFirst: @Sendable () -> Bool
     var saveIsLaunchFirst: @Sendable (_ isLaunchFirst: Bool) -> Void
-    var loadAlarms: @Sendable () -> IdentifiedArrayOf<AlarmModel>
+    var loadAlarms: @Sendable () -> [AlarmModel]
     var saveAlarm: @Sendable (_ alarms: AlarmModel) -> Void
-    var saveAlarms: @Sendable (_ alarms: IdentifiedArrayOf<AlarmModel>) -> Void
+    var saveAlarms: @Sendable (_ alarms: [AlarmModel]) -> Void
     
 }
 
