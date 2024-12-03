@@ -28,6 +28,7 @@ struct EmptyListFeature {
             case .onAppear:
                 return .none
             case .didTapAddButton:
+                state.addAlarmState = AddAlarmFeature.State()
                 return .none
             case .addAlarmAction:
                 return .none

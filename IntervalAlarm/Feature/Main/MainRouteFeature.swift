@@ -27,11 +27,21 @@ struct MainRouteFeature {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
+            case .main(.onAppear):
+                if !userDefaultsClient.loadAlarms().isEmpty {
+                    state = .main(MainFeature.State())
+                } else {
+                    state = .empty(EmptyListFeature.State())
+                }
+                
+                return .none
             case .main:
                 return .none
             case .empty(.onAppear):
                 if !userDefaultsClient.loadAlarms().isEmpty {
                     state = .main(MainFeature.State())
+                } else {
+                    state = .empty(EmptyListFeature.State())
                 }
                 
                 return .none
