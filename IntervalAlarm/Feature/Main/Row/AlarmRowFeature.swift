@@ -52,7 +52,7 @@ struct AlarmRowFeature {
                 
                 let currentIsOn = state.alarm.isOn
                 state.alarm.isOn = !currentIsOn
-                return currentIsOn ? .send(.setAlarmOn) : .send(.setAlarmOff) // 현재 상태로 판단할지 바뀐 상태로 로직 바꾸어 판단할지 선택
+                return currentIsOn ? .send(.setAlarmOff) : .send(.setAlarmOn)
             case .toModifyAlarm:
                 return .none
             case .setAlarmOn:
