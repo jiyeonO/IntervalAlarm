@@ -38,6 +38,7 @@ internal enum Images {
   internal static let icClose = ImageAsset(name: "ic_close")
   internal static let icCloseWhite = ImageAsset(name: "ic_close_white")
   internal static let iconArrowDownSmallMono = ImageAsset(name: "icon-arrow-down-small-mono")
+  internal static let imgBell = ImageAsset(name: "img_bell")
   internal static let logo = ImageAsset(name: "logo")
   internal static let toggleOff = ImageAsset(name: "toggle_off")
   internal static let toggleOn = ImageAsset(name: "toggle_on")
