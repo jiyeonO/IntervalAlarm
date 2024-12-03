@@ -87,7 +87,7 @@ extension AlarmModel {
     
     var weekdaySymbols: [String] {
         var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale.current.identifier.starts(with: "ko") ? Locale(identifier: "ko_KR") : Locale(identifier: "en_US")
+        calendar.locale = Locale.current
         return calendar.shortStandaloneWeekdaySymbols
     }
     
