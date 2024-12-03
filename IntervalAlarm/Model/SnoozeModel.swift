@@ -20,9 +20,9 @@ extension IntervalType {
     var title: String {
         switch self {
         case .custom(_):
-            return "직접 설정"
+            return String(localized: "Custom")
         default:
-            return "\(self.value)분"
+            return String(localized: "\(self.value) minutes")
         }
     }
     
@@ -62,18 +62,18 @@ extension RepeatType {
     var title: LocalizedStringKey {
         switch self {
         case .infinity:
-            return "계속 반복"
+            return "infinity"
         default:
-            return "\(self.rawValue)회"
+            return "\(self.rawValue) times"
         }
     }
     
     var description: String {
         switch self {
         case .infinity:
-            return String(localized: "계속")
+            return String(localized: "continuously")
         default:
-            return String(localized: "\(self.rawValue)회")
+            return String(localized: "\(self.rawValue) times")
         }
     }
     
@@ -81,7 +81,7 @@ extension RepeatType {
 
 struct SnoozeModel: Codable {
 
-    var isOn: Bool = false
+    var isOn: Bool = true
     var interval: IntervalType = .five
     var `repeat`: RepeatType = .infinity
     
@@ -90,11 +90,11 @@ struct SnoozeModel: Codable {
 extension SnoozeModel {
     
     var displayTitle: LocalizedStringKey {
-        return LocalizedStringKey("\(interval.title), \(`repeat`.description)")
+        LocalizedStringKey("\(interval.title), \(`repeat`.description)")
     }
     
     var displayDescription: LocalizedStringKey {
-        return LocalizedStringKey("\(interval.value)분 간격으로 \(`repeat`.description) 반복해요")
+        isOn ? LocalizedStringKey("Repeats \(`repeat`.description) times with \(interval.value)-minute intervals") : "Alarm will ring once"
     }
     
 }

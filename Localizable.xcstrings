@@ -26,30 +26,18 @@
         }
       }
     },
-    "%lld분 간격으로 %@ 반복해요" : {
+    "%lld minutes" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Repeats %2$@ times with %1$lld-minute intervals"
-          }
-        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld분 간격으로 %@ 반복해요"
+            "value" : "%lld분"
           }
         }
       }
     },
-    "%lld회" : {
+    "%lld times" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld times"
-          }
-        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -58,14 +46,58 @@
         }
       }
     },
-    "계속" : {
+    "Add Alarm" : {
       "localizations" : {
-        "en" : {
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "continuously"
+            "value" : "알람 추가할래요"
           }
-        },
+        }
+      }
+    },
+    "Alarm will ring once" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알람이 한번만 울려요"
+          }
+        }
+      }
+    },
+    "AM" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오전"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "취소"
+          }
+        }
+      }
+    },
+    "Confirm" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "확인"
+          }
+        }
+      }
+    },
+    "continuously" : {
+      "localizations" : {
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -74,14 +106,18 @@
         }
       }
     },
-    "계속 반복" : {
+    "Custom" : {
       "localizations" : {
-        "en" : {
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "infinity"
+            "value" : "직접 설정"
           }
-        },
+        }
+      }
+    },
+    "infinity" : {
+      "localizations" : {
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -90,30 +126,8 @@
         }
       }
     },
-    "다시 울림" : {
+    "Not in use" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ring Again"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "다시 울림"
-          }
-        }
-      }
-    },
-    "사용 안함" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "not used"
-          }
-        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -122,30 +136,84 @@
         }
       }
     },
-    "서비스 이용을 위해 설정에서 알림을 허용해주세요" : {
+    "please enable notifications in Settings to use the service" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서비스 이용을 위해 설정에서 알림을 허용해주세요"
+          }
+        }
+      }
+    },
+    "PM" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오후"
+          }
+        }
+      }
+    },
+    "push notifications are not allowed" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "푸쉬 권한이 허용되지 않았어요"
+          }
+        }
+      }
+    },
+    "Repeats %@ times with %lld-minute intervals" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "please enable notifications in Settings to use the service"
+            "value" : "Repeats %1$@ times with %2$lld-minute intervals"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "사비스 이용을 위해 설정에서 알림을 허용해주세요"
+            "value" : "%2$lld분 간격으로 %1$@ 반복해요"
           }
         }
       }
     },
-    "시간대" : {
+    "Ring Again" : {
       "localizations" : {
-        "en" : {
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Time of day"
+            "value" : "다시 울림"
           }
-        },
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "저장"
+          }
+        }
+      }
+    },
+    "Sound" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림음 설정"
+          }
+        }
+      }
+    },
+    "Time of day" : {
+      "localizations" : {
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -154,92 +222,12 @@
         }
       }
     },
-    "알람 추가할래요" : {
+    "Weekdays" : {
       "localizations" : {
-        "en" : {
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add Alarm"
-          }
-        }
-      }
-    },
-    "알람음 설정" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sound"
-          }
-        }
-      }
-    },
-    "오전" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AM"
-          }
-        }
-      }
-    },
-    "오후" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "PM"
-          }
-        }
-      }
-    },
-    "요일" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Weekdays"
-          }
-        }
-      }
-    },
-    "저장" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Save"
-          }
-        }
-      }
-    },
-    "취소" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cancel"
-          }
-        }
-      }
-    },
-    "푸쉬 권한이 허용되지 않았어요" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "push notifications are not allowed"
-          }
-        }
-      }
-    },
-    "확인" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Confirm"
+            "value" : "요일"
           }
         }
       }

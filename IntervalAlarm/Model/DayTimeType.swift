@@ -19,9 +19,9 @@ extension DayTimeType {
     var title: LocalizedStringKey {
         switch self {
         case .AM:
-            return "오전"
+            return "AM"
         case .PM:
-            return "오후"
+            return "PM"
         }
     }
 }

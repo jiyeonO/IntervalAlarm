@@ -42,7 +42,7 @@ struct WeekDayTabView: View {
 private extension WeekDayTabView {
     
     enum Constants {
-        static let weekDayTitle: LocalizedStringKey = "요일"
+        static let weekDayTitle: LocalizedStringKey = "Weekdays"
     }
     
 }

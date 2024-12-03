@@ -39,7 +39,7 @@ struct DayTimeTabView: View {
 private extension DayTimeTabView {
     
     enum Constants {
-        static let dayTimeTitle: LocalizedStringKey = "시간대"
+        static let dayTimeTitle: LocalizedStringKey = "Time of day"
     }
     
 }
