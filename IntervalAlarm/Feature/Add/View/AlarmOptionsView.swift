@@ -28,6 +28,9 @@ struct AlarmOptionsView: View {
                 .padding(20)
                 .background(.white100)
                 .cornerRadius(12)
+                .onTapGesture {
+                    store.send(.toSnoozeOption)
+                }
                 
                 Toggle(isOn: $store.alarm.sound.isOn.sending(\.didToggleSound)) {
                     VStack(alignment: .leading, spacing: 4) {

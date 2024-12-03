@@ -5,7 +5,7 @@
 //  Created by 오지연 on 11/30/24.
 //
 
-enum IntervalType: Codable, CaseIterable, Equatable {
+enum IntervalType: Codable, CaseIterable, Hashable {
     
     case three
     case five

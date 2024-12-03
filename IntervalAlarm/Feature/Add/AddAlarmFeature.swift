@@ -14,6 +14,8 @@ struct AddAlarmFeature {
     @ObservableState
     struct State: Equatable {
         var alarm: AlarmModel = .init()
+        
+        @Presents var snoozeOptionState: SnoozeOptionFeature.State?
     }
     
     enum Action: BindableAction {
@@ -27,8 +29,10 @@ struct AddAlarmFeature {
         case didTapRepeatDay(String)
         case saveAlarm
         case setAlarmOn(AlarmModel)
+        case toSnoozeOption
         
         case binding(BindingAction<State>)
+        case snoozeOptionAction(PresentationAction<SnoozeOptionFeature.Action>)
     }
     
     @Dependency(\.userDefaultsClient) var userDefaultsClient
@@ -71,11 +75,19 @@ struct AddAlarmFeature {
                 userDefaultsClient.saveAlarm(state.alarm)
                 return .concatenate(.send(.setAlarmOn(state.alarm)),
                                     .run { _ in await dismiss() })
+            case .toSnoozeOption:
+                state.snoozeOptionState = SnoozeOptionFeature.State(model: state.alarm.snooze)
+                return .none
             case .setAlarmOn(_):
                 return .none
             case .binding:
                 return .none
+            case .snoozeOptionAction:
+                return .none
             }
+        }
+        .ifLet(\.$snoozeOptionState, action: \.snoozeOptionAction) {
+            SnoozeOptionFeature()
         }
     }
     
@@ -128,6 +140,12 @@ struct AddAlarmView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
                 .padding(20)
+            }
+            .sheet(item: $store.scope(state: \.snoozeOptionState, action: \.snoozeOptionAction)) { store in
+                WithPerceptionTracking {
+                    SnoozeOptionView(store: store)
+                        .measureHeight()
+                }
             }
             .toolbar(.hidden, for: .navigationBar)
             .scrollDismissesKeyboard(.immediately)
