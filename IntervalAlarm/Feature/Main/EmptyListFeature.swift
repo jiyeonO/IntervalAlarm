@@ -13,20 +13,28 @@ struct EmptyListFeature {
     
     @ObservableState
     struct State: Equatable {
-        
+        @Presents var addAlarmState: AddAlarmFeature.State?
     }
     
     enum Action {
+        case onAppear
         case didTapAddButton
+        case addAlarmAction(PresentationAction<AddAlarmFeature.Action>)
     }
     
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
+            case .onAppear:
+                return .none
             case .didTapAddButton:
-                
+                return .none
+            case .addAlarmAction:
                 return .none
             }
+        }
+        .ifLet(\.$addAlarmState, action: \.addAlarmAction) {
+            AddAlarmFeature()
         }
     }
     
@@ -35,7 +43,7 @@ struct EmptyListFeature {
 import SwiftUI
 struct EmptyListView: View {
     
-    let store: StoreOf<EmptyListFeature>
+    @Perception.Bindable var store: StoreOf<EmptyListFeature>
     
     var body: some View {
         VStack {
@@ -78,6 +86,14 @@ struct EmptyListView: View {
             Images.logo.swiftUIImage
         }
         .background(.grey20)
+        .sheet(item: $store.scope(state: \.addAlarmState, action: \.addAlarmAction)) { store in
+            WithPerceptionTracking {
+                AddAlarmView(store: store)
+            }
+        }
+        .onAppear {
+            store.send(.onAppear)
+        }
     }
     
 }

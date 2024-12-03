@@ -13,14 +13,14 @@ struct IntervalAlarmApp: App {
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
-    static let store = Store(initialState: MainFeature.State()) {
-        MainFeature()
+    static let store = Store(initialState: MainRouteFeature.State.empty(EmptyListFeature.State())) {
+        MainRouteFeature()
             ._printChanges()
     }
     
     var body: some Scene {
         WindowGroup {
-            MainView(store: IntervalAlarmApp.store)
+            MainRouteView(store: IntervalAlarmApp.store)
         }
     }
     
