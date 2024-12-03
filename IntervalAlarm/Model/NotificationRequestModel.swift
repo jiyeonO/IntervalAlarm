@@ -46,9 +46,7 @@ extension AlarmModel {
                 
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
                 
-                let uniqueId = "\(self.uuidString)-weekday-\($0)"
-                
-                return UNNotificationRequest(identifier: uniqueId, content: content, trigger: trigger)
+                return UNNotificationRequest(identifier: self.getNotificationIdentifier(for: $0), content: content, trigger: trigger)
             }
         }
     }

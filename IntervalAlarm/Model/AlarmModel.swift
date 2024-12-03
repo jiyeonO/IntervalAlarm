@@ -97,10 +97,15 @@ extension AlarmModel {
             return [self.uuidString]
         } else {
             return self.repeatWeekdaysValue.map {
-                "\(self.uuidString)-weekday-\($0)"
+                self.getNotificationIdentifier(for: $0)
             }
         }
     }
+    
+    func getNotificationIdentifier(for weekday: Int) -> String {
+        "\(self.uuidString)-weekday-\(weekday)"
+    }
+    
 }
 
 extension AlarmModel {
