@@ -18,8 +18,6 @@ struct MainFeature {
     
     @ObservableState
     struct State: Equatable {
-        var myAlarms: IdentifiedArrayOf<AlarmModel> = []
-        
         var alarmStates: IdentifiedArrayOf<AlarmRowFeature.State> = []
         var path = StackState<Path.State>()
 
@@ -36,6 +34,7 @@ struct MainFeature {
         case removeNotification(AlarmModel)
         case didTapDenyPermission
         case toAddAlarm
+        case didTapCheckButton
 
         case alarmActions(IdentifiedActionOf<AlarmRowFeature>)
         case path(StackActionOf<Path>)
@@ -54,9 +53,9 @@ struct MainFeature {
         Reduce { state, action in
             switch action {
             case .onAppear:
-                state.myAlarms = userDefaultsClient.loadAlarms()
+                let alarmModels = userDefaultsClient.loadAlarms()
                 
-                let states = state.myAlarms.map { AlarmRowFeature.State(model: $0) }
+                let states = alarmModels.map { AlarmRowFeature.State(model: $0) }
                 state.alarmStates = IdentifiedArrayOf(uniqueElements: states)
                 return .none
             case .didTapAddButton:
@@ -75,13 +74,14 @@ struct MainFeature {
                 }
             case .didSwipeDelete(let indexSet):
                 if let index = indexSet.first {
-                    let targetID = state.myAlarms[index].uuidString
-                    let notificationCenter = UNUserNotificationCenter.current()
-                    notificationCenter.removePendingNotificationRequests(withIdentifiers: [targetID])
+                    let alarm = state.alarmStates[index].alarm
+                    state.alarmStates.remove(at: index)
+                    
+                    let alarmModels = state.alarmStates.map { $0.alarm }
+                    userDefaultsClient.saveAlarms(alarmModels)
+                    return .send(.removeNotification(alarm))
                 }
                 
-                state.myAlarms.remove(atOffsets: indexSet)
-                userDefaultsClient.saveAlarms(state.myAlarms)
                 return .none
             case .sendNotification(let alarm):
                 return .run { send in
@@ -94,26 +94,28 @@ struct MainFeature {
                     }
                 }
             case .addNotification(let alarm):
-                let request = alarm.notificationRequest
+                let requests = alarm.notificationRequests
                 return .run { _ in
-                    try await UNUserNotificationCenter.current().add(request)
+                    for request in requests {
+                        try await UNUserNotificationCenter.current().add(request)
+                    }
                 }
             case .removeNotification(let alarm):
                 let notificationCenter = UNUserNotificationCenter.current()
-                notificationCenter.removePendingNotificationRequests(withIdentifiers: [alarm.uuidString])
+                notificationCenter.removePendingNotificationRequests(withIdentifiers: alarm.weekdayIds)
                 return .none
             case .didTapDenyPermission:
                 state.alert = AlertState {
-                    TextState("푸쉬 권한이 허용되지 않았어요")
+                    TextState("push notifications are not allowed")
                 } actions: {
                     ButtonState(role: .destructive) {
-                        TextState("취소")
+                        TextState("Cancel")
                     }
                     ButtonState(role: .cancel, action: .send(.toSetting)) {
-                        TextState("확인")
+                        TextState("Confirm")
                     }
                 } message: {
-                    TextState("서비스 이용을 위해 설정에서 알림을 허용해주세요")
+                    TextState("please enable notifications in Settings to use the service")
                 }
                 return .none
             case .toAddAlarm:
@@ -121,9 +123,17 @@ struct MainFeature {
                 return .none
             case let .alarmActions(.element(id: id, action: .setAlarmOn)):
                 guard let alarm = state.alarmStates[id: id]?.alarm else { return .none }
+                
+                let alarmModels = state.alarmStates.map { $0.alarm }
+                userDefaultsClient.saveAlarms(alarmModels)
+                
                 return .send(.sendNotification(alarm))
             case let .alarmActions(.element(id: id, action: .setAlarmOff)):
                 guard let alarm = state.alarmStates[id: id]?.alarm else { return .none }
+                
+                let alarmModels = state.alarmStates.map { $0.alarm }
+                userDefaultsClient.saveAlarms(alarmModels)
+                
                 return .send(.removeNotification(alarm))
             case let .alarmActions(.element(id: id, action: .toModifyAlarm)):
                 guard let alarm = state.alarmStates[id: id]?.alarm else { return .none }
@@ -149,6 +159,23 @@ struct MainFeature {
                 return .none
             case .alert:
                 return .none
+            case .didTapCheckButton:
+                UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+                    for request in requests {
+                        print("Pending Notification: \(request.identifier)")
+                        print("Trigger: \(String(describing: request.trigger))")
+                        print("Content: \(request.content.body)")
+                    }
+                }
+                
+                UNUserNotificationCenter.current().getDeliveredNotifications { notifications in
+                    for notification in notifications {
+                        print("Delivered Notification: \(notification.request.identifier)")
+                        print("Content: \(notification.request.content.body)")
+                    }
+                }
+                
+                return .none
             }
         }
         .forEach(\.path, action: \.path)
@@ -173,6 +200,14 @@ struct MainView: View {
         WithPerceptionTracking {
             NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
                 List {
+                    #if DEBUG
+                    Button(action: {
+                        store.send(.didTapCheckButton)
+                    }, label: {
+                        Text("Check Alarms")
+                    })
+                    #endif
+                    
                     Button {
                         store.send(.didTapAddButton)
                     } label: {
@@ -221,7 +256,7 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(store: Store(initialState: MainFeature.State(myAlarms: AlarmModel.previewItems), reducer: {
+    MainView(store: Store(initialState: MainFeature.State(), reducer: {
         MainFeature()
     }))
 }

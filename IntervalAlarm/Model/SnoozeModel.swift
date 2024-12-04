@@ -4,6 +4,7 @@
 //
 //  Created by 오지연 on 11/30/24.
 //
+import SwiftUI
 
 enum IntervalType: Codable, CaseIterable, Hashable {
     
@@ -19,9 +20,9 @@ extension IntervalType {
     var title: String {
         switch self {
         case .custom(_):
-            return "직접 설정"
+            return String(localized: "Custom")
         default:
-            return self.value.toString + "분"
+            return String(localized: "\(self.value) minutes")
         }
     }
     
@@ -36,10 +37,6 @@ extension IntervalType {
         case .custom(let value):
             return value
         }
-    }
-    
-    var displayContent: String {
-        "\(self.value)분"
     }
     
 }
@@ -62,12 +59,21 @@ enum RepeatType: Int, Codable, CaseIterable {
 
 extension RepeatType {
     
-    var title: String {
+    var title: LocalizedStringKey {
         switch self {
         case .infinity:
-            return "계속 반복"
+            return "infinity"
         default:
-            return "\(self.rawValue)회"
+            return "\(self.rawValue) times"
+        }
+    }
+    
+    var description: String {
+        switch self {
+        case .infinity:
+            return String(localized: "continuously")
+        default:
+            return String(localized: "\(self.rawValue) times")
         }
     }
     
@@ -75,7 +81,7 @@ extension RepeatType {
 
 struct SnoozeModel: Codable {
 
-    var isOn: Bool = false
+    var isOn: Bool = true
     var interval: IntervalType = .five
     var `repeat`: RepeatType = .infinity
     
@@ -83,8 +89,12 @@ struct SnoozeModel: Codable {
 
 extension SnoozeModel {
     
-    var displayTitle: String {
-        "\(interval.displayContent), \(`repeat`.title)"
+    var displayTitle: LocalizedStringKey {
+        LocalizedStringKey("\(interval.title), \(`repeat`.description)")
+    }
+    
+    var displayDescription: LocalizedStringKey {
+        isOn ? LocalizedStringKey("Repeats \(`repeat`.description) times with \(interval.value)-minute intervals") : "Alarm will ring once"
     }
     
 }

@@ -40,16 +40,15 @@ extension UserDefaultsStorage {
     func saveAlarm(model: AlarmModel) {
         var alarms = loadAlarms()
         alarms.append(model)
-        saveObjects(Array(alarms), key: .alarms)
+        saveObjects(alarms, key: .alarms)
     }
     
-    func saveAlarms(models: IdentifiedArrayOf<AlarmModel>) {
-        saveObjects(Array(models), key: .alarms)
+    func saveAlarms(models: [AlarmModel]) {
+        saveObjects(models, key: .alarms)
     }
     
-    func loadAlarms() -> IdentifiedArrayOf<AlarmModel> {
-        let alarms: [AlarmModel] = loadObjects(.alarms) ?? []
-        return IdentifiedArrayOf(uniqueElements: alarms)
+    func loadAlarms() -> [AlarmModel] {
+        return loadObjects(.alarms) ?? []
     }
     
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct WeekDayTabView: View {
-        
+    
     var store: StoreOf<AddAlarmFeature>
     
     var body: some View {
@@ -19,12 +19,13 @@ struct WeekDayTabView: View {
                     .font(Fonts.Pretendard.bold.swiftUIFont(size: 16))
                     .foregroundStyle(.grey100)
                 
-                HStack {
+                HStack(spacing: 10.0) {
                     ForEach(store.alarm.weekdaySymbols, id: \.self) { day in
                         Text(day)
                             .font(Fonts.Pretendard.medium.swiftUIFont(size: 13))
+                            .minimumScaleFactor(0.5)
                             .foregroundStyle(store.alarm.repeatWeekdays.contains(day) ? .white100 : .grey100)
-                            .padding(.horizontal, 13.5)
+                            .frame(maxWidth: .infinity)
                             .padding(.vertical, 10.5)
                             .background(store.alarm.repeatWeekdays.contains(day) ? .grey100 : .white100)
                             .cornerRadius(8.0)
@@ -36,13 +37,12 @@ struct WeekDayTabView: View {
             }
         }
     }
-    
 }
 
 private extension WeekDayTabView {
     
     enum Constants {
-        static let weekDayTitle = "요일"
+        static let weekDayTitle: LocalizedStringKey = "Weekdays"
     }
     
 }

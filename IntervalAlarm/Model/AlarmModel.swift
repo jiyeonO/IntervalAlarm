@@ -5,7 +5,7 @@
 //  Created by 오지연 on 7/3/24.
 //
 
-import Foundation
+import SwiftUI
 import EventKit
 import ComposableArchitecture
 
@@ -67,7 +67,7 @@ extension AlarmModel {
         minute.toInt
     }
     
-    var displayDayTime: String {
+    var displayDayTime: LocalizedStringKey {
         dayTime.title
     }
     
@@ -87,8 +87,23 @@ extension AlarmModel {
     
     var weekdaySymbols: [String] {
         var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale(identifier: "ko_KR")
+        calendar.locale = Locale.current
         return calendar.shortStandaloneWeekdaySymbols
+    }
+    
+    
+    var weekdayIds: [String] {
+        if self.repeatWeekdaysValue.isEmpty {
+            return [self.uuidString]
+        } else {
+            return self.repeatWeekdaysValue.map {
+                self.getNotificationIdentifier(for: $0)
+            }
+        }
+    }
+    
+    func getNotificationIdentifier(for weekday: Int) -> String {
+        "\(self.uuidString)-weekday-\(weekday)"
     }
     
 }

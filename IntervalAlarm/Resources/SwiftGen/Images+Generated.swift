@@ -39,6 +39,8 @@ internal enum Images {
   internal static let icCloseWhite = ImageAsset(name: "ic_close_white")
   internal static let iconArrowDownSmallMono = ImageAsset(name: "icon-arrow-down-small-mono")
   internal static let logo = ImageAsset(name: "logo")
+  internal static let toggleOff = ImageAsset(name: "toggle_off")
+  internal static let toggleOn = ImageAsset(name: "toggle_on")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

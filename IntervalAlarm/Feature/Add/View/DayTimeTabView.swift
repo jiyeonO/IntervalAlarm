@@ -17,10 +17,10 @@ struct DayTimeTabView: View {
                 .font(Fonts.Pretendard.bold.swiftUIFont(size: 16))
                 .foregroundStyle(.grey100)
             
-            HStack {
+            HStack(spacing: 10.0) {
                 ForEach(DayTimeType.allCases, id: \.self) { type in
                     Text(type.title)
-                        .font(Fonts.Pretendard.medium.swiftUIFont(size: 18))
+                        .font(Fonts.Pretendard.medium.swiftUIFont(size: 18.0))
                         .foregroundStyle(store.alarm.dayTime == type ? .white100 : .grey100)
                         .padding(.horizontal, 20)
                         .padding(.vertical, 8)
@@ -39,7 +39,7 @@ struct DayTimeTabView: View {
 private extension DayTimeTabView {
     
     enum Constants {
-        static let dayTimeTitle: String = "시간대"
+        static let dayTimeTitle: LocalizedStringKey = "Time of day"
     }
     
 }

@@ -5,7 +5,7 @@
 //  Created by 오지연 on 7/9/24.
 //
 
-import Foundation
+import SwiftUI
 
 enum DayTimeType: Codable, CaseIterable {
     
@@ -16,12 +16,12 @@ enum DayTimeType: Codable, CaseIterable {
 
 extension DayTimeType {
     
-    var title: String {
+    var title: LocalizedStringKey {
         switch self {
         case .AM:
-            return "오전"
+            return "AM"
         case .PM:
-            return "오후"
+            return "PM"
         }
     }
 }

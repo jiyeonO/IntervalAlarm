@@ -9,13 +9,13 @@ import SwiftUI
 
 struct WeekdayDisplayView: View {
 
-    let symbols: [String] // TODO: 반복 요일 UI 노출 설정
-    
+    let selectedWeekdays: [String]
+
     var body: some View {
         HStack(spacing: 5.0) {
-            ForEach(symbols, id: \.self) { text in
+            ForEach(WeekdayDisplayView.weekdaySymbols, id: \.self) { text in
                 Circle()
-                    .foregroundStyle(.grey20)
+                    .foregroundStyle(selectedWeekdays.contains(text) ? .grey20 : .white100)
                     .overlay {
                         Text("\(text)")
                             .font(Fonts.Pretendard.medium.swiftUIFont(size: 12.0))
@@ -40,5 +40,5 @@ extension WeekdayDisplayView {
 }
 
 #Preview {
-    WeekdayDisplayView(symbols: ["일", "월", "화", "수", "목", "금", "토"])
+    WeekdayDisplayView(selectedWeekdays: ["일", "월", "화", "수", "목", "금", "토"])
 }

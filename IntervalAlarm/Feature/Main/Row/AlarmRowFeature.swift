@@ -27,7 +27,7 @@ struct AlarmRowFeature {
     enum Action: BindableAction { // TODO: Nested Protocol 적용
         case didTapAlarm
         case toModifyAlarm
-        case didTapToggle(Bool)
+        case didTapToggle
         case setAlarmOn
         case setAlarmOff
         
@@ -45,9 +45,14 @@ struct AlarmRowFeature {
             switch action {
             case .didTapAlarm:
                 return .send(.toModifyAlarm)
-            case let .didTapToggle(isOn):
-                state.alarm.isOn = isOn
-                return isOn ? .send(.setAlarmOn) : .send(.setAlarmOff)
+            case .didTapToggle:
+                let generator = UIImpactFeedbackGenerator(style: .medium)
+                generator.prepare()
+                generator.impactOccurred()
+                
+                let currentIsOn = state.alarm.isOn
+                state.alarm.isOn = !currentIsOn
+                return currentIsOn ? .send(.setAlarmOff) : .send(.setAlarmOn)
             case .toModifyAlarm:
                 return .none
             case .setAlarmOn:
@@ -86,16 +91,21 @@ struct AlarmRowView: View {
                                     .font(Fonts.Pretendard.bold.swiftUIFont(size: 20.0))
                                     .foregroundStyle(.grey70)
                             }
-                            Text("10분 간격으로 3회 반복해요")
+                            Text(store.alarm.snooze.displayDescription)
                                 .foregroundStyle(.grey80)
                         }
                         Spacer()
-                        Toggle("", isOn: $store.alarm.isOn.sending(\.didTapToggle))
-                            .toggleStyle(SwitchToggleStyle(tint: Colors.grey90.swiftUIColor))
-                            .labelsHidden()
+                        
+                        Button(action: {
+                            store.send(.didTapToggle)
+                        }, label: {
+                            store.alarm.isOn ? Images.toggleOn.swiftUIImage : Images.toggleOff.swiftUIImage
+                        })
+                        .buttonStyle(.plain)
+                        
                     }
 
-                    WeekdayDisplayView(symbols: store.alarm.weekdaySymbols)
+                    WeekdayDisplayView(selectedWeekdays: store.alarm.repeatWeekdays)
                         .padding(.top, 20.0)
                 }
                 .padding(20.0)
