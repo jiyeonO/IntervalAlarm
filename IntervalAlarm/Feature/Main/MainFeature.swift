@@ -106,16 +106,16 @@ struct MainFeature {
                 return .none
             case .didTapDenyPermission:
                 state.alert = AlertState {
-                    TextState("푸쉬 권한이 허용되지 않았어요")
+                    TextState("push notifications are not allowed")
                 } actions: {
                     ButtonState(role: .destructive) {
-                        TextState("취소")
+                        TextState("Cancel")
                     }
                     ButtonState(role: .cancel, action: .send(.toSetting)) {
-                        TextState("확인")
+                        TextState("Confirm")
                     }
                 } message: {
-                    TextState("서비스 이용을 위해 설정에서 알림을 허용해주세요")
+                    TextState("please enable notifications in Settings to use the service")
                 }
                 return .none
             case .toAddAlarm:
