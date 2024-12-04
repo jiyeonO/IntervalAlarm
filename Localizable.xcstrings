@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
     ":" : {
       "shouldTranslate" : false
     },
@@ -85,6 +82,9 @@
           }
         }
       }
+    },
+    "Check Alarms" : {
+
     },
     "Confirm" : {
       "localizations" : {
@@ -231,6 +231,15 @@
           }
         }
       }
+    },
+    "알람 추가하기" : {
+
+    },
+    "알람을 지금 바로 추가해 보세요!" : {
+
+    },
+    "알람이 없어요" : {
+
     }
   },
   "version" : "1.0"

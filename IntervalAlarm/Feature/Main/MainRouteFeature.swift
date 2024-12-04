@@ -36,10 +36,10 @@ struct MainRouteFeature {
             case .empty:
                 return .none
             case .switchStore:
-                if !userDefaultsClient.loadAlarms().isEmpty {
-                    state = .main(MainFeature.State())
-                } else {
+                if userDefaultsClient.loadAlarms().isEmpty {
                     state = .empty(EmptyListFeature.State())
+                } else {
+                    state = .main(MainFeature.State())
                 }
                 return .none
             }
