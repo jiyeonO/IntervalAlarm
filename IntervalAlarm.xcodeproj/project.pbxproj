@@ -64,6 +64,8 @@
 		4987C2462CF741D600BEFF4C /* libInternalStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4987C2452CF741D600BEFF4C /* libInternalStorage.a */; };
 		4987C24B2CFAB17000BEFF4C /* WeekdayDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987C24A2CFAB17000BEFF4C /* WeekdayDisplayView.swift */; };
 		4987C24D2CFABCF900BEFF4C /* AddAlarmButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987C24C2CFABCF900BEFF4C /* AddAlarmButtonView.swift */; };
+		AD74318C2CFEE84300A44F5E /* EmptyListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74318B2CFEE84300A44F5E /* EmptyListFeature.swift */; };
+		AD74318E2CFEF3FA00A44F5E /* MainRouteFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74318D2CFEF3FA00A44F5E /* MainRouteFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +144,8 @@
 		4987C2452CF741D600BEFF4C /* libInternalStorage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libInternalStorage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4987C24A2CFAB17000BEFF4C /* WeekdayDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayDisplayView.swift; sourceTree = "<group>"; };
 		4987C24C2CFABCF900BEFF4C /* AddAlarmButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmButtonView.swift; sourceTree = "<group>"; };
+		AD74318B2CFEE84300A44F5E /* EmptyListFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListFeature.swift; sourceTree = "<group>"; };
+		AD74318D2CFEF3FA00A44F5E /* MainRouteFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouteFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +329,8 @@
 				1C22D0D02CFD2B9600B14DF2 /* View */,
 				1C8061F32C36D270002E312E /* Row */,
 				1C85BE592C35398A00AA98B9 /* MainFeature.swift */,
+				AD74318B2CFEE84300A44F5E /* EmptyListFeature.swift */,
+				AD74318D2CFEF3FA00A44F5E /* MainRouteFeature.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -633,6 +639,7 @@
 				1C64503D2CE4D7DA0003D219 /* CustomNavigationView.swift in Sources */,
 				1CE9D1752C3AD5720084C2A6 /* Foundation+Extension.swift in Sources */,
 				1C80623F2C36D707002E312E /* LayerCornerType.swift in Sources */,
+				AD74318E2CFEF3FA00A44F5E /* MainRouteFeature.swift in Sources */,
 				1C46FB162CF8B39300A90B96 /* String+Extension.swift in Sources */,
 				1C3E51B12CF82EE40028B142 /* PermissionHandler.swift in Sources */,
 				1CFAA1E02D0015440052A544 /* SnoozeOptionView.swift in Sources */,
@@ -656,6 +663,7 @@
 				1C50E2392CE4D1AC004E698B /* Fonts+Generated.swift in Sources */,
 				1C00A7752CF008C60016AA9D /* UserDefaultsClient.swift in Sources */,
 				1C22D0CE2CFD2B7400B14DF2 /* DayTimeTabView.swift in Sources */,
+				AD74318C2CFEE84300A44F5E /* EmptyListFeature.swift in Sources */,
 				1CD0B3FE2D001F930032A2F4 /* ListBackgroundModifier.swift in Sources */,
 				1C8062222C36D32A002E312E /* RoundedCorner.swift in Sources */,
 				1C8062392C36D5BF002E312E /* Logger.swift in Sources */,
