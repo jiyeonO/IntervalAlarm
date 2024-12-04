@@ -24,8 +24,8 @@ struct AddAlarmFeature {
         case setDayTime(DayTimeType)
         case setHour(String)
         case setMinute(String)
-        case didToggleSnooze(Bool)
-        case didToggleSound(Bool)
+        case didToggleSnooze
+        case didToggleSound
         case didTapRepeatDay(String)
         case saveAlarm
         case setAlarmOn(AlarmModel)
@@ -58,11 +58,11 @@ struct AddAlarmFeature {
             case let .setMinute(minute):
                 state.alarm.minute = minute
                 return .none
-            case let .didToggleSnooze(isOn):
-                state.alarm.snooze.isOn = isOn
+            case .didToggleSnooze:
+                state.alarm.snooze.isOn.toggle()
                 return .none
-            case let .didToggleSound(isOn):
-                state.alarm.sound.isOn = isOn
+            case .didToggleSound:
+                state.alarm.sound.isOn.toggle()
                 return .none
             case let .didTapRepeatDay(day):
                 if state.alarm.repeatWeekdays.contains(day) {
@@ -77,6 +77,9 @@ struct AddAlarmFeature {
                                     .run { _ in await dismiss() })
             case .toSnoozeOption:
                 state.snoozeOptionState = SnoozeOptionFeature.State(model: state.alarm.snooze)
+                return .none
+            case .snoozeOptionAction(.presented(.updateSnoozeModel(let model))):
+                state.alarm.snooze = model
                 return .none
             case .setAlarmOn(_):
                 return .none

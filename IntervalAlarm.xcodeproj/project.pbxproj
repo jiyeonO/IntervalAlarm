@@ -54,6 +54,8 @@
 		1CF3D9DF2CFB63B400FD32A1 /* NotificationRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF3D9D92CFB63B400FD32A1 /* NotificationRequestModel.swift */; };
 		1CF3D9E02CFB63B400FD32A1 /* SoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF3D9DB2CFB63B400FD32A1 /* SoundModel.swift */; };
 		1CF3D9E12CFB63B400FD32A1 /* DayTimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF3D9D82CFB63B400FD32A1 /* DayTimeType.swift */; };
+		1CFAA1E02D0015440052A544 /* SnoozeOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAA1DE2D0015440052A544 /* SnoozeOptionView.swift */; };
+		1CFAA1E22D0016F50052A544 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAA1E12D0016F50052A544 /* View+Extension.swift */; };
 		4987C23D2CF73CF300BEFF4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4987C23C2CF73CF300BEFF4C /* GoogleService-Info.plist */; };
 		4987C2402CF73DBC00BEFF4C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4987C23F2CF73DBC00BEFF4C /* FirebaseAnalytics */; };
 		4987C2422CF73DBC00BEFF4C /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4987C2412CF73DBC00BEFF4C /* FirebaseCore */; };
@@ -131,6 +133,8 @@
 		1CF3D9D92CFB63B400FD32A1 /* NotificationRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRequestModel.swift; sourceTree = "<group>"; };
 		1CF3D9DA2CFB63B400FD32A1 /* SnoozeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnoozeModel.swift; sourceTree = "<group>"; };
 		1CF3D9DB2CFB63B400FD32A1 /* SoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundModel.swift; sourceTree = "<group>"; };
+		1CFAA1DE2D0015440052A544 /* SnoozeOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnoozeOptionView.swift; sourceTree = "<group>"; };
+		1CFAA1E12D0016F50052A544 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		4987C23C2CF73CF300BEFF4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4987C2432CF73E2500BEFF4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4987C2452CF741D600BEFF4C /* libInternalStorage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libInternalStorage.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,6 +282,7 @@
 		1C80622F2C36D334002E312E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1CFAA1E12D0016F50052A544 /* View+Extension.swift */,
 				1C46FB152CF8B39300A90B96 /* String+Extension.swift */,
 				1CE9D1742C3AD5720084C2A6 /* Foundation+Extension.swift */,
 			);
@@ -405,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				1C22D0CF2CFD2B8B00B14DF2 /* View */,
+				1CFAA1DF2D0015440052A544 /* AlarmOption */,
 				1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */,
 			);
 			path = Add;
@@ -422,6 +428,14 @@
 			name = Model;
 			path = IntervalAlarm/Model;
 			sourceTree = SOURCE_ROOT;
+		};
+		1CFAA1DF2D0015440052A544 /* AlarmOption */ = {
+			isa = PBXGroup;
+			children = (
+				1CFAA1DE2D0015440052A544 /* SnoozeOptionView.swift */,
+			);
+			path = AlarmOption;
+			sourceTree = "<group>";
 		};
 		4987C2472CF742F800BEFF4C /* Delegate */ = {
 			isa = PBXGroup;
@@ -618,8 +632,10 @@
 				1C80623F2C36D707002E312E /* LayerCornerType.swift in Sources */,
 				1C46FB162CF8B39300A90B96 /* String+Extension.swift in Sources */,
 				1C3E51B12CF82EE40028B142 /* PermissionHandler.swift in Sources */,
+				1CFAA1E02D0015440052A544 /* SnoozeOptionView.swift in Sources */,
 				1C3E51B22CF82EE40028B142 /* ApplicationLoader.swift in Sources */,
 				1C8062112C36D32A002E312E /* BottomToastModifier.swift in Sources */,
+				1CFAA1E22D0016F50052A544 /* View+Extension.swift in Sources */,
 				1CE9D17B2C3AD9FD0084C2A6 /* AddAlarmFeature.swift in Sources */,
 				1C28CE892C730E2800F56774 /* AlarmRowFeature.swift in Sources */,
 				1C85BE5A2C35398A00AA98B9 /* MainFeature.swift in Sources */,
