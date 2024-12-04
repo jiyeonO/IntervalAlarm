@@ -15,24 +15,13 @@ struct MainRouteFeature {
     enum State: Equatable {
         case main(MainFeature.State)
         case empty(EmptyListFeature.State)
-        
-        mutating func switchToMain() {
-            if case .empty = self {
-                self = .main(MainFeature.State())
-            }
-        }
-        
-        mutating func switchToEmpty() {
-            if case .main = self {
-                self = .empty(EmptyListFeature.State())
-            }
-        }
     }
     
     enum Action {
         case onAppear
         case main(MainFeature.Action)
         case empty(EmptyListFeature.Action)
+        case switchStore
     }
     
     @Dependency(\.userDefaultsClient) var userDefaultsClient
@@ -40,24 +29,18 @@ struct MainRouteFeature {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .onAppear:
-                if !userDefaultsClient.loadAlarms().isEmpty {
-                    state.switchToMain()
-                } else {
-                    state.switchToEmpty()
-                }
-                return .none
-            case .empty(.switchStore), .main(.switchStore):
-                if !userDefaultsClient.loadAlarms().isEmpty {
-                    state.switchToMain()
-                } else {
-                    state.switchToEmpty()
-                }
-                
-                return .none
+            case .onAppear, .empty(.switchStore), .main(.switchStore):
+                return .send(.switchStore)
             case .main:
                 return .none
             case .empty:
+                return .none
+            case .switchStore:
+                if !userDefaultsClient.loadAlarms().isEmpty {
+                    state = .main(MainFeature.State())
+                } else {
+                    state = .empty(EmptyListFeature.State())
+                }
                 return .none
             }
         }
