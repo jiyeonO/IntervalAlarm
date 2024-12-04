@@ -228,6 +228,14 @@ struct MainView: View {
                     .onDelete {
                         store.send(.didSwipeDelete($0))
                     }
+                    
+                    HStack {
+                        Spacer()
+                        Images.logo.swiftUIImage
+                        Spacer()
+                    }
+                    .listRowBackground(Colors.grey20.swiftUIColor)
+                    .noneSeperator()
                 }
                 .background(.grey20)
                 .toolbar(.hidden, for: .navigationBar)
