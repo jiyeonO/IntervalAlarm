@@ -15,9 +15,22 @@ struct MainRouteFeature {
     enum State: Equatable {
         case main(MainFeature.State)
         case empty(EmptyListFeature.State)
+        
+        mutating func switchToMain() {
+            if case .empty = self {
+                self = .main(MainFeature.State())
+            }
+        }
+        
+        mutating func switchToEmpty() {
+            if case .main = self {
+                self = .empty(EmptyListFeature.State())
+            }
+        }
     }
     
     enum Action {
+        case onAppear
         case main(MainFeature.Action)
         case empty(EmptyListFeature.Action)
     }
@@ -27,27 +40,32 @@ struct MainRouteFeature {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .main(.onAppear):
+            case .onAppear:
                 if !userDefaultsClient.loadAlarms().isEmpty {
-                    state = .main(MainFeature.State())
+                    state.switchToMain()
                 } else {
-                    state = .empty(EmptyListFeature.State())
+                    state.switchToEmpty()
+                }
+                return .none
+            case .empty(.switchStore), .main(.switchStore):
+                if !userDefaultsClient.loadAlarms().isEmpty {
+                    state.switchToMain()
+                } else {
+                    state.switchToEmpty()
                 }
                 
                 return .none
             case .main:
                 return .none
-            case .empty(.onAppear):
-                if !userDefaultsClient.loadAlarms().isEmpty {
-                    state = .main(MainFeature.State())
-                } else {
-                    state = .empty(EmptyListFeature.State())
-                }
-                
-                return .none
             case .empty:
                 return .none
             }
+        }
+        .ifCaseLet(\.empty, action: \.empty) {
+            EmptyListFeature()
+        }
+        .ifCaseLet(\.main, action: \.main) {
+            MainFeature()
         }
     }
     
@@ -70,6 +88,9 @@ struct MainRouteView: View {
                     MainView(store: store)
                 }
             }
+        }
+        .onAppear {
+            store.send(.onAppear)
         }
     }
     

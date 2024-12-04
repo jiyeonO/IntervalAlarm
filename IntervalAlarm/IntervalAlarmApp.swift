@@ -20,7 +20,9 @@ struct IntervalAlarmApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainRouteView(store: IntervalAlarmApp.store)
+            WithPerceptionTracking {
+                MainRouteView(store: IntervalAlarmApp.store)                
+            }
         }
     }
     

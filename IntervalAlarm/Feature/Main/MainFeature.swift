@@ -35,6 +35,7 @@ struct MainFeature {
         case didTapDenyPermission
         case toAddAlarm
         case didTapCheckButton
+        case switchStore
 
         case alarmActions(IdentifiedActionOf<AlarmRowFeature>)
         case path(StackActionOf<Path>)
@@ -79,7 +80,16 @@ struct MainFeature {
                     
                     let alarmModels = state.alarmStates.map { $0.alarm }
                     userDefaultsClient.saveAlarms(alarmModels)
-                    return .send(.removeNotification(alarm))
+                    
+                    if state.alarmStates.isEmpty {
+                        return .concatenate(
+                            .send(.removeNotification(alarm)),
+                            .send(.switchStore)
+                        )
+                    } else {
+                        return .send(.removeNotification(alarm))
+                    }
+                    
                 }
                 
                 return .none
@@ -175,6 +185,8 @@ struct MainFeature {
                     }
                 }
                 
+                return .none
+            case .switchStore:
                 return .none
             }
         }
