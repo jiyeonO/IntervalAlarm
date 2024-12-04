@@ -4,6 +4,7 @@
 //
 //  Created by 오지연 on 11/30/24.
 //
+import SwiftUI
 
 enum VibrateType: String, Codable, CaseIterable {
     
@@ -36,8 +37,8 @@ extension SoundModel {
         self.melody != .none
     }
     
-    var title: String {
-        isMelodyOn ? self.melody.rawValue : self.vibrate.rawValue
+    var title: LocalizedStringKey {
+        isMelodyOn ? LocalizedStringKey(self.melody.rawValue) : LocalizedStringKey(self.vibrate.rawValue)
     }
     
 }

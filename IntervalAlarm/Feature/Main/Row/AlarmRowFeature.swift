@@ -91,7 +91,7 @@ struct AlarmRowView: View {
                                     .font(Fonts.Pretendard.bold.swiftUIFont(size: 20.0))
                                     .foregroundStyle(.grey70)
                             }
-                            Text("10분 간격으로 3회 반복해요")
+                            Text(store.alarm.snooze.displayDescription)
                                 .foregroundStyle(.grey80)
                         }
                         Spacer()
