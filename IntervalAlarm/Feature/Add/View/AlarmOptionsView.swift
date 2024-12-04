@@ -14,7 +14,7 @@ struct AlarmOptionsView: View {
     var body: some View {
         WithPerceptionTracking {
             VStack(alignment: .center, spacing: 10) {
-                Toggle(isOn: $store.alarm.snooze.isOn.sending(\.didToggleSnooze)) {
+                HStack {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Ring Again")
                             .font(Fonts.Pretendard.bold.swiftUIFont(size: 16))
@@ -23,13 +23,24 @@ struct AlarmOptionsView: View {
                             .font(Fonts.Pretendard.regular.swiftUIFont(size: 13))
                             .foregroundStyle(.grey80)
                     }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        store.send(.didToggleSnooze)
+                    }, label: {
+                        store.alarm.snooze.isOn ? Images.toggleOn.swiftUIImage : Images.toggleOff.swiftUIImage
+                    })
+                    .buttonStyle(.plain)
                 }
-                .toggleStyle(SwitchToggleStyle(tint: .grey90))
                 .padding(20)
                 .background(.white100)
                 .cornerRadius(12)
+                .onTapGesture {
+                    store.send(.toSnoozeOption)
+                }
                 
-                Toggle(isOn: $store.alarm.sound.isOn.sending(\.didToggleSound)) {
+                HStack {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Sound")
                             .font(Fonts.Pretendard.bold.swiftUIFont(size: 16))
@@ -38,8 +49,16 @@ struct AlarmOptionsView: View {
                             .font(Fonts.Pretendard.regular.swiftUIFont(size: 13))
                             .foregroundStyle(.grey80)
                     }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        store.send(.didToggleSound)
+                    }, label: {
+                        store.alarm.sound.isOn ? Images.toggleOn.swiftUIImage : Images.toggleOff.swiftUIImage
+                    })
+                    .buttonStyle(.plain)
                 }
-                .toggleStyle(SwitchToggleStyle(tint: .grey90))
                 .padding(20)
                 .background(.white100)
                 .cornerRadius(12)
