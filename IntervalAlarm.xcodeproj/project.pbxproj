@@ -46,6 +46,7 @@
 		1CCF73A62C34DC8A0099E0E1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1CCF73A52C34DC8A0099E0E1 /* Kingfisher */; };
 		1CCF73A92C34DD360099E0E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF73A72C34DD360099E0E1 /* Images.xcassets */; };
 		1CCF73AA2C34DD360099E0E1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF73A82C34DD360099E0E1 /* Colors.xcassets */; };
+		1CD0B3FE2D001F930032A2F4 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0B3FD2D001F910032A2F4 /* ListBackgroundModifier.swift */; };
 		1CD9FD242CFD609E00FE13CE /* WeekDayTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD9FD232CFD608B00FE13CE /* WeekDayTabView.swift */; };
 		1CE9D1752C3AD5720084C2A6 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D1742C3AD5720084C2A6 /* Foundation+Extension.swift */; };
 		1CE9D17B2C3AD9FD0084C2A6 /* AddAlarmFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */; };
@@ -125,6 +126,7 @@
 		1CCF73852C34DB040099E0E1 /* IntervalAlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntervalAlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CCF73A72C34DD360099E0E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1CCF73A82C34DD360099E0E1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		1CD0B3FD2D001F910032A2F4 /* ListBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundModifier.swift; sourceTree = "<group>"; };
 		1CD9FD232CFD608B00FE13CE /* WeekDayTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayTabView.swift; sourceTree = "<group>"; };
 		1CE9D1742C3AD5720084C2A6 /* Foundation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmFeature.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				1C8061F82C36D32A002E312E /* HiddenModifier.swift */,
 				1C8061FA2C36D32A002E312E /* ViewDidLoadModifier.swift */,
 				1C00A77C2CF5A02B0016AA9D /* ListModifier.swift */,
+				1CD0B3FD2D001F910032A2F4 /* ListBackgroundModifier.swift */,
 			);
 			path = ViewModifier;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				1C50E2392CE4D1AC004E698B /* Fonts+Generated.swift in Sources */,
 				1C00A7752CF008C60016AA9D /* UserDefaultsClient.swift in Sources */,
 				1C22D0CE2CFD2B7400B14DF2 /* DayTimeTabView.swift in Sources */,
+				1CD0B3FE2D001F930032A2F4 /* ListBackgroundModifier.swift in Sources */,
 				1C8062222C36D32A002E312E /* RoundedCorner.swift in Sources */,
 				1C8062392C36D5BF002E312E /* Logger.swift in Sources */,
 				1CCF736F2C34DB030099E0E1 /* IntervalAlarmApp.swift in Sources */,

@@ -219,11 +219,9 @@ struct MainView: View {
                     .noneSeperator()
 
                     ForEach(store.scope(state: \.alarmStates, action: \.alarmActions)) { store in
-                        VStack {
-                            AlarmRowView(store: store)
-                        }
-                        .listRowBackground(Colors.grey20.swiftUIColor)
-                        .noneSeperator()
+                        AlarmRowView(store: store)
+                            .listRowBackground(Colors.grey20.swiftUIColor)
+                            .noneSeperator()
                     }
                     .onDelete {
                         store.send(.didSwipeDelete($0))
@@ -237,7 +235,7 @@ struct MainView: View {
                     .listRowBackground(Colors.grey20.swiftUIColor)
                     .noneSeperator()
                 }
-                .background(.grey20)
+                .listBackground(.grey20)
                 .toolbar(.hidden, for: .navigationBar)
                 .listStyle(.plain)
             } destination: { store in
