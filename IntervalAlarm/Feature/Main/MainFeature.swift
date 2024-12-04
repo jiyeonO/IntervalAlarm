@@ -13,6 +13,7 @@ struct MainFeature {
     
     @Reducer(state: .equatable)
     enum Path {
+        case add(AddAlarmFeature)
         case modified(AddAlarmFeature)
     }
     
@@ -21,7 +22,6 @@ struct MainFeature {
         var alarmStates: IdentifiedArrayOf<AlarmRowFeature.State> = []
         var path = StackState<Path.State>()
 
-        @Presents var addAlarmState: AddAlarmFeature.State?
         @Presents var alert: AlertState<Action.Alert>?
     }
     
@@ -38,7 +38,6 @@ struct MainFeature {
 
         case alarmActions(IdentifiedActionOf<AlarmRowFeature>)
         case path(StackActionOf<Path>)
-        case addAlarmAction(PresentationAction<AddAlarmFeature.Action>)
         case alert(PresentationAction<Alert>)
         
         @CasePathable
@@ -119,7 +118,7 @@ struct MainFeature {
                 }
                 return .none
             case .toAddAlarm:
-                state.addAlarmState = AddAlarmFeature.State()
+                state.path.append(.add(AddAlarmFeature.State()))
                 return .none
             case let .alarmActions(.element(id: id, action: .setAlarmOn)):
                 guard let alarm = state.alarmStates[id: id]?.alarm else { return .none }
@@ -145,17 +144,17 @@ struct MainFeature {
                 }
             case let .path(action):
                 switch action {
-                case .element(id: _, action: .modified(.setAlarmOn(_))):
-                    return .none
+                case .element(id: _, action: .add(.setAlarmOn(let alarm))):
+                    return .merge(.send(.onAppear),
+                                  .send(.sendNotification(alarm)))
+                case .element(id: _, action: .modified(.setAlarmOn(let alarm))):
+                    return .merge(.send(.onAppear),
+                                  .send(.removeNotification(alarm)),
+                                  .send(.sendNotification(alarm)))
                 default:
                     return .none
                 }
-            case .addAlarmAction(.presented(.setAlarmOn(let alarm))):
-                return .merge(.send(.onAppear),
-                              .send(.sendNotification(alarm)))
             case .alarmActions(_):
-                return .none
-            case .addAlarmAction:
                 return .none
             case .alert:
                 return .none
@@ -181,9 +180,6 @@ struct MainFeature {
         .forEach(\.path, action: \.path)
         .forEach(\.alarmStates, action: \.alarmActions) {
             AlarmRowFeature()
-        }
-        .ifLet(\.$addAlarmState, action: \.addAlarmAction) {
-            AddAlarmFeature()
         }
         .ifLet(\.alert, action: \.alert)
     }
@@ -235,14 +231,11 @@ struct MainView: View {
             } destination: { store in
                 WithPerceptionTracking {
                     switch store.case {
+                    case let .add(store):
+                        AddAlarmView(store: store)
                     case let .modified(store):
                         AddAlarmView(store: store)
                     }
-                }
-            }
-            .sheet(item: $store.scope(state: \.addAlarmState, action: \.addAlarmAction)) { store in
-                WithPerceptionTracking {
-                    AddAlarmView(store: store)
                 }
             }
             .background(.grey20)
