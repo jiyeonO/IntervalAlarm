@@ -91,7 +91,6 @@ extension AlarmModel {
         return calendar.shortStandaloneWeekdaySymbols
     }
     
-    
     var weekdayIds: [String] {
         if self.repeatWeekdaysValue.isEmpty {
             return [self.uuidString]

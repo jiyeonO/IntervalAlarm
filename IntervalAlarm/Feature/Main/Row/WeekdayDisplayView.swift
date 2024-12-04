@@ -33,8 +33,8 @@ extension WeekdayDisplayView {
 
     static var weekdaySymbols: [String] = {
         var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale(identifier: "ko_KR")
-        return calendar.veryShortWeekdaySymbols
+        calendar.locale = Locale.current
+        return calendar.shortStandaloneWeekdaySymbols
     }()
 
 }
