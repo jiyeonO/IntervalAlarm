@@ -14,7 +14,6 @@ struct MainFeature {
     @Reducer(state: .equatable)
     enum Path {
         case add(AddAlarmFeature)
-        case modified(AddAlarmFeature)
     }
     
     @ObservableState
@@ -136,7 +135,7 @@ struct MainFeature {
                 return .send(.removeNotification(alarm))
             case let .alarmActions(.element(id: id, action: .toModifyAlarm)):
                 guard let alarm = state.alarmStates[id: id]?.alarm else { return .none }
-                state.path.append(.modified(AddAlarmFeature.State(alarm: alarm)))
+                state.path.append(.add(AddAlarmFeature.State(entryType: .modify, alarm: alarm)))
                 return .none
             case .alert(.presented(.toSetting)):
                 return .run { _ in
@@ -147,7 +146,7 @@ struct MainFeature {
                 case .element(id: _, action: .add(.setAlarmOn(let alarm))):
                     return .merge(.send(.onAppear),
                                   .send(.sendNotification(alarm)))
-                case .element(id: _, action: .modified(.setAlarmOn(let alarm))):
+                case .element(id: _, action: .add(.modifyAlarm(let alarm))):
                     return .merge(.send(.onAppear),
                                   .send(.removeNotification(alarm)),
                                   .send(.sendNotification(alarm)))
@@ -232,8 +231,6 @@ struct MainView: View {
                 WithPerceptionTracking {
                     switch store.case {
                     case let .add(store):
-                        AddAlarmView(store: store)
-                    case let .modified(store):
                         AddAlarmView(store: store)
                     }
                 }

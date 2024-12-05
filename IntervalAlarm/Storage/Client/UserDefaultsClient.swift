@@ -13,6 +13,7 @@ struct UserDefaultsClient {
     var loadIsLaunchFirst: @Sendable () -> Bool
     var saveIsLaunchFirst: @Sendable (_ isLaunchFirst: Bool) -> Void
     var loadAlarms: @Sendable () -> [AlarmModel]
+    var modifyAlarm: @Sendable (_ alarm: AlarmModel) -> Void
     var saveAlarm: @Sendable (_ alarm: AlarmModel) -> Void
     var saveAlarms: @Sendable (_ alarms: [AlarmModel]) -> Void
     
@@ -29,6 +30,9 @@ extension UserDefaultsClient: DependencyKey {
     } loadAlarms: {
         let userDefault = UserDefaultsStorage()
         return userDefault.loadAlarms()
+    } modifyAlarm: { alarm in
+        let userDefault = UserDefaultsStorage()
+        userDefault.modifyAlarm(model: alarm)
     } saveAlarm: { alarm in
         let userDefault = UserDefaultsStorage()
         userDefault.saveAlarm(model: alarm)

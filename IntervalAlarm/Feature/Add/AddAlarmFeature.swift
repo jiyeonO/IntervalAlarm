@@ -8,12 +8,25 @@
 import Foundation
 import ComposableArchitecture
 
+enum AddAlarmEntryType {
+    
+    case add
+    case modify
+    
+}
+
 @Reducer
 struct AddAlarmFeature {
     
     @ObservableState
     struct State: Equatable {
-        var alarm: AlarmModel = .init()
+        let entryType: AddAlarmEntryType
+        var alarm: AlarmModel
+        
+        init(entryType: AddAlarmEntryType = .add, alarm: AlarmModel = .init()) {
+            self.entryType = entryType
+            self.alarm = alarm
+        }
     }
     
     enum Action: BindableAction {
@@ -27,6 +40,7 @@ struct AddAlarmFeature {
         case didTapRepeatDay(String)
         case saveAlarm
         case setAlarmOn(AlarmModel)
+        case modifyAlarm(AlarmModel)
         
         case binding(BindingAction<State>)
     }
@@ -68,10 +82,20 @@ struct AddAlarmFeature {
                 }
                 return .none
             case .saveAlarm:
-                userDefaultsClient.saveAlarm(state.alarm)
-                return .concatenate(.send(.setAlarmOn(state.alarm)),
-                                    .run { _ in await dismiss() })
+                if state.entryType == .add  {
+                    userDefaultsClient.saveAlarm(state.alarm)
+                    
+                    return .concatenate(.send(.setAlarmOn(state.alarm)),
+                                        .run { _ in await dismiss() })
+                } else {
+                    userDefaultsClient.modifyAlarm(state.alarm)
+                    
+                    return .concatenate(.send(.modifyAlarm(state.alarm)),
+                                        .run { _ in await dismiss() })
+                }
             case .setAlarmOn(_):
+                return .none
+            case .modifyAlarm(_):
                 return .none
             case .binding:
                 return .none
