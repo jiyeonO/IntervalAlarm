@@ -13,7 +13,7 @@ struct WeekdayDisplayView: View {
 
     var body: some View {
         HStack(spacing: 5.0) {
-            ForEach(WeekdayDisplayView.weekdaySymbols, id: \.self) { text in
+            ForEach(weekdaySymbols, id: \.self) { text in
                 Circle()
                     .foregroundStyle(selectedWeekdays.contains(text) ? .grey20 : .white100)
                     .overlay {
@@ -25,17 +25,6 @@ struct WeekdayDisplayView: View {
             }
         }
     }
-
-}
-
-
-extension WeekdayDisplayView {
-
-    static var weekdaySymbols: [String] = {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale(identifier: "ko_KR")
-        return calendar.veryShortWeekdaySymbols
-    }()
 
 }
 

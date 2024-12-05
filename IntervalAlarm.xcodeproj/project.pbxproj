@@ -47,6 +47,7 @@
 		1CCF73A92C34DD360099E0E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF73A72C34DD360099E0E1 /* Images.xcassets */; };
 		1CCF73AA2C34DD360099E0E1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF73A82C34DD360099E0E1 /* Colors.xcassets */; };
 		1CD0B3FE2D001F930032A2F4 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0B3FD2D001F910032A2F4 /* ListBackgroundModifier.swift */; };
+		1CD0B4062D0159780032A2F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0B4052D0159780032A2F4 /* Constants.swift */; };
 		1CD9FD242CFD609E00FE13CE /* WeekDayTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD9FD232CFD608B00FE13CE /* WeekDayTabView.swift */; };
 		1CE9D1752C3AD5720084C2A6 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D1742C3AD5720084C2A6 /* Foundation+Extension.swift */; };
 		1CE9D17B2C3AD9FD0084C2A6 /* AddAlarmFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */; };
@@ -129,6 +130,7 @@
 		1CCF73A72C34DD360099E0E1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1CCF73A82C34DD360099E0E1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		1CD0B3FD2D001F910032A2F4 /* ListBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundModifier.swift; sourceTree = "<group>"; };
+		1CD0B4052D0159780032A2F4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1CD9FD232CFD608B00FE13CE /* WeekDayTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayTabView.swift; sourceTree = "<group>"; };
 		1CE9D1742C3AD5720084C2A6 /* Foundation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmFeature.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 		1C3E51B02CF82EE40028B142 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1CD0B4052D0159780032A2F4 /* Constants.swift */,
 				1C3E51AE2CF82EE40028B142 /* ApplicationLoader.swift */,
 				1C3E51AF2CF82EE40028B142 /* PermissionHandler.swift */,
 			);
@@ -652,6 +655,7 @@
 				4987C2442CF73E2500BEFF4C /* AppDelegate.swift in Sources */,
 				4987C24B2CFAB17000BEFF4C /* WeekdayDisplayView.swift in Sources */,
 				1C8062142C36D32A002E312E /* ViewDidLoadModifier.swift in Sources */,
+				1CD0B4062D0159780032A2F4 /* Constants.swift in Sources */,
 				1C22D0D22CFD2D5B00B14DF2 /* AlarmOptionsView.swift in Sources */,
 				4987C24D2CFABCF900BEFF4C /* AddAlarmButtonView.swift in Sources */,
 				1CF3D9DD2CFB63B400FD32A1 /* SnoozeModel.swift in Sources */,

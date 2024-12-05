@@ -43,6 +43,12 @@ extension UserDefaultsStorage {
         saveObjects(alarms, key: .alarms)
     }
     
+    func modifyAlarm(model: AlarmModel) {
+        var alarms = loadAlarms()
+        alarms = alarms.map { $0.id == model.id ? model : $0 }
+        saveObjects(alarms, key: .alarms)
+    }
+    
     func saveAlarms(models: [AlarmModel]) {
         saveObjects(models, key: .alarms)
     }
