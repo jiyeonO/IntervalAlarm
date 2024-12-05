@@ -34,6 +34,7 @@ struct MainFeature {
         case didTapDenyPermission
         case toAddAlarm
         case didTapCheckButton
+        case switchStore
 
         case alarmActions(IdentifiedActionOf<AlarmRowFeature>)
         case path(StackActionOf<Path>)
@@ -77,7 +78,16 @@ struct MainFeature {
                     
                     let alarmModels = state.alarmStates.map { $0.alarm }
                     userDefaultsClient.saveAlarms(alarmModels)
-                    return .send(.removeNotification(alarm))
+                    
+                    if state.alarmStates.isEmpty {
+                        return .concatenate(
+                            .send(.removeNotification(alarm)),
+                            .send(.switchStore)
+                        )
+                    } else {
+                        return .send(.removeNotification(alarm))
+                    }
+                    
                 }
                 
                 return .none
@@ -174,6 +184,8 @@ struct MainFeature {
                 }
                 
                 return .none
+            case .switchStore:
+                return .none
             }
         }
         .forEach(\.path, action: \.path)
@@ -214,17 +226,23 @@ struct MainView: View {
                     .noneSeperator()
 
                     ForEach(store.scope(state: \.alarmStates, action: \.alarmActions)) { store in
-                        VStack {
-                            AlarmRowView(store: store)
-                        }
-                        .listRowBackground(Colors.grey20.swiftUIColor)
-                        .noneSeperator()
+                        AlarmRowView(store: store)
+                            .listRowBackground(Colors.grey20.swiftUIColor)
+                            .noneSeperator()
                     }
                     .onDelete {
                         store.send(.didSwipeDelete($0))
                     }
+                    
+                    HStack {
+                        Spacer()
+                        Images.logo.swiftUIImage
+                        Spacer()
+                    }
+                    .listRowBackground(Colors.grey20.swiftUIColor)
+                    .noneSeperator()
                 }
-                .background(.grey20)
+                .listBackground(.grey20)
                 .toolbar(.hidden, for: .navigationBar)
                 .listStyle(.plain)
             } destination: { store in

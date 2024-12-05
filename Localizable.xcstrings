@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
     ":" : {
       "shouldTranslate" : false
     },
@@ -86,6 +83,17 @@
         }
       }
     },
+    "Check Alarms" : {
+
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알람 확인"
+          }
+        }
+      }
+    },
     "Confirm" : {
       "localizations" : {
         "ko" : {
@@ -126,6 +134,16 @@
         }
       }
     },
+    "Interval" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "간격"
+          }
+        }
+      }
+    },
     "Not in use" : {
       "localizations" : {
         "ko" : {
@@ -162,6 +180,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "푸쉬 권한이 허용되지 않았어요"
+          }
+        }
+      }
+    },
+    "Repeat" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "반복"
           }
         }
       }
@@ -231,6 +259,15 @@
           }
         }
       }
+    },
+    "알람 추가하기" : {
+
+    },
+    "알람을 지금 바로 추가해 보세요!" : {
+
+    },
+    "알람이 없어요" : {
+
     }
   },
   "version" : "1.0"

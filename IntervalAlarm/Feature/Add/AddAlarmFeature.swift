@@ -23,6 +23,8 @@ struct AddAlarmFeature {
         let entryType: AddAlarmEntryType
         var alarm: AlarmModel
         
+        @Presents var snoozeOptionState: SnoozeOptionFeature.State?
+        
         init(entryType: AddAlarmEntryType = .add, alarm: AlarmModel = .init()) {
             self.entryType = entryType
             self.alarm = alarm
@@ -35,14 +37,16 @@ struct AddAlarmFeature {
         case setDayTime(DayTimeType)
         case setHour(String)
         case setMinute(String)
-        case didToggleSnooze(Bool)
-        case didToggleSound(Bool)
+        case didToggleSnooze
+        case didToggleSound
         case didTapRepeatDay(String)
         case saveAlarm
         case setAlarmOn(AlarmModel)
         case modifyAlarm(AlarmModel)
+        case toSnoozeOption
         
         case binding(BindingAction<State>)
+        case snoozeOptionAction(PresentationAction<SnoozeOptionFeature.Action>)
     }
     
     @Dependency(\.userDefaultsClient) var userDefaultsClient
@@ -68,11 +72,11 @@ struct AddAlarmFeature {
             case let .setMinute(minute):
                 state.alarm.minute = minute
                 return .none
-            case let .didToggleSnooze(isOn):
-                state.alarm.snooze.isOn = isOn
+            case .didToggleSnooze:
+                state.alarm.snooze.isOn.toggle()
                 return .none
-            case let .didToggleSound(isOn):
-                state.alarm.sound.isOn = isOn
+            case .didToggleSound:
+                state.alarm.sound.isOn.toggle()
                 return .none
             case let .didTapRepeatDay(day):
                 if state.alarm.repeatWeekdays.contains(day) {
@@ -93,13 +97,24 @@ struct AddAlarmFeature {
                     return .concatenate(.send(.modifyAlarm(state.alarm)),
                                         .run { _ in await dismiss() })
                 }
+            case .toSnoozeOption:
+                state.snoozeOptionState = SnoozeOptionFeature.State(model: state.alarm.snooze)
+                return .none
+            case .snoozeOptionAction(.presented(.updateSnoozeModel(let model))):
+                state.alarm.snooze = model
+                return .none
             case .setAlarmOn(_):
                 return .none
             case .modifyAlarm(_):
                 return .none
             case .binding:
                 return .none
+            case .snoozeOptionAction:
+                return .none
             }
+        }
+        .ifLet(\.$snoozeOptionState, action: \.snoozeOptionAction) {
+            SnoozeOptionFeature()
         }
     }
     
@@ -152,6 +167,12 @@ struct AddAlarmView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
                 .padding(20)
+            }
+            .sheet(item: $store.scope(state: \.snoozeOptionState, action: \.snoozeOptionAction)) { store in
+                WithPerceptionTracking {
+                    SnoozeOptionView(store: store)
+                        .measureHeight()
+                }
             }
             .toolbar(.hidden, for: .navigationBar)
             .scrollDismissesKeyboard(.immediately)

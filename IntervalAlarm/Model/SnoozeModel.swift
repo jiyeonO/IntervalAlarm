@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-enum IntervalType: Codable, CaseIterable, Equatable {
+enum IntervalType: Codable, CaseIterable, Hashable {
     
     case three
     case five
@@ -95,6 +95,14 @@ extension SnoozeModel {
     
     var displayDescription: LocalizedStringKey {
         isOn ? LocalizedStringKey("Repeats \(`repeat`.description) times with \(interval.value)-minute intervals") : "Alarm will ring once"
+    }
+    
+    func isSelectedInterval(_ type: IntervalType) -> Bool {
+        self.isOn && self.interval == type
+    }
+    
+    func isSelectedRepeat(_ type: RepeatType) -> Bool {
+        self.isOn && self.repeat == type
     }
     
 }
