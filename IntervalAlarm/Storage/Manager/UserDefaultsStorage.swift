@@ -39,7 +39,11 @@ extension UserDefaultsStorage {
 
     func saveAlarm(model: AlarmModel) {
         var alarms = loadAlarms()
-        alarms.append(model)
+        if alarms.contains(where: { $0.id == model.id }) {
+            alarms = alarms.map { $0.id == model.id ? model : $0 }
+        } else {
+            alarms.append(model)
+        }
         saveObjects(alarms, key: .alarms)
     }
     

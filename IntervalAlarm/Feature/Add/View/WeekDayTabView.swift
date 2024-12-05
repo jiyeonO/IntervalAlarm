@@ -20,7 +20,7 @@ struct WeekDayTabView: View {
                     .foregroundStyle(.grey100)
                 
                 HStack(spacing: 10.0) {
-                    ForEach(store.alarm.weekdaySymbols, id: \.self) { day in
+                    ForEach(weekdaySymbols, id: \.self) { day in
                         Text(day)
                             .font(Fonts.Pretendard.medium.swiftUIFont(size: 13))
                             .minimumScaleFactor(0.5)
