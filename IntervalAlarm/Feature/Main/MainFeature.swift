@@ -147,7 +147,7 @@ struct MainFeature {
                     return .merge(.send(.onAppear),
                                   .send(.sendNotification(alarm)))
                 case .element(id: _, action: .add(.modifyAlarm(let alarm))):
-                    return .merge(.send(.onAppear),
+                    return .concatenate(.send(.onAppear),
                                   .send(.removeNotification(alarm)),
                                   .send(.sendNotification(alarm)))
                 default:
