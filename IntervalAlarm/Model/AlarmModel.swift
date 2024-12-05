@@ -85,12 +85,6 @@ extension AlarmModel {
         }
     }
     
-    var weekdaySymbols: [String] {
-        var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale.current
-        return calendar.shortStandaloneWeekdaySymbols
-    }
-    
     var weekdayIds: [String] {
         if self.repeatWeekdaysValue.isEmpty {
             return [self.uuidString]
