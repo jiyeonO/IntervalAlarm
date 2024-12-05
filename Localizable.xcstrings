@@ -84,7 +84,6 @@
       }
     },
     "Check Alarms" : {
-
       "localizations" : {
         "ko" : {
           "stringUnit" : {
@@ -143,6 +142,9 @@
           }
         }
       }
+    },
+    "Manual Settings" : {
+
     },
     "Not in use" : {
       "localizations" : {
@@ -259,6 +261,9 @@
           }
         }
       }
+    },
+    "분" : {
+
     },
     "알람 추가하기" : {
 

@@ -67,6 +67,7 @@
 		4987C24D2CFABCF900BEFF4C /* AddAlarmButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987C24C2CFABCF900BEFF4C /* AddAlarmButtonView.swift */; };
 		AD74318C2CFEE84300A44F5E /* EmptyListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74318B2CFEE84300A44F5E /* EmptyListFeature.swift */; };
 		AD74318E2CFEF3FA00A44F5E /* MainRouteFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74318D2CFEF3FA00A44F5E /* MainRouteFeature.swift */; };
+		AD7431902D01951F00A44F5E /* CustomInputFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74318F2D01951F00A44F5E /* CustomInputFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		4987C24C2CFABCF900BEFF4C /* AddAlarmButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmButtonView.swift; sourceTree = "<group>"; };
 		AD74318B2CFEE84300A44F5E /* EmptyListFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListFeature.swift; sourceTree = "<group>"; };
 		AD74318D2CFEF3FA00A44F5E /* MainRouteFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouteFeature.swift; sourceTree = "<group>"; };
+		AD74318F2D01951F00A44F5E /* CustomInputFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,6 +426,7 @@
 				1C22D0CF2CFD2B8B00B14DF2 /* View */,
 				1CFAA1DF2D0015440052A544 /* AlarmOption */,
 				1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */,
+				AD74318F2D01951F00A44F5E /* CustomInputFeature.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				AD74318E2CFEF3FA00A44F5E /* MainRouteFeature.swift in Sources */,
 				1C46FB162CF8B39300A90B96 /* String+Extension.swift in Sources */,
 				1C3E51B12CF82EE40028B142 /* PermissionHandler.swift in Sources */,
+				AD7431902D01951F00A44F5E /* CustomInputFeature.swift in Sources */,
 				1CFAA1E02D0015440052A544 /* SnoozeOptionView.swift in Sources */,
 				1C3E51B22CF82EE40028B142 /* ApplicationLoader.swift in Sources */,
 				1C8062112C36D32A002E312E /* BottomToastModifier.swift in Sources */,
