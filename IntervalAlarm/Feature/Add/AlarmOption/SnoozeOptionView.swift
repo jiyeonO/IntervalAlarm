@@ -159,9 +159,11 @@ struct SnoozeOptionView: View {
                 }
                 .padding(30)
             } destination: { store in
-                switch store.case {
-                case let .custom(store):
-                    CustomInputView(store: store)
+                WithPerceptionTracking {
+                    switch store.case {
+                    case let .custom(store):
+                        CustomInputView(store: store)
+                    }                    
                 }
             }
         }
