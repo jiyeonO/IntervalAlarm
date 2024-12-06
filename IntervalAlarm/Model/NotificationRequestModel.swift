@@ -15,6 +15,8 @@ extension AlarmModel {
         content.body = "User 알람 메모 노출"
         content.sound = .default
         
+        content.categoryIdentifier = "alarm"
+        
         var dateComponents = DateComponents()
         dateComponents.hour = self.hourValueIn24
         dateComponents.minute = self.minuteValue
@@ -33,6 +35,8 @@ extension AlarmModel {
         content.title = "⏰ \(self.notificationTitle)"
         content.body = "User 알람 메모 노출"
         content.sound = .default
+        
+        content.categoryIdentifier = "alarm"
         
         if self.repeatWeekdaysValue.isEmpty {
             return [self.notificationRequest]

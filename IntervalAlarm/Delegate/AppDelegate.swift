@@ -15,7 +15,13 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         #if !DEBUG
         FirebaseApp.configure()
         #endif
-        UNUserNotificationCenter.current().delegate = self
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.delegate = self
+        
+//        let show = UNNotificationAction(identifier: "show", title: "Tell me more…", options: .foreground)
+        let category = UNNotificationCategory(identifier: "alarm", actions: [], intentIdentifiers: [])
+        
+        notificationCenter.setNotificationCategories([category])
         return true
     }
 

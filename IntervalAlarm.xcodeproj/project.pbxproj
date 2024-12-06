@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,6 +48,9 @@
 		1CCF73AA2C34DD360099E0E1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CCF73A82C34DD360099E0E1 /* Colors.xcassets */; };
 		1CD0B3FE2D001F930032A2F4 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0B3FD2D001F910032A2F4 /* ListBackgroundModifier.swift */; };
 		1CD0B4062D0159780032A2F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD0B4052D0159780032A2F4 /* Constants.swift */; };
+		1CD0B4562D02BEC70032A2F4 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD0B40E2D0173220032A2F4 /* UserNotifications.framework */; };
+		1CD0B4572D02BEC70032A2F4 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD0B4102D0173220032A2F4 /* UserNotificationsUI.framework */; };
+		1CD0B4612D02BEC70032A2F4 /* NotificationContent.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1CD0B4552D02BEC60032A2F4 /* NotificationContent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1CD9FD242CFD609E00FE13CE /* WeekDayTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD9FD232CFD608B00FE13CE /* WeekDayTabView.swift */; };
 		1CE9D1752C3AD5720084C2A6 /* Foundation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D1742C3AD5720084C2A6 /* Foundation+Extension.swift */; };
 		1CE9D17B2C3AD9FD0084C2A6 /* AddAlarmFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */; };
@@ -84,7 +87,28 @@
 			remoteGlobalIDString = 1CCF736A2C34DB030099E0E1;
 			remoteInfo = IntervalAlarm;
 		};
+		1CD0B45F2D02BEC70032A2F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CCF73632C34DB030099E0E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1CD0B4542D02BEC60032A2F4;
+			remoteInfo = NotificationContent;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1CD0B41C2D0173220032A2F4 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1CD0B4612D02BEC70032A2F4 /* NotificationContent.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1C00A76D2CEFFD5C0016AA9D /* libInternalStorage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libInternalStorage.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +155,9 @@
 		1CCF73A82C34DD360099E0E1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		1CD0B3FD2D001F910032A2F4 /* ListBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundModifier.swift; sourceTree = "<group>"; };
 		1CD0B4052D0159780032A2F4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1CD0B40E2D0173220032A2F4 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		1CD0B4102D0173220032A2F4 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		1CD0B4552D02BEC60032A2F4 /* NotificationContent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationContent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD9FD232CFD608B00FE13CE /* WeekDayTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayTabView.swift; sourceTree = "<group>"; };
 		1CE9D1742C3AD5720084C2A6 /* Foundation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Extension.swift"; sourceTree = "<group>"; };
 		1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmFeature.swift; sourceTree = "<group>"; };
@@ -149,6 +176,20 @@
 		AD74318B2CFEE84300A44F5E /* EmptyListFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListFeature.swift; sourceTree = "<group>"; };
 		AD74318D2CFEF3FA00A44F5E /* MainRouteFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouteFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1CD0B4622D02BEC70032A2F4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 1CD0B4542D02BEC60032A2F4 /* NotificationContent */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		1CD0B4582D02BEC70032A2F4 /* NotificationContent */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (1CD0B4622D02BEC70032A2F4 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = NotificationContent; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1CCF73682C34DB030099E0E1 /* Frameworks */ = {
@@ -177,6 +218,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1CD0B4522D02BEC60032A2F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CD0B4572D02BEC70032A2F4 /* UserNotificationsUI.framework in Frameworks */,
+				1CD0B4562D02BEC70032A2F4 /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -185,6 +235,8 @@
 			children = (
 				4987C2452CF741D600BEFF4C /* libInternalStorage.a */,
 				1C00A76D2CEFFD5C0016AA9D /* libInternalStorage.a */,
+				1CD0B40E2D0173220032A2F4 /* UserNotifications.framework */,
+				1CD0B4102D0173220032A2F4 /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -344,6 +396,7 @@
 				1C17347B2CFD788200E8E970 /* Localizable.xcstrings */,
 				1C00A7772CF0547C0016AA9D /* README.md */,
 				1CCF736D2C34DB030099E0E1 /* IntervalAlarm */,
+				1CD0B4582D02BEC70032A2F4 /* NotificationContent */,
 				1C00A76C2CEFFD5C0016AA9D /* Frameworks */,
 				1CCF736C2C34DB030099E0E1 /* Products */,
 			);
@@ -355,6 +408,7 @@
 				1CCF736B2C34DB030099E0E1 /* IntervalAlarm.app */,
 				1CCF737B2C34DB040099E0E1 /* IntervalAlarmTests.xctest */,
 				1CCF73852C34DB040099E0E1 /* IntervalAlarmUITests.xctest */,
+				1CD0B4552D02BEC60032A2F4 /* NotificationContent.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -468,10 +522,12 @@
 				1CCF73682C34DB030099E0E1 /* Frameworks */,
 				1CCF73692C34DB030099E0E1 /* Resources */,
 				1CCF73F42C34EC550099E0E1 /* SwiftGen */,
+				1CD0B41C2D0173220032A2F4 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1CD0B4602D02BEC70032A2F4 /* PBXTargetDependency */,
 			);
 			name = IntervalAlarm;
 			packageProductDependencies = (
@@ -520,6 +576,28 @@
 			productReference = 1CCF73852C34DB040099E0E1 /* IntervalAlarmUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		1CD0B4542D02BEC60032A2F4 /* NotificationContent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CD0B4632D02BEC70032A2F4 /* Build configuration list for PBXNativeTarget "NotificationContent" */;
+			buildPhases = (
+				1CD0B4512D02BEC60032A2F4 /* Sources */,
+				1CD0B4522D02BEC60032A2F4 /* Frameworks */,
+				1CD0B4532D02BEC60032A2F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1CD0B4582D02BEC70032A2F4 /* NotificationContent */,
+			);
+			name = NotificationContent;
+			packageProductDependencies = (
+			);
+			productName = NotificationContent;
+			productReference = 1CD0B4552D02BEC60032A2F4 /* NotificationContent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -527,7 +605,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1530;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					1CCF736A2C34DB030099E0E1 = {
@@ -540,6 +618,9 @@
 					1CCF73842C34DB040099E0E1 = {
 						CreatedOnToolsVersion = 15.3;
 						TestTargetID = 1CCF736A2C34DB030099E0E1;
+					};
+					1CD0B4542D02BEC60032A2F4 = {
+						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
@@ -557,6 +638,7 @@
 				1CCF73A42C34DC8A0099E0E1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				1C4A89022CE49A8C00A8326D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				4987C23E2CF73DBC00BEFF4C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1CD0B44C2D0280950032A2F4 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 1CCF736C2C34DB030099E0E1 /* Products */;
 			projectDirPath = "";
@@ -565,6 +647,7 @@
 				1CCF736A2C34DB030099E0E1 /* IntervalAlarm */,
 				1CCF737A2C34DB040099E0E1 /* IntervalAlarmTests */,
 				1CCF73842C34DB040099E0E1 /* IntervalAlarmUITests */,
+				1CD0B4542D02BEC60032A2F4 /* NotificationContent */,
 			);
 		};
 /* End PBXProject section */
@@ -601,6 +684,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1CCF73832C34DB040099E0E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CD0B4532D02BEC60032A2F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -691,6 +781,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1CD0B4512D02BEC60032A2F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -703,6 +800,11 @@
 			isa = PBXTargetDependency;
 			target = 1CCF736A2C34DB030099E0E1 /* IntervalAlarm */;
 			targetProxy = 1CCF73862C34DB040099E0E1 /* PBXContainerItemProxy */;
+		};
+		1CD0B4602D02BEC70032A2F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1CD0B4542D02BEC60032A2F4 /* NotificationContent */;
+			targetProxy = 1CD0B45F2D02BEC70032A2F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -990,6 +1092,62 @@
 			};
 			name = Release;
 		};
+		1CD0B4642D02BEC70032A2F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VLXYWWGUU9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationContent/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationContent;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oji.IntervalAlarm.dev.NotificationContent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1CD0B4652D02BEC70032A2F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VLXYWWGUU9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationContent/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationContent;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oji.IntervalAlarm.NotificationContent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1029,6 +1187,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		1CD0B4632D02BEC70032A2F4 /* Build configuration list for PBXNativeTarget "NotificationContent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CD0B4642D02BEC70032A2F4 /* Debug */,
+				1CD0B4652D02BEC70032A2F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -1046,6 +1213,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.12.0;
+			};
+		};
+		1CD0B44C2D0280950032A2F4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
 			};
 		};
 		4987C23E2CF73DBC00BEFF4C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
