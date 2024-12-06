@@ -14,11 +14,17 @@ struct CustomInputFeature {
     @ObservableState
     struct State: Equatable {
         var minutes: String = ""
+        var focusedField: FieldType? = .minutes
+        
+        enum FieldType: Hashable {
+            case minutes
+        }
     }
     
-    enum Action {
+    enum Action: BindableAction {
         case didTapBack
         case setMinutes(String)
+        case binding(BindingAction<State>)
     }
     
     @Dependency(\.dismiss) var dismiss
@@ -31,6 +37,8 @@ struct CustomInputFeature {
             case .setMinutes(let minutes):
                 state.minutes = minutes
                 return .none
+            case .binding:
+                return .none
             }
         }
     }
@@ -41,6 +49,7 @@ import SwiftUI
 struct CustomInputView: View {
     
     @Perception.Bindable var store: StoreOf<CustomInputFeature>
+    @FocusState var focusedField: CustomInputFeature.State.FieldType?
     
     var body: some View {
         WithPerceptionTracking {
@@ -61,18 +70,28 @@ struct CustomInputView: View {
                 .padding(.horizontal, 20.0)
                 .padding(.top, 30.0)
                 
-                HStack {
+                HStack(alignment: .center) {
                     Spacer()
-                    TextField("분", text: $store.minutes.sending(\.setMinutes))
+                    TextField("0", text: $store.minutes.sending(\.setMinutes))
                         .font(Fonts.Pretendard.medium.swiftUIFont(size: 72.0))
+                        .focused($focusedField, equals: .minutes)
                         .keyboardType(.numberPad)
+                        .autocorrectionDisabled()
                         .frame(height: 86.0)
-                        .padding(.top, 80.0)
                         .fixedSize()
+                        .onChange(of: store.minutes) { newValue in
+                            store.send(.setMinutes(newValue.filteredMinutes()))
+                        }
+                    Text("분")
+                        .font(Fonts.Pretendard.medium.swiftUIFont(size: 72.0))
+                        .foregroundStyle(.grey70)
                     Spacer()
                 }
+                .padding(.top, 80.0)
                 Spacer()
             }
+            .bind($store.focusedField, to: $focusedField)
+            .toolbar(.hidden, for: .navigationBar)
         }
     }
     
