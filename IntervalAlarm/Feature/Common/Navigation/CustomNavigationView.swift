@@ -31,11 +31,13 @@ struct CustomNavigationView: View {
     
     let type: NavigationBarType
     
+    let doneEnabled: Bool
     let backAction: (() -> Void)
     let doneAction: (() -> Void)?
     
-    init(type: NavigationBarType, backAction: @escaping () -> Void, doneAction: (() -> Void)? = nil) {
+    init(type: NavigationBarType, doneEnabled: Bool = false, backAction: @escaping () -> Void, doneAction: (() -> Void)? = nil) {
         self.type = type
+        self.doneEnabled = doneEnabled
         self.backAction = backAction
         self.doneAction = doneAction
     }
@@ -58,12 +60,13 @@ struct CustomNavigationView: View {
                 } label: {
                     Text(type.buttonTitle)
                         .font(Fonts.Pretendard.semiBold.swiftUIFont(size: 16))
-                        .foregroundStyle(.grey100)
+                        .foregroundStyle(doneEnabled ? .grey100 : .grey100.opacity(0.6))
                         .padding(.horizontal, 28)
                         .padding(.vertical, 15)
-                        .background(.white100)
+                        .background(doneEnabled ? .white100 : .white100.opacity(0.6))
                         .clipShape(Capsule())
                 }
+                .disabled(!doneEnabled)
             }
         }
     }

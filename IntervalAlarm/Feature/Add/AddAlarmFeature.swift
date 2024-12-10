@@ -23,6 +23,10 @@ struct AddAlarmFeature {
         let entryType: AddAlarmEntryType
         var alarm: AlarmModel
         
+        var isSaveButtonEnabled: Bool {
+            !self.alarm.hour.isEmpty && !self.alarm.minute.isEmpty
+        }
+        
         @Presents var snoozeOptionState: SnoozeOptionFeature.State?
         
         init(entryType: AddAlarmEntryType = .add, alarm: AlarmModel = .init()) {
@@ -130,7 +134,7 @@ struct AddAlarmView: View {
         WithPerceptionTracking {
             ScrollView {
                 VStack(alignment: .leading, spacing: 30) {
-                    CustomNavigationView(type: .save) {
+                    CustomNavigationView(type: .save, doneEnabled: store.isSaveButtonEnabled) {
                         store.send(.didTapBackButton)
                     } doneAction: {
                         store.send(.didTapSaveButton)
