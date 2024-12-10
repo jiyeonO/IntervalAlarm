@@ -30,6 +30,7 @@ struct CustomInputFeature {
     @Dependency(\.dismiss) var dismiss
     
     var body: some ReducerOf<Self> {
+        BindingReducer()
         Reduce { state, action in
             switch action {
             case .didTapBack:

@@ -20,6 +20,10 @@ struct SnoozeOptionFeature {
     struct State: Equatable {
         var model: SnoozeModel
         var path = StackState<Path.State>()
+        var height: CGFloat = 0.0
+        var intervalMenu: [IntervalType] {
+            [.three, .five, .ten, .custom(model.interval.value)]
+        }
     }
     
     enum Action: BindableAction {
@@ -28,6 +32,7 @@ struct SnoozeOptionFeature {
         case didTapRepeat(RepeatType)
         case updateSnoozeModel(SnoozeModel)
         case addDestination
+        case setHeight(CGFloat)
         
         case binding(BindingAction<State>)
         case path(StackActionOf<Path>)
@@ -58,10 +63,16 @@ struct SnoozeOptionFeature {
                 return .none
             case .binding:
                 return .none
+            case .path(.element(id: _, action: .custom(.setMinutes(let minutes)))):
+                state.model.interval = .custom(Int(minutes) ?? 0)
+                return .send(.updateSnoozeModel(state.model))
             case .path:
                 return .none
             case .addDestination:
                 state.path.append(.custom(CustomInputFeature.State()))
+                return .none
+            case .setHeight(let height):
+                state.height = height
                 return .none
             }
         }
@@ -96,12 +107,20 @@ struct SnoozeOptionView: View {
                         }
                         
                         VStack(spacing: 0) {
-                            ForEach(IntervalType.allCases, id: \.self) { type in
+                            ForEach(store.intervalMenu, id: \.self) { type in
                                 HStack {
-                                    Text(type.title)
-                                        .font(Fonts.Pretendard.regular.swiftUIFont(size: 16))
-                                        .foregroundStyle(.grey100)
-                                        .frame(height: 56)
+                                    switch type {
+                                    case .custom:
+                                        Text(store.model.customTitle)
+                                            .font(Fonts.Pretendard.regular.swiftUIFont(size: 16))
+                                            .foregroundStyle(.grey100)
+                                            .frame(height: 56)
+                                    default:
+                                        Text(type.title)
+                                            .font(Fonts.Pretendard.regular.swiftUIFont(size: 16))
+                                            .foregroundStyle(.grey100)
+                                            .frame(height: 56)
+                                    }
                                     
                                     Spacer()
                                     
@@ -158,6 +177,9 @@ struct SnoozeOptionView: View {
                     }
                 }
                 .padding(30)
+                .measureHeight { newHeight in
+                    store.send(.setHeight(newHeight))
+                }
             } destination: { store in
                 WithPerceptionTracking {
                     switch store.case {
@@ -166,8 +188,10 @@ struct SnoozeOptionView: View {
                     }                    
                 }
             }
+            .frame(height: store.height)
         }
     }
+    
 }
 
 #Preview {

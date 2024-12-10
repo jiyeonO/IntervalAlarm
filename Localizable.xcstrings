@@ -126,6 +126,16 @@
         }
       }
     },
+    "Custom: %lld" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "직접 설정: %lld분"
+          }
+        }
+      }
+    },
     "infinity" : {
       "localizations" : {
         "ko" : {

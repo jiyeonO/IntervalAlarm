@@ -19,8 +19,8 @@ extension IntervalType {
     
     var title: String {
         switch self {
-        case .custom(_):
-            return String(localized: "Custom")
+        case .custom(let value):
+            return String(localized: "Custom: \(value)")
         default:
             return String(localized: "\(self.value) minutes")
         }
@@ -44,7 +44,7 @@ extension IntervalType {
 extension IntervalType {
     
     static var allCases: [IntervalType] {
-        return [.three, .five, .ten, .custom(0)]
+        return [.three, .five, .ten, .custom(0)] // custom 타입 이슈 모델의 값이 변경될 때마다 enum 타입에 값을 설정할 것인지?
     }
     
 }
@@ -88,6 +88,15 @@ struct SnoozeModel: Codable {
 }
 
 extension SnoozeModel {
+    
+    var customTitle: String {
+        switch interval {
+        case .custom:
+            interval.title
+        default:
+            String(localized: "Custom")
+        }
+    }
     
     var displayTitle: LocalizedStringKey {
         LocalizedStringKey("\(interval.title), \(`repeat`.description)")
