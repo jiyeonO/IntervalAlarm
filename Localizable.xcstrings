@@ -84,7 +84,6 @@
       }
     },
     "Check Alarms" : {
-
       "localizations" : {
         "ko" : {
           "stringUnit" : {
@@ -230,6 +229,9 @@
         }
       }
     },
+    "Snooze" : {
+
+    },
     "Sound" : {
       "localizations" : {
         "ko" : {
@@ -239,6 +241,9 @@
           }
         }
       }
+    },
+    "Stop" : {
+
     },
     "Time of day" : {
       "localizations" : {

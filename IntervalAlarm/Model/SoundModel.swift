@@ -18,8 +18,8 @@ enum VibrateType: String, Codable, CaseIterable {
 enum MelodyType: String, Codable, CaseIterable {
     
     case none
-    case radial
-    case classic
+    case radial = "bell"
+    case classic = "tickle"
     
 }
 

@@ -1,5 +1,5 @@
 //
-//  Constants.swift
+//  CalendarConstants.swift
 //  IntervalAlarm
 //
 //  Created by 오지연 on 12/5/24.

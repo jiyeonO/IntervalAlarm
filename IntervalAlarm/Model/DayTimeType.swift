@@ -16,12 +16,12 @@ enum DayTimeType: Codable, CaseIterable {
 
 extension DayTimeType {
     
-    var title: LocalizedStringKey {
+    var title: String {
         switch self {
         case .AM:
-            return "AM"
+            return String(localized: "AM")
         case .PM:
-            return "PM"
+            return String(localized: "PM")
         }
     }
 }
