@@ -103,10 +103,10 @@ struct MainFeature {
                 }
             case .addNotification(let alarm):
                 return .run { _ in
-                    try await NotificationRequestScheduler().addNotification(with: alarm)
+                    try await NotificationRequestScheduler().addNotification(requests: alarm.notificationRequests)
                 }
             case .removeNotification(let alarm):
-                NotificationRequestScheduler().removeNotifiaction(with: alarm)
+                NotificationRequestScheduler().removeNotifiaction(ids: alarm.weekdayIds)
                 return .none
             case .didTapDenyPermission:
                 state.alert = AlertState {

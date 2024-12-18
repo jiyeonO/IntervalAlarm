@@ -9,15 +9,14 @@ import UserNotifications
 
 struct NotificationRequestScheduler {
     
-    func addNotification(with alarm: AlarmModel) async throws {
-        let requests = alarm.notificationRequests
+    func addNotification(requests: [UNNotificationRequest]) async throws  {
         for request in requests {
             try await UNUserNotificationCenter.current().add(request)
         }
     }
     
-    func removeNotifiaction(with alarm: AlarmModel) {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: alarm.weekdayIds)
+    func removeNotifiaction(ids: [String]) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ids)
     }
     
     func snoozeNotification(with userInfo: [String: Any]) async throws {
@@ -44,7 +43,7 @@ private extension NotificationRequestScheduler {
             content.title = title
         }
         if let sound = userInfo[NotificationUserInfoType.sound.rawValue] as? String {
-            content.sound = .ringtoneSoundNamed(.init(sound + ".mp3"))
+            content.sound = .ringtoneSoundNamed(.init(sound + SoundFormat.mp3))
         }
         content.userInfo = userInfo
         return content

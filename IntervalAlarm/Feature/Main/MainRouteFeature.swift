@@ -73,7 +73,7 @@ struct MainRouteView: View {
     var body: some View {
         WithPerceptionTracking {
             switch store.state {
-            case .pushAlarm:
+            case .snooze:
                 if let store = store.scope(state: \.snooze, action: \.snooze) {
                     SnoozeView(store: store)
                 }

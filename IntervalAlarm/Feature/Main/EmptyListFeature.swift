@@ -95,7 +95,7 @@ struct EmptyListFeature {
             case .addNotification(let alarm):
                 return .concatenate(
                     .run { _ in
-                        try await NotificationRequestScheduler().addNotification(with: alarm)
+                        try await NotificationRequestScheduler().addNotification(requests: alarm.notificationRequests)
                     },
                     .send(.switchStore)
                 )
