@@ -65,8 +65,10 @@
 		4987C2462CF741D600BEFF4C /* libInternalStorage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4987C2452CF741D600BEFF4C /* libInternalStorage.a */; };
 		4987C24B2CFAB17000BEFF4C /* WeekdayDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987C24A2CFAB17000BEFF4C /* WeekdayDisplayView.swift */; };
 		4987C24D2CFABCF900BEFF4C /* AddAlarmButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987C24C2CFABCF900BEFF4C /* AddAlarmButtonView.swift */; };
+		AD60BBD82D07FDE80097B3E0 /* HeightPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD60BBD72D07FDE80097B3E0 /* HeightPreferenceKey.swift */; };
 		AD74318C2CFEE84300A44F5E /* EmptyListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74318B2CFEE84300A44F5E /* EmptyListFeature.swift */; };
 		AD74318E2CFEF3FA00A44F5E /* MainRouteFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74318D2CFEF3FA00A44F5E /* MainRouteFeature.swift */; };
+		AD7431902D01951F00A44F5E /* CustomInputFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74318F2D01951F00A44F5E /* CustomInputFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,8 +148,10 @@
 		4987C2452CF741D600BEFF4C /* libInternalStorage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libInternalStorage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4987C24A2CFAB17000BEFF4C /* WeekdayDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayDisplayView.swift; sourceTree = "<group>"; };
 		4987C24C2CFABCF900BEFF4C /* AddAlarmButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmButtonView.swift; sourceTree = "<group>"; };
+		AD60BBD72D07FDE80097B3E0 /* HeightPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightPreferenceKey.swift; sourceTree = "<group>"; };
 		AD74318B2CFEE84300A44F5E /* EmptyListFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListFeature.swift; sourceTree = "<group>"; };
 		AD74318D2CFEF3FA00A44F5E /* MainRouteFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouteFeature.swift; sourceTree = "<group>"; };
+		AD74318F2D01951F00A44F5E /* CustomInputFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +289,7 @@
 				1C8062442C36DEF9002E312E /* View */,
 				1C8062432C36DEF0002E312E /* Navigation */,
 				1C8061FB2C36D32A002E312E /* ViewModifier */,
+				AD60BBD92D07FE010097B3E0 /* PreferenceKey */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				1C22D0CF2CFD2B8B00B14DF2 /* View */,
 				1CFAA1DF2D0015440052A544 /* AlarmOption */,
 				1CE9D17A2C3AD9FD0084C2A6 /* AddAlarmFeature.swift */,
+				AD74318F2D01951F00A44F5E /* CustomInputFeature.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -455,6 +461,14 @@
 				4987C2432CF73E2500BEFF4C /* AppDelegate.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		AD60BBD92D07FE010097B3E0 /* PreferenceKey */ = {
+			isa = PBXGroup;
+			children = (
+				AD60BBD72D07FDE80097B3E0 /* HeightPreferenceKey.swift */,
+			);
+			path = PreferenceKey;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -645,6 +659,7 @@
 				AD74318E2CFEF3FA00A44F5E /* MainRouteFeature.swift in Sources */,
 				1C46FB162CF8B39300A90B96 /* String+Extension.swift in Sources */,
 				1C3E51B12CF82EE40028B142 /* PermissionHandler.swift in Sources */,
+				AD7431902D01951F00A44F5E /* CustomInputFeature.swift in Sources */,
 				1CFAA1E02D0015440052A544 /* SnoozeOptionView.swift in Sources */,
 				1C3E51B22CF82EE40028B142 /* ApplicationLoader.swift in Sources */,
 				1C8062112C36D32A002E312E /* BottomToastModifier.swift in Sources */,
@@ -653,6 +668,7 @@
 				1C28CE892C730E2800F56774 /* AlarmRowFeature.swift in Sources */,
 				1C85BE5A2C35398A00AA98B9 /* MainFeature.swift in Sources */,
 				4987C2442CF73E2500BEFF4C /* AppDelegate.swift in Sources */,
+				AD60BBD82D07FDE80097B3E0 /* HeightPreferenceKey.swift in Sources */,
 				4987C24B2CFAB17000BEFF4C /* WeekdayDisplayView.swift in Sources */,
 				1C8062142C36D32A002E312E /* ViewDidLoadModifier.swift in Sources */,
 				1CD0B4062D0159780032A2F4 /* Constants.swift in Sources */,
