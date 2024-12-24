@@ -13,12 +13,15 @@ struct MainRouteFeature {
     
     @ObservableState
     enum State: Equatable {
+        case snooze(SnoozeFeature.State)
         case main(MainFeature.State)
         case empty(EmptyListFeature.State)
     }
     
     enum Action {
         case onAppear
+        case onSnooze
+        case snooze(SnoozeFeature.Action)
         case main(MainFeature.Action)
         case empty(EmptyListFeature.Action)
         case switchStore
@@ -29,11 +32,10 @@ struct MainRouteFeature {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .onAppear, .empty(.switchStore), .main(.switchStore):
+            case .onAppear, .snooze(.switchStore), .empty(.switchStore), .main(.switchStore):
                 return .send(.switchStore)
-            case .main:
-                return .none
-            case .empty:
+            case .onSnooze:
+                state = .snooze(SnoozeFeature.State())
                 return .none
             case .switchStore:
                 if userDefaultsClient.loadAlarms().isEmpty {
@@ -42,7 +44,16 @@ struct MainRouteFeature {
                     state = .main(MainFeature.State())
                 }
                 return .none
+            case .snooze:
+                return .none
+            case .main:
+                return .none
+            case .empty:
+                return .none
             }
+        }
+        .ifCaseLet(\.snooze, action: \.snooze) {
+            SnoozeFeature()
         }
         .ifCaseLet(\.empty, action: \.empty) {
             EmptyListFeature()
@@ -62,6 +73,10 @@ struct MainRouteView: View {
     var body: some View {
         WithPerceptionTracking {
             switch store.state {
+            case .snooze:
+                if let store = store.scope(state: \.snooze, action: \.snooze) {
+                    SnoozeView(store: store)
+                }
             case .empty:
                 if let store = store.scope(state: \.empty, action: \.empty) {
                     EmptyListView(store: store)
@@ -71,6 +86,9 @@ struct MainRouteView: View {
                     MainView(store: store)
                 }
             }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name(NotificationCenterIdentifier.onSnoozeAlarm))) { _ in
+            store.send(.onSnooze)
         }
         .onAppear {
             store.send(.onAppear)

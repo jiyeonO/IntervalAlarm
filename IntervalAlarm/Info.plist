@@ -16,6 +16,8 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en</string>
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UILaunchScreen</key>

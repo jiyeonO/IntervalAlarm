@@ -67,7 +67,7 @@ extension AlarmModel {
         minute.toInt
     }
     
-    var displayDayTime: LocalizedStringKey {
+    var displayDayTime: String {
         dayTime.title
     }
     
@@ -76,7 +76,7 @@ extension AlarmModel {
     }
     
     var notificationTitle: String {
-        "⏰ \(displayDayTime) : \(displayTitle)"
+        "\(displayDayTime) \(displayTitle)"
     }
     
     var repeatWeekdaysValue: [Int] {

@@ -10,6 +10,8 @@ import ComposableArchitecture
 
 struct UserDefaultsClient {
     
+    var loadUserInfo: @Sendable () -> [String: Any]
+    var saveUserInfo: @Sendable (_ dict: [String: Any]) -> Void
     var loadIsLaunchFirst: @Sendable () -> Bool
     var saveIsLaunchFirst: @Sendable (_ isLaunchFirst: Bool) -> Void
     var loadAlarms: @Sendable () -> [AlarmModel]
@@ -22,6 +24,12 @@ struct UserDefaultsClient {
 extension UserDefaultsClient: DependencyKey {
     
     static var liveValue: UserDefaultsClient = .init {
+        let userDefault = UserDefaultsStorage()
+        return userDefault.loadUserInfo()
+    } saveUserInfo: { dict in
+        let userDefault = UserDefaultsStorage()
+        userDefault.saveUserInfo(dict)
+    } loadIsLaunchFirst: {
         let userDefault = UserDefaultsStorage()
         return userDefault.loadIsFirstLaunch()
     } saveIsLaunchFirst: { isLaunchFirst in
