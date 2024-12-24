@@ -16,7 +16,7 @@ struct PermissionHandler {
     func onPermission(type: PermissionType) async throws -> Bool {
         switch type {
         case .push:
-            return try await PushPermissionHandler().checkPushPermission()
+            return try await PushPermissionHandler().hasPushPermission()
         }
     }
 

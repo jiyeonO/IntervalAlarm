@@ -49,9 +49,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             userDefault.saveUserInfo(userInfo)
         }
         
-        DispatchQueue.main.async {
-            NotificationCenter.default.post(name: NSNotification.Name(NotificationCenterIdentifier.onSnoozeAlarm), object: nil)
-        }
+        NotificationCenter.default.post(name: NSNotification.Name(NotificationCenterIdentifier.onSnoozeAlarm), object: nil)
     }
     
 }

@@ -14,8 +14,8 @@ enum NotificationCategories: String {
 }
 
 struct PushPermissionHandler {
-    
-    func checkPushPermission() async throws -> Bool {
+
+    func hasPushPermission() async throws -> Bool {
         let center = UNUserNotificationCenter.current()
         let settings = await center.notificationSettings()
         
