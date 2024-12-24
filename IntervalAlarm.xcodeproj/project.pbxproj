@@ -58,6 +58,11 @@
 		1CF3D9E12CFB63B400FD32A1 /* DayTimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF3D9D82CFB63B400FD32A1 /* DayTimeType.swift */; };
 		1CFAA1E02D0015440052A544 /* SnoozeOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAA1DE2D0015440052A544 /* SnoozeOptionView.swift */; };
 		1CFAA1E22D0016F50052A544 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAA1E12D0016F50052A544 /* View+Extension.swift */; };
+		4976DDD52D1A4C950016CD69 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4976DDD42D1A4C950016CD69 /* UserNotifications.framework */; };
+		4976DDD72D1A4C950016CD69 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4976DDD62D1A4C950016CD69 /* UserNotificationsUI.framework */; };
+		4976DDE12D1A4C950016CD69 /* IntervalAlarmNoti.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4976DDD32D1A4C950016CD69 /* IntervalAlarmNoti.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4976DDED2D1A4C9D0016CD69 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976DDE92D1A4C9D0016CD69 /* MainInterface.storyboard */; };
+		4976DDEE2D1A4C9D0016CD69 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976DDEA2D1A4C9D0016CD69 /* NotificationViewController.swift */; };
 		4987C23D2CF73CF300BEFF4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4987C23C2CF73CF300BEFF4C /* GoogleService-Info.plist */; };
 		4987C2402CF73DBC00BEFF4C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4987C23F2CF73DBC00BEFF4C /* FirebaseAnalytics */; };
 		4987C2422CF73DBC00BEFF4C /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4987C2412CF73DBC00BEFF4C /* FirebaseCore */; };
@@ -86,7 +91,28 @@
 			remoteGlobalIDString = 1CCF736A2C34DB030099E0E1;
 			remoteInfo = IntervalAlarm;
 		};
+		4976DDDF2D1A4C950016CD69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CCF73632C34DB030099E0E1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4976DDD22D1A4C950016CD69;
+			remoteInfo = IntervalAlarmNoti;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4976DDE22D1A4C950016CD69 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4976DDE12D1A4C950016CD69 /* IntervalAlarmNoti.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1C00A76D2CEFFD5C0016AA9D /* libInternalStorage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libInternalStorage.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +169,12 @@
 		1CF3D9DB2CFB63B400FD32A1 /* SoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundModel.swift; sourceTree = "<group>"; };
 		1CFAA1DE2D0015440052A544 /* SnoozeOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnoozeOptionView.swift; sourceTree = "<group>"; };
 		1CFAA1E12D0016F50052A544 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		4976DDD32D1A4C950016CD69 /* IntervalAlarmNoti.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IntervalAlarmNoti.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4976DDD42D1A4C950016CD69 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		4976DDD62D1A4C950016CD69 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		4976DDE72D1A4C9D0016CD69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4976DDE82D1A4C9D0016CD69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		4976DDEA2D1A4C9D0016CD69 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		4987C23C2CF73CF300BEFF4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4987C2432CF73E2500BEFF4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4987C2452CF741D600BEFF4C /* libInternalStorage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libInternalStorage.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +213,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4976DDD02D1A4C950016CD69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4976DDD72D1A4C950016CD69 /* UserNotificationsUI.framework in Frameworks */,
+				4976DDD52D1A4C950016CD69 /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -189,6 +230,8 @@
 			children = (
 				4987C2452CF741D600BEFF4C /* libInternalStorage.a */,
 				1C00A76D2CEFFD5C0016AA9D /* libInternalStorage.a */,
+				4976DDD42D1A4C950016CD69 /* UserNotifications.framework */,
+				4976DDD62D1A4C950016CD69 /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -349,6 +392,7 @@
 				1C17347B2CFD788200E8E970 /* Localizable.xcstrings */,
 				1C00A7772CF0547C0016AA9D /* README.md */,
 				1CCF736D2C34DB030099E0E1 /* IntervalAlarm */,
+				4976DDEB2D1A4C9D0016CD69 /* IntervalAlarmNoti */,
 				1C00A76C2CEFFD5C0016AA9D /* Frameworks */,
 				1CCF736C2C34DB030099E0E1 /* Products */,
 			);
@@ -360,6 +404,7 @@
 				1CCF736B2C34DB030099E0E1 /* IntervalAlarm.app */,
 				1CCF737B2C34DB040099E0E1 /* IntervalAlarmTests.xctest */,
 				1CCF73852C34DB040099E0E1 /* IntervalAlarmUITests.xctest */,
+				4976DDD32D1A4C950016CD69 /* IntervalAlarmNoti.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -455,6 +500,16 @@
 			path = AlarmOption;
 			sourceTree = "<group>";
 		};
+		4976DDEB2D1A4C9D0016CD69 /* IntervalAlarmNoti */ = {
+			isa = PBXGroup;
+			children = (
+				4976DDE72D1A4C9D0016CD69 /* Info.plist */,
+				4976DDE92D1A4C9D0016CD69 /* MainInterface.storyboard */,
+				4976DDEA2D1A4C9D0016CD69 /* NotificationViewController.swift */,
+			);
+			path = IntervalAlarmNoti;
+			sourceTree = "<group>";
+		};
 		4987C2472CF742F800BEFF4C /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,10 +537,12 @@
 				1CCF73682C34DB030099E0E1 /* Frameworks */,
 				1CCF73692C34DB030099E0E1 /* Resources */,
 				1CCF73F42C34EC550099E0E1 /* SwiftGen */,
+				4976DDE22D1A4C950016CD69 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4976DDE02D1A4C950016CD69 /* PBXTargetDependency */,
 			);
 			name = IntervalAlarm;
 			packageProductDependencies = (
@@ -534,6 +591,25 @@
 			productReference = 1CCF73852C34DB040099E0E1 /* IntervalAlarmUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		4976DDD22D1A4C950016CD69 /* IntervalAlarmNoti */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4976DDE62D1A4C950016CD69 /* Build configuration list for PBXNativeTarget "IntervalAlarmNoti" */;
+			buildPhases = (
+				4976DDCF2D1A4C950016CD69 /* Sources */,
+				4976DDD02D1A4C950016CD69 /* Frameworks */,
+				4976DDD12D1A4C950016CD69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IntervalAlarmNoti;
+			packageProductDependencies = (
+			);
+			productName = IntervalAlarmNoti;
+			productReference = 4976DDD32D1A4C950016CD69 /* IntervalAlarmNoti.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -541,7 +617,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1530;
+				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					1CCF736A2C34DB030099E0E1 = {
@@ -554,6 +630,9 @@
 					1CCF73842C34DB040099E0E1 = {
 						CreatedOnToolsVersion = 15.3;
 						TestTargetID = 1CCF736A2C34DB030099E0E1;
+					};
+					4976DDD22D1A4C950016CD69 = {
+						CreatedOnToolsVersion = 16.1;
 					};
 				};
 			};
@@ -579,6 +658,7 @@
 				1CCF736A2C34DB030099E0E1 /* IntervalAlarm */,
 				1CCF737A2C34DB040099E0E1 /* IntervalAlarmTests */,
 				1CCF73842C34DB040099E0E1 /* IntervalAlarmUITests */,
+				4976DDD22D1A4C950016CD69 /* IntervalAlarmNoti */,
 			);
 		};
 /* End PBXProject section */
@@ -618,6 +698,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4976DDD12D1A4C950016CD69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4976DDED2D1A4C9D0016CD69 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +795,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4976DDCF2D1A4C950016CD69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4976DDEE2D1A4C9D0016CD69 /* NotificationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -720,7 +816,23 @@
 			target = 1CCF736A2C34DB030099E0E1 /* IntervalAlarm */;
 			targetProxy = 1CCF73862C34DB040099E0E1 /* PBXContainerItemProxy */;
 		};
+		4976DDE02D1A4C950016CD69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4976DDD22D1A4C950016CD69 /* IntervalAlarmNoti */;
+			targetProxy = 4976DDDF2D1A4C950016CD69 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4976DDE92D1A4C9D0016CD69 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4976DDE82D1A4C9D0016CD69 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1CCF738D2C34DB040099E0E1 /* Debug */ = {
@@ -1006,6 +1118,62 @@
 			};
 			name = Release;
 		};
+		4976DDE32D1A4C950016CD69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IntervalAlarmNoti/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = IntervalAlarmNoti;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oji.IntervalAlarm.dev.IntervalAlarmNoti;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4976DDE42D1A4C950016CD69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IntervalAlarmNoti/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = IntervalAlarmNoti;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oji.IntervalAlarm.IntervalAlarmNoti;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1041,6 +1209,15 @@
 			buildConfigurations = (
 				1CCF73962C34DB040099E0E1 /* Debug */,
 				1CCF73972C34DB040099E0E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4976DDE62D1A4C950016CD69 /* Build configuration list for PBXNativeTarget "IntervalAlarmNoti" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4976DDE32D1A4C950016CD69 /* Debug */,
+				4976DDE42D1A4C950016CD69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

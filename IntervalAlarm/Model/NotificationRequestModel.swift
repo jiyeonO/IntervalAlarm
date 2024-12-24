@@ -14,7 +14,8 @@ extension AlarmModel {
         content.title = "⏰ \(self.notificationTitle)"
         content.body = "User 알람 메모 노출"
         content.sound = .default
-        
+        content.categoryIdentifier = "myNotificationCategory" // extension Info(UNNotificationExtensionCategory) 와 동일한 값 필요하면 수정
+
         var dateComponents = DateComponents()
         dateComponents.hour = self.hourValueIn24
         dateComponents.minute = self.minuteValue
@@ -33,7 +34,8 @@ extension AlarmModel {
         content.title = "⏰ \(self.notificationTitle)"
         content.body = "User 알람 메모 노출"
         content.sound = .default
-        
+        content.categoryIdentifier = "myNotificationCategory" // extension Info(UNNotificationExtensionCategory) 와 동일한 값 필요하면 수정
+
         if self.repeatWeekdaysValue.isEmpty {
             return [self.notificationRequest]
         } else {
