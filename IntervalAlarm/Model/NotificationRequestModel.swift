@@ -9,33 +9,34 @@ import UserNotifications
 
 extension AlarmModel {
     
-    var notificationRequest: UNNotificationRequest {
+    var notificationContent: UNMutableNotificationContent {
         let content = UNMutableNotificationContent()
         content.title = "⏰ \(self.notificationTitle)"
-        content.body = "User 알람 메모 노출"
-        content.sound = .default
-        content.categoryIdentifier = "myNotificationCategory" // extension Info(UNNotificationExtensionCategory) 와 동일한 값 필요하면 수정
 
+        content.categoryIdentifier = NotificationCategories.alarm.rawValue
+        content.sound = .ringtoneSoundNamed(.init(self.sound.melody.rawValue + SoundFormat.mp3)) // TODO: 진동
+        content.userInfo = [NotificationUserInfoType.title.rawValue: content.title,
+                            NotificationUserInfoType.uuid.rawValue: self.uuidString,
+                            NotificationUserInfoType.isSnooze.rawValue: self.snooze.isOn,
+                            NotificationUserInfoType.interval.rawValue: self.snooze.interval.value,
+                            NotificationUserInfoType.repeatTime.rawValue: self.snooze.repeat.rawValue,
+                            NotificationUserInfoType.isSound.rawValue: self.sound.isOn,
+                            NotificationUserInfoType.sound.rawValue: self.sound.melody.rawValue]
+        return content
+    }
+
+    var notificationRequest: UNNotificationRequest {
         var dateComponents = DateComponents()
         dateComponents.hour = self.hourValueIn24
         dateComponents.minute = self.minuteValue
-//        dateComponents.weekday = 2 // 월요일 반복
-//        dateComponents.day = 5 // 매월 5일
-//        dateComponents.month = 1 // 매 1월
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         
         return UNNotificationRequest(identifier: self.uuidString,
-                                     content: content, trigger: trigger)
+                                     content: self.notificationContent, trigger: trigger)
     }
     
     var notificationRequests: [UNNotificationRequest] {
-        let content = UNMutableNotificationContent()
-        content.title = "⏰ \(self.notificationTitle)"
-        content.body = "User 알람 메모 노출"
-        content.sound = .default
-        content.categoryIdentifier = "myNotificationCategory" // extension Info(UNNotificationExtensionCategory) 와 동일한 값 필요하면 수정
-
         if self.repeatWeekdaysValue.isEmpty {
             return [self.notificationRequest]
         } else {
@@ -48,7 +49,7 @@ extension AlarmModel {
                 
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
                 
-                return UNNotificationRequest(identifier: self.getNotificationIdentifier(for: $0), content: content, trigger: trigger)
+                return UNNotificationRequest(identifier: self.getNotificationIdentifier(for: $0), content: self.notificationContent, trigger: trigger)
             }
         }
     }

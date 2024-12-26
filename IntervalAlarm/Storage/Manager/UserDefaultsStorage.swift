@@ -13,6 +13,7 @@ final class UserDefaultsStorage: UserDefaultsStorageProtocol {
     enum KeyConstant: String, UserDefaultsStorageKey {
         
         case isFirstLaunch
+        case userInfo
         case alarms
         
     }
@@ -28,6 +29,18 @@ final class UserDefaultsStorage: UserDefaultsStorageProtocol {
 }
 
 extension UserDefaultsStorage {
+    
+    func loadUserInfo() -> [String: Any] {
+        guard let jsonData = UserDefaults.standard.data(forKey: KeyConstant.userInfo.rawValue),
+              let dict = try? JSONSerialization.jsonObject(with: jsonData) as? [String: Any] else { return [:] }
+        return dict
+    }
+    
+    func saveUserInfo(_ dict: [String: Any]) {
+        if let jsonData = try? JSONSerialization.data(withJSONObject: dict) {
+            UserDefaults.standard.set(jsonData, forKey: KeyConstant.userInfo.rawValue)
+        }
+    }
     
     func loadIsFirstLaunch() -> Bool {
         self[.isFirstLaunch] ?? false

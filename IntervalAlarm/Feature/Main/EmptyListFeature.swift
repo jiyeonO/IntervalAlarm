@@ -93,12 +93,9 @@ struct EmptyListFeature {
                     }
                 }
             case .addNotification(let alarm):
-                let requests = alarm.notificationRequests
                 return .concatenate(
                     .run { _ in
-                        for request in requests {
-                            try await UNUserNotificationCenter.current().add(request)
-                        }
+                        try await NotificationRequestScheduler().addNotification(requests: alarm.notificationRequests)
                     },
                     .send(.switchStore)
                 )

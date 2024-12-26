@@ -20,15 +20,28 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         center.delegate = self
         self.setNotificationCatogory()
 
+
+        
+        Task {
+            try await PermissionHandler().onPermission(type: .push)
+        }
+        
         return true
     }
-
+    
 }
 
 // MARK: - UNUserNotificationCenterDelegate
 extension AppDelegate: UNUserNotificationCenterDelegate {
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+        DLog.d("willPresent notification: \(notification.request.content.title)")
+        
+        if let userInfo = notification.request.content.userInfo as? [String: Any] {
+            let userDefault = UserDefaultsStorage()
+            userDefault.saveUserInfo(userInfo)
+        }
+        
         return [.sound, .banner, .list, .badge]
     }
     
@@ -40,6 +53,13 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         // Custom Notification에 들어간 버튼 중 어떤 버튼이 눌렸는지 확인 후 액션 처리 action.done or action.cancle
         // userNotificationCenter(_:didReceive:) > Button actionIdentifier: action.done
         DLog.d("Button actionIdentifier: \(response.actionIdentifier)")
+        
+        if let userInfo = response.notification.request.content.userInfo as? [String: Any] {
+            let userDefault = UserDefaultsStorage()
+            userDefault.saveUserInfo(userInfo)
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name(NotificationCenterIdentifier.onSnoozeAlarm), object: nil)
     }
 
 }
