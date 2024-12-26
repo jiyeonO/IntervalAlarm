@@ -22,7 +22,7 @@ struct AddAlarmFeature {
     struct State: Equatable {
         let entryType: AddAlarmEntryType
         var alarm: AlarmModel
-        
+
         var isSaveButtonEnabled: Bool {
             !self.alarm.hour.isEmpty && !self.alarm.minute.isEmpty
         }
@@ -147,6 +147,9 @@ struct AddAlarmView: View {
                             .font(Fonts.Pretendard.medium.swiftUIFont(size: 72))
                             .foregroundStyle(.grey100)
                             .multilineTextAlignment(.trailing)
+                            .onChange(of: store.alarm.hour) { newValue in
+                                store.send(.setHour(newValue.filteredByRegex(by: .hours)))
+                            }
                         Text(":")
                             .font(Fonts.Pretendard.medium.swiftUIFont(size: 72))
                             .foregroundStyle(.grey60)
@@ -154,6 +157,9 @@ struct AddAlarmView: View {
                             .keyboardType(.numberPad)
                             .font(Fonts.Pretendard.medium.swiftUIFont(size: 72))
                             .foregroundStyle(.grey100)
+                            .onChange(of: store.alarm.minute) { newValue in
+                                store.send(.setMinute(newValue.filteredByRegex(by: .minutes)))
+                            }
                     }
                     .padding(30)
                     .background(.white100)

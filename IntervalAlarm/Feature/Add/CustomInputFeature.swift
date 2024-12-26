@@ -81,7 +81,7 @@ struct CustomInputView: View {
                         .frame(height: 86.0)
                         .fixedSize()
                         .onChange(of: store.minutes) { newValue in
-                            store.send(.setMinutes(newValue.filteredMinutes()))
+                            store.send(.setMinutes(newValue.filteredByRegex(by: .intervalMinutes)))
                         }
                     Text("분")
                         .font(Fonts.Pretendard.medium.swiftUIFont(size: 72.0))
