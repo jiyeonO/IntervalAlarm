@@ -12,6 +12,7 @@ extension AlarmModel {
     var notificationContent: UNMutableNotificationContent {
         let content = UNMutableNotificationContent()
         content.title = "⏰ \(self.notificationTitle)"
+
         content.categoryIdentifier = NotificationCategories.alarm.rawValue
         content.sound = .ringtoneSoundNamed(.init(self.sound.melody.rawValue + SoundFormat.mp3)) // TODO: 진동
         content.userInfo = [NotificationUserInfoType.title.rawValue: content.title,

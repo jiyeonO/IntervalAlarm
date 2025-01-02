@@ -34,29 +34,7 @@ struct PushPermissionHandler {
 private extension PushPermissionHandler {
     
     func askNotificationPermission() async throws -> Bool {
-        let granted = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])
-        
-        if granted {
-            try await setCategories()
-        }
-        
-        return granted
+        return try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])
     }
- 
-    func setCategories() async throws {
-        let center = UNUserNotificationCenter.current()
-        let settings = await center.notificationSettings()
-        
-        if settings.authorizationStatus == .authorized {
-            let alarmCategory = UNNotificationCategory(
-                identifier: NotificationCategories.alarm.rawValue,
-                actions: [],
-                intentIdentifiers: [],
-                options: [])
-            
-            let categories: Set<UNNotificationCategory> = [alarmCategory]
-            UNUserNotificationCenter.current().setNotificationCategories(categories)
-        }
-    }
-    
+     
 }
