@@ -69,7 +69,6 @@
 		4976DDD52D1A4C950016CD69 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4976DDD42D1A4C950016CD69 /* UserNotifications.framework */; };
 		4976DDD72D1A4C950016CD69 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4976DDD62D1A4C950016CD69 /* UserNotificationsUI.framework */; };
 		4976DDE12D1A4C950016CD69 /* IntervalAlarmNoti.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4976DDD32D1A4C950016CD69 /* IntervalAlarmNoti.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		4976DDED2D1A4C9D0016CD69 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4976DDE92D1A4C9D0016CD69 /* MainInterface.storyboard */; };
 		4976DDEE2D1A4C9D0016CD69 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4976DDEA2D1A4C9D0016CD69 /* NotificationViewController.swift */; };
 		4987C23D2CF73CF300BEFF4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4987C23C2CF73CF300BEFF4C /* GoogleService-Info.plist */; };
 		4987C2402CF73DBC00BEFF4C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4987C23F2CF73DBC00BEFF4C /* FirebaseAnalytics */; };
@@ -82,6 +81,7 @@
 		AD74318C2CFEE84300A44F5E /* EmptyListFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74318B2CFEE84300A44F5E /* EmptyListFeature.swift */; };
 		AD74318E2CFEF3FA00A44F5E /* MainRouteFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74318D2CFEF3FA00A44F5E /* MainRouteFeature.swift */; };
 		AD7431902D01951F00A44F5E /* CustomInputFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74318F2D01951F00A44F5E /* CustomInputFeature.swift */; };
+		ADB879EF2D26421500389EA8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ADB879EE2D26421500389EA8 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,7 +189,6 @@
 		4976DDD42D1A4C950016CD69 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		4976DDD62D1A4C950016CD69 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		4976DDE72D1A4C9D0016CD69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4976DDE82D1A4C9D0016CD69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		4976DDEA2D1A4C9D0016CD69 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		4987C23C2CF73CF300BEFF4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4987C2432CF73E2500BEFF4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -233,6 +232,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADB879EF2D26421500389EA8 /* SnapKit in Frameworks */,
 				4976DDD72D1A4C950016CD69 /* UserNotificationsUI.framework in Frameworks */,
 				4976DDD52D1A4C950016CD69 /* UserNotifications.framework in Frameworks */,
 			);
@@ -576,7 +576,6 @@
 			isa = PBXGroup;
 			children = (
 				4976DDE72D1A4C9D0016CD69 /* Info.plist */,
-				4976DDE92D1A4C9D0016CD69 /* MainInterface.storyboard */,
 				4976DDEA2D1A4C9D0016CD69 /* NotificationViewController.swift */,
 			);
 			path = IntervalAlarmNoti;
@@ -677,6 +676,7 @@
 			);
 			name = IntervalAlarmNoti;
 			packageProductDependencies = (
+				ADB879EE2D26421500389EA8 /* SnapKit */,
 			);
 			productName = IntervalAlarmNoti;
 			productReference = 4976DDD32D1A4C950016CD69 /* IntervalAlarmNoti.appex */;
@@ -722,6 +722,7 @@
 				1CCF73A42C34DC8A0099E0E1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				1C4A89022CE49A8C00A8326D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				4987C23E2CF73DBC00BEFF4C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				ADB879ED2D26421500389EA8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 1CCF736C2C34DB030099E0E1 /* Products */;
 			projectDirPath = "";
@@ -777,7 +778,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4976DDED2D1A4C9D0016CD69 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -902,17 +902,6 @@
 			targetProxy = 4976DDDF2D1A4C950016CD69 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		4976DDE92D1A4C9D0016CD69 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4976DDE82D1A4C9D0016CD69 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1CCF738D2C34DB040099E0E1 /* Debug */ = {
@@ -1044,12 +1033,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IntervalAlarm/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VLXYWWGUU9;
+				DEVELOPMENT_TEAM = VLXYWWGUU9;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -1070,7 +1057,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.oji.IntervalAlarm.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "IntervalAlarm Dev PP";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -1088,12 +1074,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IntervalAlarm/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VLXYWWGUU9;
+				DEVELOPMENT_TEAM = VLXYWWGUU9;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -1114,7 +1098,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.oji.IntervalAlarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "IntervalAlarm PP";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -1211,7 +1194,7 @@
 				INFOPLIST_FILE = IntervalAlarmNoti/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = IntervalAlarmNoti;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1242,7 +1225,7 @@
 				INFOPLIST_FILE = IntervalAlarmNoti/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = IntervalAlarmNoti;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1335,6 +1318,14 @@
 				minimumVersion = 11.5.0;
 			};
 		};
+		ADB879ED2D26421500389EA8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1357,6 +1348,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4987C23E2CF73DBC00BEFF4C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCore;
+		};
+		ADB879EE2D26421500389EA8 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ADB879ED2D26421500389EA8 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

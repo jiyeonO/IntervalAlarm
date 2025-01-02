@@ -1,5 +1,5 @@
 {
-  "originHash" : "9bc2a13eb5f00c80618171e050b7c0458a12d55e3f7bec997c330b9135d8dd19",
+  "originHash" : "1fb50badd5fe2f883c731641b5c9e6d38429b8b4fefd64162ab72807183b81ea",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -128,6 +128,15 @@
       }
     },
     {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit.git",
+      "state" : {
+        "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
+        "version" : "5.7.1"
+      }
+    },
+    {
       "identity" : "swift-case-paths",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-case-paths",
@@ -245,5 +254,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

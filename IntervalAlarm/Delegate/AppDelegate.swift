@@ -71,13 +71,13 @@ private extension AppDelegate {
         let cancelAction = UNNotificationAction(identifier: "action.cancle", title: "Cancel")
 
         let categories = UNNotificationCategory(
-            identifier: "myNotificationCategory",
+            identifier: NotificationCategories.alarm.rawValue,
             actions: [doneAction, cancelAction],
             intentIdentifiers: [],
             options: .customDismissAction
         )
 
-        center.setNotificationCategories([categories])
+        self.center.setNotificationCategories([categories])
 
     }
 
