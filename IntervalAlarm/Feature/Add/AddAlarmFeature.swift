@@ -48,6 +48,8 @@ struct AddAlarmFeature {
         case setAlarmOn(AlarmModel)
         case modifyAlarm(AlarmModel)
         case toSnoozeOption
+        case filteringHour(String)
+        case filteringMinute(String)
         
         case binding(BindingAction<State>)
         case snoozeOptionAction(PresentationAction<SnoozeOptionFeature.Action>)
@@ -115,6 +117,12 @@ struct AddAlarmFeature {
                 return .none
             case .snoozeOptionAction:
                 return .none
+            case .filteringHour(let hour):
+                state.alarm.hour = hour.filteredByRegex(by: .hours)
+                return .none
+            case .filteringMinute(let minute):
+                state.alarm.minute = minute.filteredByRegex(by: .minutes)
+                return .none
             }
         }
         .ifLet(\.$snoozeOptionState, action: \.snoozeOptionAction) {
@@ -148,7 +156,7 @@ struct AddAlarmView: View {
                             .foregroundStyle(.grey100)
                             .multilineTextAlignment(.trailing)
                             .onChange(of: store.alarm.hour) { newValue in
-                                store.send(.setHour(newValue.filteredByRegex(by: .hours)))
+                                store.send(.filteringHour(newValue))
                             }
                         Text(":")
                             .font(Fonts.Pretendard.medium.swiftUIFont(size: 72))
@@ -158,7 +166,7 @@ struct AddAlarmView: View {
                             .font(Fonts.Pretendard.medium.swiftUIFont(size: 72))
                             .foregroundStyle(.grey100)
                             .onChange(of: store.alarm.minute) { newValue in
-                                store.send(.setMinute(newValue.filteredByRegex(by: .minutes)))
+                                store.send(.filteringMinute(newValue))
                             }
                     }
                     .padding(30)
