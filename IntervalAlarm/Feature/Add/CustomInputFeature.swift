@@ -25,6 +25,7 @@ struct CustomInputFeature {
         case didTapBack
         case setMinutes(String)
         case binding(BindingAction<State>)
+        case filteringMinute(String)
     }
     
     @Dependency(\.dismiss) var dismiss
@@ -39,6 +40,9 @@ struct CustomInputFeature {
                 state.minutes = minutes
                 return .none
             case .binding:
+                return .none
+            case .filteringMinute(let minute):
+                state.minutes = minute.filteredByRegex(by: .intervalMinutes)
                 return .none
             }
         }
@@ -81,7 +85,7 @@ struct CustomInputView: View {
                         .frame(height: 86.0)
                         .fixedSize()
                         .onChange(of: store.minutes) { newValue in
-                            store.send(.setMinutes(newValue.filteredMinutes()))
+                            store.send(.filteringMinute(newValue))
                         }
                     Text("분")
                         .font(Fonts.Pretendard.medium.swiftUIFont(size: 72.0))
