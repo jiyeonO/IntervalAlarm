@@ -14,7 +14,7 @@ struct AlarmModel: Codable, Equatable {
     var id = UUID()
 
     var hour: String // in 12-Hour
-    var minute: String
+    var minutes: String
     var dayTime: DayTimeType
     
     var isOn: Bool
@@ -29,7 +29,7 @@ struct AlarmModel: Codable, Equatable {
 
         self.id = UUID()
         self.hour = isAfternoon ? String(hourValue - 12) : hourValue.toString
-        self.minute = Calendar.current.component(.minute, from: Date()).toString
+        self.minutes = Calendar.current.component(.minute, from: Date()).toString
         self.dayTime = isAfternoon ? .PM : .AM
         self.isOn = true
         self.repeatWeekdays = []
@@ -37,10 +37,10 @@ struct AlarmModel: Codable, Equatable {
         self.sound = .init()
     }
     
-    init(hour: String, minute: String, dayTime: DayTimeType = .AM, isOn: Bool = true, repeatWeekdays: [String] = [], snooze: SnoozeModel = .init(), sound: SoundModel = .init()) {
+    init(hour: String, minutes: String, dayTime: DayTimeType = .AM, isOn: Bool = true, repeatWeekdays: [String] = [], snooze: SnoozeModel = .init(), sound: SoundModel = .init()) {
         self.id = UUID()
         self.hour = hour
-        self.minute = minute
+        self.minutes = minutes
         self.dayTime = dayTime
         self.isOn = isOn
         self.repeatWeekdays = repeatWeekdays
@@ -54,6 +54,27 @@ extension AlarmModel {
     var uuidString: String {
         id.uuidString
     }
+
+    var displayMinutes: String {
+        minutes.count == 1 ? "0" + minutes : minutes
+    }
+    
+    var didCompletedEditingHour: Bool {
+        !(hour.isEmpty || (hour.count < 2 && (hour.hasPrefix("0") || hour.hasPrefix("1"))))
+    }
+    
+    var didCompletedEditingMinutes: Bool {
+        minutes.count < 2 && (minutes.hasPrefix("6") || minutes.hasPrefix("7") || minutes.hasPrefix("8") || minutes.hasPrefix("9"))
+    }
+    
+    var filteringHour: String {
+        hour.filteredByRegex(by: .hours)
+    }
+    
+    var filteringMinutes: String {
+        let updateMinutes = minutes.filteredByRegex(by: .minutes)
+        return didCompletedEditingMinutes ? "0" + updateMinutes : updateMinutes
+    }
     
     var hourValueIn24: Int { // in 24-Hour
         dayTime == .AM ? hourValue : hourValue + 12
@@ -64,7 +85,7 @@ extension AlarmModel {
     }
     
     var minuteValue: Int {
-        minute.toInt
+        minutes.toInt
     }
     
     var displayDayTime: String {
@@ -72,7 +93,7 @@ extension AlarmModel {
     }
     
     var displayTitle: String {
-        "\(hour) : \(minute)"
+        "\(hour) : \(minutes)"
     }
     
     var notificationTitle: String {
@@ -105,13 +126,13 @@ extension AlarmModel {
     
     static var previewItems: IdentifiedArrayOf<Self> {
         [
-            .init(hour: "6", minute: "23", dayTime: .AM, isOn: false),
-            .init(hour: "4", minute: "43", dayTime: .PM, isOn: true)
+            .init(hour: "6", minutes: "23", dayTime: .AM, isOn: false),
+            .init(hour: "4", minutes: "43", dayTime: .PM, isOn: true)
         ]
     }
     
     static var previewItem: Self {
-        .init(hour: "5", minute: "11")
+        .init(hour: "5", minutes: "11")
     }
     
 }
