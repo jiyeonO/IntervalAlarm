@@ -30,6 +30,7 @@
 		1C50E2372CE4CDD4004E698B /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E2282CE4CDD4004E698B /* Pretendard-ExtraBold.otf */; };
 		1C50E2392CE4D1AC004E698B /* Fonts+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C50E2382CE4D1AC004E698B /* Fonts+Generated.swift */; };
 		1C64503D2CE4D7DA0003D219 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64503C2CE4D7AE0003D219 /* CustomNavigationView.swift */; };
+		1C67C1582D535B360086FA1C /* SwipeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C67C1572D535B210086FA1C /* SwipeModifier.swift */; };
 		1C7D26552D12AD7A009B165F /* SoundConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D26542D12AD63009B165F /* SoundConstants.swift */; };
 		1C8062112C36D32A002E312E /* BottomToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8061F72C36D32A002E312E /* BottomToastModifier.swift */; };
 		1C8062122C36D32A002E312E /* HiddenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8061F82C36D32A002E312E /* HiddenModifier.swift */; };
@@ -146,6 +147,7 @@
 		1C50E22E2CE4CDD4004E698B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		1C50E2382CE4D1AC004E698B /* Fonts+Generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+Generated.swift"; sourceTree = "<group>"; };
 		1C64503C2CE4D7AE0003D219 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
+		1C67C1572D535B210086FA1C /* SwipeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeModifier.swift; sourceTree = "<group>"; };
 		1C78C7D92CED9C3F00482F7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C7D26542D12AD63009B165F /* SoundConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundConstants.swift; sourceTree = "<group>"; };
 		1C8061F72C36D32A002E312E /* BottomToastModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomToastModifier.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 		1C8061FB2C36D32A002E312E /* ViewModifier */ = {
 			isa = PBXGroup;
 			children = (
+				1C67C1572D535B210086FA1C /* SwipeModifier.swift */,
 				1C8061F72C36D32A002E312E /* BottomToastModifier.swift */,
 				1C8061F82C36D32A002E312E /* HiddenModifier.swift */,
 				1C8061FA2C36D32A002E312E /* ViewDidLoadModifier.swift */,
@@ -842,6 +845,7 @@
 				1CF3D9DF2CFB63B400FD32A1 /* NotificationRequestModel.swift in Sources */,
 				1CA7D8412D1018CD0086A5B6 /* PushPermissionHandler.swift in Sources */,
 				1CF3D9E02CFB63B400FD32A1 /* SoundModel.swift in Sources */,
+				1C67C1582D535B360086FA1C /* SwipeModifier.swift in Sources */,
 				1CA7D8432D1019F30086A5B6 /* NotificationUserInfoType.swift in Sources */,
 				1CA7D83E2D10180A0086A5B6 /* NotificationCenterConstants.swift in Sources */,
 				1CA7D83F2D10180A0086A5B6 /* NotificationRequestScheduler.swift in Sources */,
