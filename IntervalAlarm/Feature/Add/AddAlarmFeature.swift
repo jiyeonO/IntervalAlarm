@@ -9,10 +9,8 @@ import Foundation
 import ComposableArchitecture
 
 enum AddAlarmEntryType {
-    
     case add
     case modify
-    
 }
 
 @Reducer
@@ -20,27 +18,37 @@ struct AddAlarmFeature {
     
     @ObservableState
     struct State: Equatable {
-        let entryType: AddAlarmEntryType
-        var alarm: AlarmModel
-
-        var isSaveButtonEnabled: Bool {
-            !self.alarm.hour.isEmpty && !self.alarm.minute.isEmpty
+        enum FocusField: Hashable {
+            case hour
+            case minute
         }
         
-        @Presents var snoozeOptionState: SnoozeOptionFeature.State?
+        var isSaveButtonEnabled: Bool {
+            !self.alarm.hour.isEmpty && !self.alarm.minutes.isEmpty
+        }
         
+        var focusedField: FocusField?
+        
+        let entryType: AddAlarmEntryType
+        var alarm: AlarmModel
+        
+        @Presents var snoozeOptionState: SnoozeOptionFeature.State?
+
         init(entryType: AddAlarmEntryType = .add, alarm: AlarmModel = .init()) {
             self.entryType = entryType
             self.alarm = alarm
         }
+
     }
     
     enum Action: BindableAction {
+        case onAppear
+        case setInitFocus
         case didTapBackButton
         case didTapSaveButton
         case setDayTime(DayTimeType)
         case setHour(String)
-        case setMinute(String)
+        case setMinutes(String)
         case didToggleSnooze
         case didToggleSound
         case didTapRepeatDay(String)
@@ -48,23 +56,35 @@ struct AddAlarmFeature {
         case setAlarmOn(AlarmModel)
         case modifyAlarm(AlarmModel)
         case toSnoozeOption
-        case filteringHour(String)
-        case filteringMinute(String)
-        
+        case filteringHour
+        case filteringMinute
+        case focusOut
+        case setDisplayMinute
         case binding(BindingAction<State>)
         case snoozeOptionAction(PresentationAction<SnoozeOptionFeature.Action>)
     }
     
+    @Dependency(\.continuousClock) var clock
     @Dependency(\.userDefaultsClient) var userDefaultsClient
     @Dependency(\.dismiss) var dismiss
     
     var body: some ReducerOf<Self> {
+        BindingReducer()
         Reduce { state, action in
             switch action {
+            case .onAppear:
+                return .run(operation: { send in
+                    try await clock.sleep(for: .seconds(0.1))
+                    await send(.setInitFocus)
+                })
+            case .setInitFocus:
+                state.focusedField = .hour
+                return .none
             case .didTapBackButton:
                 return .run { _ in await dismiss() }
             case .didTapSaveButton:
-                return .send(.saveAlarm)
+                return .concatenate(.send(.setDisplayMinute),
+                                    .send(.saveAlarm))
             case let .setDayTime(type):
                 let generator = UIImpactFeedbackGenerator(style: .light)
                 generator.prepare()
@@ -75,8 +95,8 @@ struct AddAlarmFeature {
             case let .setHour(hour):
                 state.alarm.hour = hour
                 return .none
-            case let .setMinute(minute):
-                state.alarm.minute = minute
+            case let .setMinutes(minutes):
+                state.alarm.minutes = minutes
                 return .none
             case .didToggleSnooze:
                 state.alarm.snooze.isOn.toggle()
@@ -109,6 +129,22 @@ struct AddAlarmFeature {
             case .snoozeOptionAction(.presented(.updateSnoozeModel(let model))):
                 state.alarm.snooze = model
                 return .none
+            case .filteringHour:
+                state.alarm.hour = state.alarm.filteringHour
+                
+                if state.alarm.didCompletedEditingHour {
+                    state.focusedField = .minute
+                }
+                return .none
+            case .filteringMinute:
+                state.alarm.minutes = state.alarm.filteringMinutes
+                return .none
+            case .focusOut:
+                state.focusedField = nil
+                return .send(.setDisplayMinute)
+            case .setDisplayMinute:
+                state.alarm.minutes = state.alarm.displayMinutes
+                return .none
             case .setAlarmOn(_):
                 return .none
             case .modifyAlarm(_):
@@ -116,12 +152,6 @@ struct AddAlarmFeature {
             case .binding:
                 return .none
             case .snoozeOptionAction:
-                return .none
-            case .filteringHour(let hour):
-                state.alarm.hour = hour.filteredByRegex(by: .hours)
-                return .none
-            case .filteringMinute(let minute):
-                state.alarm.minute = minute.filteredByRegex(by: .minutes)
                 return .none
             }
         }
@@ -138,6 +168,8 @@ struct AddAlarmView: View {
     
     @Perception.Bindable var store: StoreOf<AddAlarmFeature>
     
+    @FocusState var focusedField: AddAlarmFeature.State.FocusField?
+    
     var body: some View {
         WithPerceptionTracking {
             ScrollView {
@@ -151,24 +183,27 @@ struct AddAlarmView: View {
                     
                     HStack(spacing: 30) {
                         TextField(store.alarm.hour, text: $store.alarm.hour.sending(\.setHour))
+                            .focused($focusedField, equals: .hour)
                             .keyboardType(.numberPad)
                             .font(Fonts.Pretendard.medium.swiftUIFont(size: 72))
                             .foregroundStyle(.grey100)
                             .multilineTextAlignment(.trailing)
-                            .onChange(of: store.alarm.hour) { newValue in
-                                store.send(.filteringHour(newValue))
+                            .onChange(of: store.alarm.hour) { _ in
+                                store.send(.filteringHour)
                             }
                         Text(":")
                             .font(Fonts.Pretendard.medium.swiftUIFont(size: 72))
                             .foregroundStyle(.grey60)
-                        TextField(store.alarm.minute, text: $store.alarm.minute.sending(\.setMinute))
+                        TextField(store.alarm.minutes, text: $store.alarm.minutes.sending(\.setMinutes))
+                            .focused($focusedField, equals: .minute)
                             .keyboardType(.numberPad)
                             .font(Fonts.Pretendard.medium.swiftUIFont(size: 72))
                             .foregroundStyle(.grey100)
-                            .onChange(of: store.alarm.minute) { newValue in
-                                store.send(.filteringMinute(newValue))
+                            .onChange(of: store.alarm.minutes) { _ in
+                                store.send(.filteringMinute)
                             }
                     }
+                    .bind($store.focusedField, to: $focusedField)
                     .padding(30)
                     .background(.white100)
                     .cornerRadius(12)
@@ -185,6 +220,12 @@ struct AddAlarmView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                 }
                 .padding(20)
+            }
+            .onAppear {
+                store.send(.onAppear)
+            }
+            .onTapGesture {
+                store.send(.focusOut)
             }
             .sheet(item: $store.scope(state: \.snoozeOptionState, action: \.snoozeOptionAction)) { store in
                 WithPerceptionTracking {
