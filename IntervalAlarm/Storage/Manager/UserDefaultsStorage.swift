@@ -53,12 +53,20 @@ extension UserDefaultsStorage {
     func saveAlarm(model: AlarmModel) {
         var alarms = loadAlarms()
         alarms.append(model)
+        alarms.sort(using: [
+            KeyPathComparator(\.hourValueIn24),
+            KeyPathComparator(\.minuteValue)
+        ])
         saveObjects(alarms, key: .alarms)
     }
     
     func modifyAlarm(model: AlarmModel) {
         var alarms = loadAlarms()
         alarms = alarms.map { $0.id == model.id ? model : $0 }
+        alarms.sort(using: [
+            KeyPathComparator(\.hourValueIn24),
+            KeyPathComparator(\.minuteValue)
+        ])
         saveObjects(alarms, key: .alarms)
     }
     
