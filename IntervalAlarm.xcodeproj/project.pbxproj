@@ -30,6 +30,7 @@
 		1C50E2372CE4CDD4004E698B /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C50E2282CE4CDD4004E698B /* Pretendard-ExtraBold.otf */; };
 		1C50E2392CE4D1AC004E698B /* Fonts+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C50E2382CE4D1AC004E698B /* Fonts+Generated.swift */; };
 		1C64503D2CE4D7DA0003D219 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C64503C2CE4D7AE0003D219 /* CustomNavigationView.swift */; };
+		1C67C1582D535B360086FA1C /* SwipeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C67C1572D535B210086FA1C /* SwipeModifier.swift */; };
 		1C7D26552D12AD7A009B165F /* SoundConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7D26542D12AD63009B165F /* SoundConstants.swift */; };
 		1C8062112C36D32A002E312E /* BottomToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8061F72C36D32A002E312E /* BottomToastModifier.swift */; };
 		1C8062122C36D32A002E312E /* HiddenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8061F82C36D32A002E312E /* HiddenModifier.swift */; };
@@ -41,6 +42,7 @@
 		1C85BE562C34F27D00AA98B9 /* Images+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85BE542C34F27D00AA98B9 /* Images+Generated.swift */; };
 		1C85BE572C34F27D00AA98B9 /* Colors+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85BE552C34F27D00AA98B9 /* Colors+Generated.swift */; };
 		1C85BE5A2C35398A00AA98B9 /* MainFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C85BE592C35398A00AA98B9 /* MainFeature.swift */; };
+		1CA7932C2D54A0E900C5D3A1 /* UINavigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7932B2D54A0D100C5D3A1 /* UINavigation+Extension.swift */; };
 		1CA7D83A2D091E0C0086A5B6 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7D8392D091E0C0086A5B6 /* SoundManager.swift */; };
 		1CA7D83E2D10180A0086A5B6 /* NotificationCenterConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7D83B2D10180A0086A5B6 /* NotificationCenterConstants.swift */; };
 		1CA7D83F2D10180A0086A5B6 /* NotificationRequestScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7D83C2D10180A0086A5B6 /* NotificationRequestScheduler.swift */; };
@@ -146,6 +148,7 @@
 		1C50E22E2CE4CDD4004E698B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
 		1C50E2382CE4D1AC004E698B /* Fonts+Generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fonts+Generated.swift"; sourceTree = "<group>"; };
 		1C64503C2CE4D7AE0003D219 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
+		1C67C1572D535B210086FA1C /* SwipeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeModifier.swift; sourceTree = "<group>"; };
 		1C78C7D92CED9C3F00482F7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C7D26542D12AD63009B165F /* SoundConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundConstants.swift; sourceTree = "<group>"; };
 		1C8061F72C36D32A002E312E /* BottomToastModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomToastModifier.swift; sourceTree = "<group>"; };
@@ -158,6 +161,7 @@
 		1C85BE542C34F27D00AA98B9 /* Images+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Images+Generated.swift"; sourceTree = "<group>"; };
 		1C85BE552C34F27D00AA98B9 /* Colors+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Colors+Generated.swift"; sourceTree = "<group>"; };
 		1C85BE592C35398A00AA98B9 /* MainFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeature.swift; sourceTree = "<group>"; };
+		1CA7932B2D54A0D100C5D3A1 /* UINavigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigation+Extension.swift"; sourceTree = "<group>"; };
 		1CA7D8392D091E0C0086A5B6 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		1CA7D83B2D10180A0086A5B6 /* NotificationCenterConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterConstants.swift; sourceTree = "<group>"; };
 		1CA7D83C2D10180A0086A5B6 /* NotificationRequestScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRequestScheduler.swift; sourceTree = "<group>"; };
@@ -332,6 +336,7 @@
 		1C8061FB2C36D32A002E312E /* ViewModifier */ = {
 			isa = PBXGroup;
 			children = (
+				1C67C1572D535B210086FA1C /* SwipeModifier.swift */,
 				1C8061F72C36D32A002E312E /* BottomToastModifier.swift */,
 				1C8061F82C36D32A002E312E /* HiddenModifier.swift */,
 				1C8061FA2C36D32A002E312E /* ViewDidLoadModifier.swift */,
@@ -355,6 +360,7 @@
 		1C80622F2C36D334002E312E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1CA7932B2D54A0D100C5D3A1 /* UINavigation+Extension.swift */,
 				1CFAA1E12D0016F50052A544 /* View+Extension.swift */,
 				1C46FB152CF8B39300A90B96 /* String+Extension.swift */,
 				1CE9D1742C3AD5720084C2A6 /* Foundation+Extension.swift */,
@@ -841,7 +847,9 @@
 				1C7D26552D12AD7A009B165F /* SoundConstants.swift in Sources */,
 				1CF3D9DF2CFB63B400FD32A1 /* NotificationRequestModel.swift in Sources */,
 				1CA7D8412D1018CD0086A5B6 /* PushPermissionHandler.swift in Sources */,
+				1CA7932C2D54A0E900C5D3A1 /* UINavigation+Extension.swift in Sources */,
 				1CF3D9E02CFB63B400FD32A1 /* SoundModel.swift in Sources */,
+				1C67C1582D535B360086FA1C /* SwipeModifier.swift in Sources */,
 				1CA7D8432D1019F30086A5B6 /* NotificationUserInfoType.swift in Sources */,
 				1CA7D83E2D10180A0086A5B6 /* NotificationCenterConstants.swift in Sources */,
 				1CA7D83F2D10180A0086A5B6 /* NotificationRequestScheduler.swift in Sources */,

@@ -73,10 +73,11 @@ struct AddAlarmFeature {
         Reduce { state, action in
             switch action {
             case .onAppear:
-                return .run(operation: { send in
-                    try await clock.sleep(for: .seconds(0.1))
-                    await send(.setInitFocus)
-                })
+                return .merge(.send(.setDisplayMinute),
+                              .run(operation: { send in
+                                  try await clock.sleep(for: .seconds(0.1))
+                                  await send(.setInitFocus)
+                              }))
             case .setInitFocus:
                 state.focusedField = .hour
                 return .none
@@ -232,6 +233,9 @@ struct AddAlarmView: View {
                     SnoozeOptionView(store: store)
                         .measureHeight()
                 }
+            }
+            .swipeToDismiss {
+                store.send(.didTapBackButton)
             }
             .toolbar(.hidden, for: .navigationBar)
             .scrollDismissesKeyboard(.immediately)
